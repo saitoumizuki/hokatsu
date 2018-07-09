@@ -1,0 +1,2 @@
+class CheckedTasksController < ApplicationController
+end
