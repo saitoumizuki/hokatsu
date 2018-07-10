@@ -1,7 +1,19 @@
 require 'test_helper'
 
 class ListItemsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get index" do
+    get list_items_index_url
+    assert_response :success
+  end
+
+  test "should get show" do
+    get list_items_show_url
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get list_items_edit_url
+    assert_response :success
+  end
+
 end

@@ -15,3 +15,35 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+// ヘッダー　マイページのプルダウンメニュー
+$(function(){
+    $('.mypage').hover(function(){
+        $("ul:not(:animated)", this).slideDown(300);
+    });
+    $('html').click(function() {
+         $('.mypage-ul').slideUp(200);
+     });
+    $('.mypage-ul').click(function() {　event.stopPropagation();　});
+});
+
+// リンク先の案内ふきだし
+$(function(){
+    $('.s').hover(function(){
+        $(".hukidasi:not(:animated)", this).fadeIn();
+    }, function(){
+        $(".hukidasi",this).fadeOut();
+    });
+});
+
+// マイリスト登録ボタン　クリックでボタンのデザイン・文字を切り替える
+
+
+// パスワード変更、退会ボタンの説明
+$(function(){
+    $('.s').hover(function(){
+        $(".user-message:not(:animated)", this).slideDown(900);
+    }, function(){
+        $(".user-message",this).slideUp();
+    });
+});

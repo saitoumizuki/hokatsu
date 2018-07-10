@@ -1,0 +1,59 @@
+<% if  user_signed_in? %>
+
+<header class="header">
+  <div class="header-content">
+    <div class="header-logo"></div>
+    <nav class="header-right">
+      <ul class="list">
+        <li class="item">
+          <%= link_to " ","#", class: "item-a fas fa-map-marker-alt" %>
+          <%= link_to "スポット登録","#", class: "h4 item-a-span1" %>
+        </li>
+        <li class="item">
+          <%= link_to " ","#", class: "item-a fas fa-heart" %>
+          <%= link_to "マイリスト","#", class: "h4 item-a-span2" %>
+        </li>
+        <li class="item mypage">
+          <%= link_to " ","#", class: "item-a fas fa-user" %>
+          <%= link_to "マイページ","#", class: "h4 item-a-span3" %>
+          <ul class="mypage-ul">
+            <li class="mypage-li li-gray"><a class="fas fa-user mypage-a" href=""> 杓子定規 さん</a></li>
+            <li class="mypage-li"><a class="fas fa-heart mypage-a" href=""> マイリスト</a></li>
+            <li class="mypage-li"><a class="fas fa-map mypage-a" href=""> スポット編集</a></li>
+            <li class="mypage-li"><a class="fas fa-sign-out-alt mypage-a" href=""> ログアウト</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<% elsif  admin_signed_in? %>
+
+
+
+<% else %>
+
+<header class="header">
+  <div class="header-content">
+    <div class="header-logo"></div>
+    <nav class="header-right">
+      <ul class="list">
+        <li class="item">
+          <%= link_to " ", new_user_session_path, class: "item-a fas fa-sign-in-alt" %>
+          <%= link_to "ログイン", new_user_session_path, class: "h4 item-a-span4" %>
+        </li>
+        <li class="item">
+          <%= link_to " ", new_user_registration_path, class: "item-a fas fa-user-plus" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "h4 item-a-span5" %>
+        </li>
+        <li class="item">
+          <%= link_to " ","#", class: "item-a fas fa-book" %>
+          <%= link_to "About","#", class: "h4 item-a-span6" %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<% end %>

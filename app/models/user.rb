@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-        has_many :spots
-        has_many :list_items, :dependent => :delete_all
-        has_one :memo
-        has_many :task
+        has_many :spots, dependent: :delete_all
+        has_many :list_items,dependent: :delete_all
+        has_one :memo, dependent: :delete
+        has_many :task, dependent: :delete_all
+        has_many :checked_task, dependent: :delete_all
 end

@@ -1,0 +1,570 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/*----------------------------------------------------共通部分----------------------------------------------------*/
+/*コンテンツ幅:960px*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color:#546E7A;
+  font-size:12px;
+  letter-spacing: .1em;
+  text-align:justify;
+}
+ul{
+  margin-bottom:0;
+}
+a{
+  color:#546E7A;
+  text-decoration:none;
+/*  position: relative;*/
+}
+a:hover{
+  color:#FFD731;
+  text-decoration:none;
+}
+body{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, "ヒラノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", sans-serif;
+  line-height: 1.5;
+}
+.clearfix::after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+
+/*.h1{
+  font-size:20px;
+}*/
+.h2{
+  font-size:18px;
+  font-weight:600;
+}
+.h3{
+  font-size:15px;
+  font-weight:600;
+}
+.h4{
+  font-size:14px;
+  font-weight:600;
+}
+.clearfix::after{
+  content:"";
+  display: block;
+  clear: both;
+}
+/*header----------------------------------------------------*/
+.header{
+  width:100%;
+  height:80px;
+  background-color:#fff;
+  box-shadow: 0px 6px 10px rgba(0,0,0,0.1);
+}
+.header-content{
+  width:960px;
+  margin:0 auto;
+  margin-top:10px;
+  line-height: 50px;
+}
+.header-logo{
+  background-image: url(img/logo.png);
+  background-size:cover;
+  background-position: center;
+  height:40px;
+  width:100px;
+  float:left;
+}
+
+.list{
+  list-style-type: none;
+  line-height:100px;
+  float:right;
+}
+.item{
+  float:left;
+  margin:0 10px;
+  position:relative;
+}
+.item-a{
+  display:block;
+  width:100px;
+  text-align:center;
+  font-size:30px;
+  color:#9AB1B7;
+}
+.item-a-span1{
+  position:absolute;
+  top: 35px;
+  left: 100px;
+}
+.item-a-span2{
+  position:absolute;
+  top: 35px;
+  left: 12px;
+}
+.item-a-span3{
+  position:absolute;
+  top: 35px;
+  left: 10px;
+}
+.item-a-span4{
+  position:absolute;
+  top: 35px;
+  left: 17px;
+}
+.item-a-span5{
+  position:absolute;
+  top: 35px;
+  left: 14px;
+}
+.item-a-span6{
+  position:absolute;
+  top: 35px;
+  left: 17px;
+}
+.mypage{
+  position: relative;
+}
+.mypage-ul{
+  margin: 0px;
+  padding: 0px;
+  display: none;
+  position: absolute;
+}
+.mypage-ul{
+  background-color: #fff;
+  z-index:1;
+  margin-top:30px;
+  width:200px;
+  list-style-type:none;
+  border-radius:20px;
+  box-shadow: 0px 6px 10px rgba(0,0,0,0.1);
+}
+.mypage-li{
+  text-align:center;
+  line-height:60px;
+  z-index:2;
+}
+.li-gray{
+  background-color: #f7f7f7;
+  border-radius:20px 20px 0 0;
+}
+.mypage-a{
+  color:#9AB1B7;
+  width:150px;
+  margin:0 auto;
+  line-height:15px;
+  margin-top:10px;
+}
+/*メインの幅---------------------------------------*/
+.body-content{
+  width:960px;
+  margin: 50px auto;
+  line-height:1.65;
+}
+
+#notice{
+  font-size: 18px;
+  font-weight:700;
+  color: #5858FA;
+  border-bottom: #5858FA;
+}
+
+/*footer--------------------------------------------*/
+.footer-wrapper{
+  background-color:#218F9B;
+  margin-top:20px;/*商品一覧下部とフッター上部の間に余白*/
+}
+.footer-content{
+  width:960px;
+  margin:0 auto;
+  padding-top:20px;
+}
+.footer-list{
+  list-style-type: none;
+  line-height:25px;
+}
+.footer-item{
+  color:white;
+}
+.copyright{
+  color:white;
+}
+
+/*サイトバー----------------------------------------------------------*/
+.sidebar-box{
+  margin:30px 0;
+}
+.side-list{
+  list-style-type: none;
+  line-height:30px;
+}
+.side-item{
+  margin:0 10px;
+  display:block;
+}
+/*メインコンテンツ--------------------------------------------*/
+.map-area{
+  width:700px;
+  height:600px;
+  margin:10px auto;
+  background-color: #A0E0E0;
+}
+/*検索--------------------------------------------------*/
+.search{
+  width:300px;
+}
+#form{
+  position:relative;
+  padding:27px;
+}
+#sbox{
+  height:50px;
+  padding:0 10px;
+  position:absolute;
+  left:0;
+  top:0;
+  width:400px!important;
+  border-radius:25px;
+  border:solid 3px #eaeaea;
+  outline: 0;
+}
+#sbtn{
+  height: 50px;
+  position: absolute;
+  left:350px;
+  top: 0;
+  background:#7fbfff;
+  color:#fff;
+  border:none;
+  font-size:20px;
+  border-radius:0 25px 25px 0;
+  outline: 0;
+  width:50px;
+}
+#sbtn:hover{
+background:#eaeaea;
+color:#7fbfff;
+}
+.mushimegane{
+  position: absolute;
+  left:17px;
+  top: 18px;
+}
+
+/*チェックボックス--------------------------------*/
+.checkbox01-input{
+  display: none;
+}
+.checkbox01-parts{
+  padding-left: 20px;
+  position:relative;
+  margin-right: 20px;
+}
+.checkbox01-parts::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+.checkbox01-input:checked + .checkbox01-parts{
+  color: #009a9a;
+}
+.checkbox01-input:checked + .checkbox01-parts::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  width: 7px;
+  height: 14px;
+  transform: rotate(40deg);
+  border-bottom: 3px solid #009a9a;
+  border-right: 3px solid #009a9a;
+}
+
+/*保育園詳細------------------------------------*/
+.s{
+  position:relative;
+}
+.hukidasi{
+  display:none;
+  position:absolute;
+  top:-60px;
+  width:200px;
+  height:50px;
+  background-color:#f95f92;
+  border-radius:80px;
+  color:#fff;
+  font-weight:500;
+  font-size:13px;
+  line-height:50px;
+  text-align:center;
+}
+.hukidasi:after {
+  content: '';
+  position: absolute;
+  border-top: 10px solid #f95f92;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  bottom: -9px;
+  left: 30px;
+}
+
+.addlist{
+  margin-top:-7px;
+  width:210px;
+  background-color:#fff;
+/*  box-shadow: 0px 0px 0px 5px #ffeaea;*/
+  border: solid 1px #A0E0E0;
+  border-radius:30px;
+  padding:10px;
+}
+.addlist-icon{
+  font-size:25px;
+  color:#5EE1EF;
+}
+.acctive{
+  color:#f95f92;
+}
+.type-box{
+  padding: 0.2em 0.5em;
+  margin: 0 10px;
+  /*color: #565656;*/
+  background: #ffeaea;
+  box-shadow: 0px 0px 0px 5px #ffeaea;
+  border: dashed 2px #ffc3c3;
+  border-radius: 50%;
+  width:50px;
+  height:50px;
+}
+.type{
+  margin: 0;
+  padding: 0;
+  text-align:center;
+  line-height: 40px;
+}
+.f{
+  float:left;
+}
+
+
+.main-img{
+  background-image: url(img/n-img.png);
+  background-size:cover;
+  background-position: center;
+  height:300px;
+/*  margin:0 auto;*/
+}
+.head-p{
+  line-height:15px;
+}
+.concept-detail{
+  margin-top:10px;
+  font-size:15px;
+  padding:5px 10px 5px 15px;
+  border-left:solid 5px #FFD731;
+}
+.map-area-s{
+  width:600px;
+  height:400px;
+  margin:10px auto;
+  background-color: #A0E0E0;
+}
+
+
+.tell-box{
+  background-color:#FFFC9C;
+  height:50px;
+  text-align:center;
+  border-radius:10px;
+}
+.tell{
+  font-size:20px;
+  font-weight:600;
+  line-height:50px;
+}
+.tell:hover{
+  color:#ACBFC6;
+}
+.box{
+  margin:30px 0;
+}
+.box-table{
+  line-height:25px;
+  width:250px;
+  margin:0 auto;
+}
+.center-text{
+  text-align:center;
+}
+.ohana{
+  background-image:url(img/ohana.png);
+  background-size:15%;
+  background-repeat: no-repeat;
+  background-position: 60% 0;
+}
+.date-box{
+}
+.date-list{
+  list-style-type: none;
+}
+.date-item{
+  margin:0 10px;
+  float:left;
+}
+.price-box{
+  width:250px;
+  margin:0 auto;
+}
+.price-h4{
+  padding-bottom:10px;
+}
+.price-th{
+  width:25%;
+}
+/*マイリスト一覧　list-item/index*/
+.list-head{
+  position:relative;
+}
+.list-head:after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -7px;
+width: 100%;
+height: 10px;
+background: -webkit-repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #fff 4px);
+background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #fff 4px);
+}
+.list-a-box{
+  text-align:right;
+}
+/*user-show edit*/
+.prof-head{
+  position:relative;
+}
+.prof-head:after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -7px;
+width: 100%;
+height: 10px;
+background: -webkit-repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #fff 4px);
+background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #fff 4px);
+}
+.user-box{
+  width:500px;
+  margin:0 auto;
+  margin-top:30px;
+}
+.user-box-t{
+  width:300px;
+  margin:0 auto;
+  background-color:#fffc9c;
+  border-radius:40px;
+  padding:5px 0;
+}
+.user-box-m{
+  width:300px;
+  margin:0 auto;
+  background-color:#ffdce1;
+  border-radius:40px;
+  padding:5px 0;
+  padding-top:50px;
+}
+.user-box2{
+  width:500px;
+  margin:0 auto;
+  margin-top:50px;
+}
+.user-box3{
+  width:500px;
+  margin:0 auto;
+  margin-top:50px;
+}
+.user-box4{
+  width:500px;
+  margin:0 auto;
+  margin-bottom:200px;
+  padding-top:50px;
+}
+.box-1{
+  margin-top:30px;
+}
+.box-2{
+  margin-top:50px;
+}
+.prof-btn-area{
+  margin:50px;
+  text-align:center;
+}
+.prof-btn:hover{
+  background-color:#ededed;
+  color:#546e7a;
+}
+.prof-btn3{
+  border-radius:5px;
+  background-color:#dddddd;
+  color:#546e7a;
+}
+.prof-btn3:hover{
+  background-color:#ededed;
+  color:#546e7a;
+}
+.prof-btn4{
+  padding:5px 10px;
+  font-size:15px;
+  border:solid 1.5px #f95f92;
+  border-radius:5px;
+  background-color:#fff;
+  color:#f95f92;
+}
+.prof-btn4:hover{
+  border-color:#FFD731;
+}
+.user-info1{
+  text-align:center;
+  font-weight:600;
+}
+.user-info{
+  text-align:center;
+}
+.user-message{
+  display:none;
+  position:absolute;
+  top:40px;
+  left:90px;
+  height:50px;
+  font-size:13px;
+  line-height:20px;
+}
+.message-box{
+  height:80px;
+  width:225px;
+}
