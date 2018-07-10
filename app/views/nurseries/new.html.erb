@@ -1,0 +1,75 @@
+<%= form_for(@nursery) do |f| %>
+	<%= f.hidden_field :admin_id, :value => @admin %>
+	<div class="field">
+		<%= f.label :image_id, "イメージ" %>
+		<%= f.attachment_field :image, placeholder: "画像のアップロード" %>
+	</div>
+	<div class="field">
+		<%= f.label :name, "保育園の名前" %>
+		<%= f.text_field :name, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :category, "施設区分" %>
+		<%= f.text_field :category, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :nearst, "最寄り駅" %>
+		<%= f.text_field :nearest, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :phone, "電話番号" %>
+		<%= f.text_field :phone, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :email, "メールアドレス" %>
+		<%= f.text_field :email, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :capacity, "定員" %>
+		<%= f.text_field :capacity, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :date, "開所日" %>
+		<%= f.text_field :date, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :time, "開所時間" %>
+		<%= f.text_field :time, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :holiday, "休園日" %>
+		<%= f.text_field :holiday, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :url, "URL" %>
+		<%= f.text_field :url, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :concept, "コンセプト（保育理念、キャッチコピー）" %>
+		<%= f.text_field :concept, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :concept_detail, "コンセプト詳細" %>
+		<%= f.text_field :concept_detail, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :post_code, "郵便番号" %>
+		<%= f.text_field :post_code, class: "" %>
+	</div>
+		<div class="field">
+		<%= f.label :address, "住所" %>
+		<%= f.text_field :address, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :latitude, "緯度" %>
+		<%= f.text_field :latitude, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :longitude, "経度" %>
+		<%= f.text_field :longitude, class: "" %>
+	</div>
+
+	<div class="button-area item-button">
+		<%= f.submit "　完 了　", class: "btn btn-lg btn-info" %>
+	</div>
+<% end %>

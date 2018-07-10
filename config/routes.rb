@@ -24,5 +24,7 @@ resources :list_items, only: [:index, :create, :edit, :update, :destroy]
 resources :memos, only: [:create, :update]
 resources :tasks, only: [:create, :update, :destroy]
 resources :checked_tasks, only: [:create, :destroy]
+
+# get 'nurseries/new', to: 'nurseries#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

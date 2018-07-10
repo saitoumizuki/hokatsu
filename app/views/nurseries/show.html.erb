@@ -9,7 +9,7 @@
         <div class="f head">
           <a class="s" href="http://www.popinzu.jp/nursery/toyosu.html">
             <div class="hukidasi">外部サイトに移動します</div>
-            <h1 class="h1">メリー★ポピンズ豊洲ルーム</h1>
+            <h1 class="h1"><%= @nursery.name %></h1>
           </a>
           <p class="head-p">　最寄り駅：東京メトロ有楽町線「豊洲」、JR京葉線「越中島」</p>
         </div>
@@ -38,6 +38,16 @@
           <p>夕食あり</p>
         </div>
         <div class="map-area-s">
+          <div id="map" style="width: 800px; height: 400px;"></div>
+
+          <script>
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(<%= raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+          </script>
         </div>
       </div>
 
