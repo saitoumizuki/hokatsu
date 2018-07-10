@@ -2,31 +2,41 @@
   <h2 class="h2 prof-head">プロフィール編集</h2>
   <div class="container-fluid">
     <div class="row">
+
+      <%= form_for(@user) do |f| %>
       <div class="user-box">
         <div class="user-box-t">
           <div class="box-1">
             <p class="user-info1">おなまえ</p>
-            <p class="user-info">杓子定規</p>
+            <p class="user-info"><%= f.text_field :name, autofocus: true, class:"form-control" %></p>
           </div>
           <div class="box-2">
             <p class="user-info1">メールアドレス</p>
-            <p class="user-info">syakushijogi@gmail.com</p>
+            <p class="user-info"><%= f.text_field :email, autofocus: true, class:"form-control" %></p>
           </div>
           <div class="prof-btn-area">
-            <button class="btn btn-lg prof-btn">更新する</button>
+            <%= f.submit "更新する", class:"btn btn-lg prof-btn" %>
           </div>
         </div>
       </div>
 
       <div class="user-box2">
         <div class="user-box-m">
-          <p class="user-info1">住所</p>
-          <p class="user-info">東京都江東区永代1-5-15</p>
+          <div class="box-3">
+            <p class="user-info1">郵便番号</p>
+            <p class="user-info"><%= f.text_field :post_code, autofocus: true, :placeholder=>"郵便番号(ハイフンなし)", class:"form-control" %></p>
+          </div>
+          <div class="box-3">
+            <p class="user-info1">住所</p>
+            <p class="user-info"><%= f.text_field :address, autofocus: true, :placeholder=>"住所", class:"form-control" %></p>
+          </div>
           <div class="prof-btn-area">
-            <button class="btn btn-lg prof-btn">編集する</button>
+            <%= f.submit "更新する", class:"btn btn-lg prof-btn" %>
           </div>
         </div>
       </div>
+
+      <% end %>
 
       <div class="user-box3">
         <div class="prof-btn-area s">
