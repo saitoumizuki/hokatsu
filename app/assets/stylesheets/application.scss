@@ -86,11 +86,12 @@ body{
   line-height: 50px;
 }
 .header-logo{
-  background-image: url(img/logo.png);
-  background-size:cover;
-  background-position: center;
+  // background-image: url(img/logo.png);
+  // background-size:cover;
+  // background-position: center;
   height:40px;
   width:100px;
+  background-color:yellow;
   float:left;
 }
 
@@ -111,24 +112,97 @@ body{
   font-size:30px;
   color:#9AB1B7;
 }
+.a1::after{
+  content: "スポット登録";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:-3px;
+}
+.a2::after{
+  content: "マイリスト";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:10px;
+}
+.a3::after{
+  content: "マイページ";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:8px;
+}
+.a4::after{
+  content: "ログイン";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:15px;
+}
+.a5::after{
+  content: "新規登録";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:12px;
+}
+.a6::after{
+  content: "About";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:16px;
+}
+.a7::after{
+  content: "保育園の追加";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:16px;
+}
+.a8::after{
+  content: "ユーザー 一覧";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:16px;
+}
+.a9::after{
+  content: "ログアウト";
+  font-size:14px;
+  font-weight:600;
+  position:absolute;
+  top: 65px;
+  left:16px;
+}
+
+
 .item-a-span1{
   position:absolute;
-  top: 35px;
-  left: 100px;
+  top: 50px;
 }
 .item-a-span2{
   position:absolute;
-  top: 35px;
+  top: 50px;
   left: 12px;
 }
 .item-a-span3{
   position:absolute;
-  top: 35px;
+  top: 50px;
   left: 10px;
 }
 .item-a-span4{
   position:absolute;
-  top: 35px;
+  top: 50px;
   left: 17px;
 }
 .item-a-span5{
@@ -484,17 +558,17 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   margin-top:30px;
 }
 .user-box-t{
-  width:300px;
+  width:500px;
   margin:0 auto;
   background-color:#fffc9c;
-  border-radius:40px;
+  border-radius:100px;
   padding:5px 0;
 }
 .user-box-m{
-  width:300px;
+  width:500px;
   margin:0 auto;
   background-color:#ffdce1;
-  border-radius:40px;
+  border-radius:100px;
   padding:5px 0;
   padding-top:50px;
 }
@@ -515,9 +589,18 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   padding-top:50px;
 }
 .box-1{
+  width:150px;
+  margin:0 auto;
   margin-top:30px;
 }
 .box-2{
+  width:300px;
+  margin:0 auto;
+  margin-top:50px;
+}
+.box-3{
+  width:300px;
+  margin:0 auto;
   margin-top:50px;
 }
 .prof-btn-area{

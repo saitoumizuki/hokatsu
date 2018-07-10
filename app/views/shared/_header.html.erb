@@ -1,59 +1,73 @@
-<% if  user_signed_in? %>
 
 <header class="header">
   <div class="header-content">
-    <div class="header-logo"></div>
-    <nav class="header-right">
-      <ul class="list">
-        <li class="item">
-          <%= link_to " ","#", class: "item-a fas fa-map-marker-alt" %>
-          <%= link_to "スポット登録","#", class: "h4 item-a-span1" %>
-        </li>
-        <li class="item">
-          <%= link_to " ","#", class: "item-a fas fa-heart" %>
-          <%= link_to "マイリスト","#", class: "h4 item-a-span2" %>
-        </li>
-        <li class="item mypage">
-          <%= link_to " ","#", class: "item-a fas fa-user" %>
-          <%= link_to "マイページ","#", class: "h4 item-a-span3" %>
-          <ul class="mypage-ul">
-            <li class="mypage-li li-gray"><a class="fas fa-user mypage-a" href=""> 杓子定規 さん</a></li>
-            <li class="mypage-li"><a class="fas fa-heart mypage-a" href=""> マイリスト</a></li>
-            <li class="mypage-li"><a class="fas fa-map mypage-a" href=""> スポット編集</a></li>
-            <li class="mypage-li"><a class="fas fa-sign-out-alt mypage-a" href=""> ログアウト</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+    <div class="header-logo"><%= link_to "ホーム",root_path %></div>
+
+
+    <% if  user_signed_in? %>
+
+      <nav class="header-right">
+        <ul class="list">
+          <li class="item">
+            <!-- スポット登録 -->
+            <%= link_to " ","#", class: "item-a a1 fas fa-map-marker-alt" %>
+          </li>
+          <li class="item">
+            <!-- マイリスト -->
+            <%= link_to " ","#", class: "item-a a2 fas fa-heart" %>
+          </li>
+          <li class="item mypage">
+            <!-- マイページ -->
+            <%= link_to " ","#", class: "item-a a3 fas fa-user" %>
+            <ul class="mypage-ul">
+              <li class="mypage-li li-gray"><%= link_to "ユーザー名表示する", user_path(current_user.id), class: "fas fa-heart mypage-a" %></li>
+              <li class="mypage-li"><%= link_to " マイリスト", list_items_path(current_user.id), class: "fas fa-heart mypage-a" %></li>
+              <li class="mypage-li"><%= link_to " スポット編集", edit_spot_path(current_user.id), class: "fas fa-map mypage-a" %></li>
+              <li class="mypage-li"><%= link_to " ログアウト", users_sign_out_path, method: :delete, class: "fas fa-sign-out-alt mypage-a" %></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+    <% elsif  admin_signed_in? %>
+
+      <nav class="header-right">
+        <ul class="list">
+          <li class="item">
+            <!-- 保育園の追加 -->
+            <%= link_to " ", new_nurseries_path, class: "item-a a7 fas fa-map-marker-alt" %>
+          </li>
+          <li class="item">
+            <!-- ユーザー 一覧 -->
+            <%= link_to " ", users_path, class: "item-a a8 fas fa-heart" %>
+          </li>
+          <li class="item">
+            <!-- ログアウト -->
+            <%= link_to " ", destroy_admin_session_path, method: :delete, class: "item-a a9 fas fa-heart" %>
+          </li>
+        </ul>
+      </nav>
+
+    <% else %>
+
+      <nav class="header-right">
+        <ul class="list">
+          <li class="item">
+            <!-- ログイン -->
+            <%= link_to " ", new_user_session_path, class: "item-a a4 fas fa-sign-in-alt" %>
+          </li>
+          <li class="item">
+            <!-- 新規登録 -->
+            <%= link_to " ", new_user_registration_path, class: "item-a a5 fas fa-user-plus" %>
+          </li>
+          <li class="item">
+            <!-- about -->
+            <%= link_to " ","#", class: "item-a a6 fas fa-book" %>
+          </li>
+        </ul>
+      </nav>
+
+    <% end %>
+
   </div>
 </header>
-
-<% elsif  admin_signed_in? %>
-
-
-
-<% else %>
-
-<header class="header">
-  <div class="header-content">
-    <div class="header-logo"></div>
-    <nav class="header-right">
-      <ul class="list">
-        <li class="item">
-          <%= link_to " ", new_user_session_path, class: "item-a fas fa-sign-in-alt" %>
-          <%= link_to "ログイン", new_user_session_path, class: "h4 item-a-span4" %>
-        </li>
-        <li class="item">
-          <%= link_to " ", new_user_registration_path, class: "item-a fas fa-user-plus" %>
-          <%= link_to "新規登録", new_user_registration_path, class: "h4 item-a-span5" %>
-        </li>
-        <li class="item">
-          <%= link_to " ","#", class: "item-a fas fa-book" %>
-          <%= link_to "About","#", class: "h4 item-a-span6" %>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<% end %>
