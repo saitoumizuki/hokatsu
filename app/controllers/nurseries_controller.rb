@@ -1,23 +1,51 @@
 class NurseriesController < ApplicationController
 	def index
+		@nurseries = Nursery.all
+		@hash = Gmaps4rails.build_markers(@nurseries) do |nursery, marker|
+			marker.lat nursery.latitude
+			marker.lng nursery.longitude
+			marker.infowindow nursery.address
+			marker.json({name: nursery.name})
+    	end
 	end
 
 	def show
+		@nursery = Nursery.find(params[:id])
+		# @hash = Gmaps4rails.build_markers(@nursery) do |nursery, marker|
+		# 	marker.lat nursery.latitude
+		# 	marker.lng nursery.longitude
+		# 	marker.infowindow nursery.name
+		# end
 	end
 
 	def new
+		@admin = current_admin.id
+		@nursery = Nursery.new
 	end
 
 	def create
+		@admin = current_admin.id
+		nursery = Nursery.new(nursery_params)
+		nursery.save
+		redirect_to nursery_path(nursery)
 	end
 
 	def edit
+		@admin = current_admin.id
+		@nursery = Nursery.find(params[:id])
 	end
 
 	def update
+		admin = current_admin.id
+		nursery = Nursery.find(params[:id])
+		nursery.update(nursery_params)
+		redirect_to nurseries_path(nursery)
 	end
 
 	def destroy
+		nursery = Nursery.find(params[:id])
+  		nursery.destroy
+  		redirect_to nurseries_path
 	end
 private
   	def nursery_params

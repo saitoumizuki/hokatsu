@@ -298,10 +298,7 @@ body{
 }
 /*メインコンテンツ--------------------------------------------*/
 .map-area{
-  width:700px;
-  height:600px;
   margin:10px auto;
-  background-color: #A0E0E0;
 }
 /*検索--------------------------------------------------*/
 .search{
@@ -384,6 +381,9 @@ color:#7fbfff;
 /*保育園詳細------------------------------------*/
 .s{
   position:relative;
+}
+.s:hover{
+  color:#FFD731;
 }
 .hukidasi{
   display:none;

@@ -112,9 +112,28 @@
 
         <!-- マップ実装位置 -->
         <div class="map-area">
+          <div id="map" style='width: 700px; height: 600px;'></div>
+        </div>
+
+
+        </div>
+
+        <div class="nursery-area">
+          <% @nurseries.each do |nursery| %>
+            <%= link_to nursery.name, nurseries_path(nursery) %>
+          <% end %>
         </div>
       </div>
 
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script>
