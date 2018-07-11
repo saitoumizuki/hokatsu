@@ -1,7 +1,24 @@
+<!-- 検索フォーム実装位置 -->
+<div class="index-header">
+  <div class="search">
+    <form id="form">
+    <input id="sbox" name="" type="text" placeholder="保育園名　地域" />
+    <button id="sbtn" type="submit"><i class="fas fa-search mushimegane"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- マップ実装位置 -->
+<div class="map-area">
+  <div id="map" style='width: 100%; height: 800px;'></div>
+</div>
+
+
+
 <div class="body-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-3 sidebar">
+<!--       <div class="col-sm-3 sidebar">
         <h2 class="h2">条件を指定する</h2>
         <div class="sidebar-box">
           <h3 class="h3">カテゴリー</h3>
@@ -99,21 +116,10 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col-sm-9 main-content">
-        <!-- 検索フォーム実装位置 -->
-        <div class="search">
-          <form id="form">
-          <input id="sbox" name="" type="text" placeholder="保育園名　地域" />
-          <button id="sbtn" type="submit"><i class="fas fa-search mushimegane"></i></button>
-          </form>
-        </div>
+      <div class="col-sm-12 main-content">
 
-        <!-- マップ実装位置 -->
-        <div class="map-area">
-          <div id="map" style='width: 700px; height: 600px;'></div>
-        </div>
 
 
         </div>
@@ -128,11 +134,43 @@
     </div>
   </div>
 </div>
-
+<!--
 <script type="text/javascript">
     handler = Gmaps.build('Google');
     handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script> -->
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers([
+
+      <% @nurseries.each do |nursery| %>
+        {
+          "lat": <%= nursery.latitude %>,
+          "lng": <%= nursery.longitude %>,
+          "picture": {
+            "width":  32,
+            "height": 32
+          },
+          "infowindow": '<%= nursery.name %>'
+        },
+      <% end %>
+
+      {
+        "lat": <%= @user.latitude %>,
+        "lng": <%= @user.longitude %>,
+        "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": '<%= @user.name %>'
+      }
+    ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
     });

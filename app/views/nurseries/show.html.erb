@@ -39,7 +39,7 @@
           <p>夕食あり</p>
         </div>
         <div class="">
-          <div id="map-show" style="width: 600px; height: 400px;"></div>
+          <div id="map" style="width: 600px; height: 400px;"></div>
 
 
         </div>
@@ -140,7 +140,7 @@
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map-show'}}, function(){
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers([
       {
         "lat": <%= @nursery.latitude %>,
@@ -150,6 +150,15 @@
           "height": 32
         },
         "infowindow": '<%= @nursery.name %>'
+      },
+      {
+        "lat": <%= @user.latitude %>,
+        "lng": <%= @user.longitude %>,
+        "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": '<%= @user.name %>'
       }
     ]);
     handler.bounds.extendWith(markers);

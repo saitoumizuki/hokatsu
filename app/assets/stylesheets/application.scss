@@ -97,7 +97,7 @@ body{
 
 .list{
   list-style-type: none;
-  line-height:100px;
+  // line-height:10px;
   float:right;
 }
 .item{
@@ -117,7 +117,7 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:-3px;
 }
 .a2::after{
@@ -125,7 +125,7 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:10px;
 }
 .a3::after{
@@ -133,7 +133,7 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:8px;
 }
 .a4::after{
@@ -141,7 +141,7 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:15px;
 }
 .a5::after{
@@ -149,7 +149,7 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:12px;
 }
 .a6::after{
@@ -157,7 +157,7 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:16px;
 }
 .a7::after{
@@ -165,7 +165,7 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:16px;
 }
 .a8::after{
@@ -173,7 +173,7 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:16px;
 }
 .a9::after{
@@ -181,40 +181,40 @@ body{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 65px;
+  top: 40px;
   left:16px;
 }
 
 
-.item-a-span1{
-  position:absolute;
-  top: 50px;
-}
-.item-a-span2{
-  position:absolute;
-  top: 50px;
-  left: 12px;
-}
-.item-a-span3{
-  position:absolute;
-  top: 50px;
-  left: 10px;
-}
-.item-a-span4{
-  position:absolute;
-  top: 50px;
-  left: 17px;
-}
-.item-a-span5{
-  position:absolute;
-  top: 35px;
-  left: 14px;
-}
-.item-a-span6{
-  position:absolute;
-  top: 35px;
-  left: 17px;
-}
+// .item-a-span1{
+//   position:absolute;
+//   top: 50px;
+// }
+// .item-a-span2{
+//   position:absolute;
+//   top: 50px;
+//   left: 12px;
+// }
+// .item-a-span3{
+//   position:absolute;
+//   top: 50px;
+//   left: 10px;
+// }
+// .item-a-span4{
+//   position:absolute;
+//   top: 50px;
+//   left: 17px;
+// }
+// .item-a-span5{
+//   position:absolute;
+//   top: 35px;
+//   left: 14px;
+// }
+// .item-a-span6{
+//   position:absolute;
+//   top: 35px;
+//   left: 17px;
+// }
 .mypage{
   position: relative;
 }
@@ -298,10 +298,15 @@ body{
 }
 /*メインコンテンツ--------------------------------------------*/
 .map-area{
-  margin:10px auto;
+  // margin:10px auto;
 }
 /*検索--------------------------------------------------*/
+.index-header{
+  width:960px;
+  margin:0 auto
+}
 .search{
+  margin:30px 0;
   width:300px;
 }
 #form{
