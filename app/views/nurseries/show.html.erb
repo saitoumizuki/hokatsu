@@ -7,11 +7,13 @@
           <p class="h3 type">認証</p>
         </div>
         <div class="f head">
-          <a class="s" href="http://www.popinzu.jp/nursery/toyosu.html">
-            <div class="hukidasi">外部サイトに移動します</div>
-            <h1 class="h1"><%= @nursery.name %></h1>
-          </a>
-          <p class="head-p">　最寄り駅：東京メトロ有楽町線「豊洲」、JR京葉線「越中島」</p>
+          <%= link_to @nursery.url do %>
+           <div class="s">
+             <div class="hukidasi">外部サイトに移動します</div>
+              <h1 class="h1"><%= @nursery.name %></h1>
+           </div>
+          <% end %>
+          <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
         </div>
 
       </div>
@@ -28,32 +30,25 @@
       <div class="col-sm-8 main-content">
         <div class="main-img"></div>　<!-- 保育園の写真　メイン -->
         <div class="concept-box">
-          <h2 class="h2">自分で考え、挑戦し、生きる力を身につける。（保育理念、コンセプト、キャッチフレーズ）</h2>
-          <p class="concept-detail">メリー★ポピンズは、こどもたちを預かるだけの保育園ではありません。
-          「にんげん力」を育てるために、必要なあそびや野外体験を提案・実践し、「自分で考え。挑戦する勇気」をはぐくみます。</p>
+          <h2 class="h2"><%= @nursery.concept %></h2>
+          <p class="concept-detail"><%= @nursery.concept_detail %></p>
         </div>
         <div class="tag-box">
           <p>土日あり</p>
           <p>延長・夜間あり</p>
           <p>夕食あり</p>
         </div>
-        <div class="map-area-s">
-          <div id="map" style="width: 800px; height: 400px;"></div>
+        <div class="">
+          <div id="map" style="width: 600px; height: 400px;"></div>
 
-          <script>
-            handler = Gmaps.build('Google');
-            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-              markers = handler.addMarkers(<%= raw @hash.to_json %>);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-            });
-          </script>
+
         </div>
+        <%= link_to "　編集する　",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
       </div>
 
       <div class="col-sm-4 sidebar">
         <div class="tell-box">
-          <a class="tell fas fa-phone" href="tel:08061599312">03-6220-1819</a>
+          <a class="tell fas fa-phone" href="tel:08061599312"><%= @nursery.phone %></a>
           <!-- スマホのときのみ発信できるように書き換える -->
         </div>
         <div class="address-box box ohana">
@@ -65,7 +60,7 @@
             </thead>
             <tbody>
               <tr>
-                <td class="center-text">東京都江東区豊洲1－3－1 キャナルワーフタワーズイーストタワー１F</td>
+                <td class="center-text"><%= @nursery.address %></td>
               </tr>
             </tbody>
           </table>
@@ -79,7 +74,7 @@
             </thead>
             <tbody>
               <tr>
-                <td class="center-text">月～土曜日　7:00~20:00</td>
+                <td class="center-text"><%= @nursery.date %>　<%= @nursery.time %></td>
               </tr>
             </tbody>
           </table>
@@ -94,7 +89,7 @@
             </thead>
             <tbody>
               <tr>
-                <td class="center-text">40人</td>
+                <td class="center-text"><%= @nursery.capacity %></td>
               </tr>
             </tbody>
           </table>
@@ -142,3 +137,23 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @nursery.latitude %>,
+        "lng": <%= @nursery.longitude %>,
+        "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": '<%= @nursery.name %>'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(15);
+  });
+</script>

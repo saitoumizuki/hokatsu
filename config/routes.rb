@@ -15,11 +15,12 @@ devise_scope :user do
 end
 
 root 'nurseries#index'
+
 resources :admins, only: [:index, :show, :edit, :update]
 resources :users, only: [:index, :show, :edit, :update, :destroy]
-resources :nurseries
 resources :prices, only: [:new, :create, :edit, :update, :destroy]
 resources :spots
+resources :nurseries
 resources :list_items, only: [:index, :create, :edit, :update, :destroy]
 resources :memos, only: [:create, :update]
 resources :tasks, only: [:create, :update, :destroy]

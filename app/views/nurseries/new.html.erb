@@ -1,8 +1,9 @@
-<%= form_for(@nursery) do |f| %>
+<%= form_for(@nursery,:url => { :controller => :nurseries, :action => :create } ) do |f| %>
+
 	<%= f.hidden_field :admin_id, :value => @admin %>
 	<div class="field">
-		<%= f.label :image_id, "イメージ" %>
-		<%= f.attachment_field :image, placeholder: "画像のアップロード" %>
+		%= f.label :image_id, "イメージ" %>
+		%= f.attachment_field :image, placeholder: "画像のアップロード" %>
 	</div>
 	<div class="field">
 		<%= f.label :name, "保育園の名前" %>
@@ -14,7 +15,7 @@
 	</div>
 	<div class="field">
 		<%= f.label :nearst, "最寄り駅" %>
-		<%= f.text_field :nearest, class: "" %>
+		<%= f.text_area :nearest, class: "" %>
 	</div>
 	<div class="field">
 		<%= f.label :phone, "電話番号" %>
@@ -38,7 +39,7 @@
 	</div>
 	<div class="field">
 		<%= f.label :holiday, "休園日" %>
-		<%= f.text_field :holiday, class: "" %>
+		<%= f.text_area :holiday, class: "" %>
 	</div>
 	<div class="field">
 		<%= f.label :url, "URL" %>
@@ -46,11 +47,11 @@
 	</div>
 	<div class="field">
 		<%= f.label :concept, "コンセプト（保育理念、キャッチコピー）" %>
-		<%= f.text_field :concept, class: "" %>
+		<%= f.text_area :concept, class: "" %>
 	</div>
 	<div class="field">
 		<%= f.label :concept_detail, "コンセプト詳細" %>
-		<%= f.text_field :concept_detail, class: "" %>
+		<%= f.text_area :concept_detail, class: "" %>
 	</div>
 	<div class="field">
 		<%= f.label :post_code, "郵便番号" %>
@@ -58,7 +59,7 @@
 	</div>
 		<div class="field">
 		<%= f.label :address, "住所" %>
-		<%= f.text_field :address, class: "" %>
+		<%= f.text_area :address, class: "" %>
 	</div>
 	<div class="field">
 		<%= f.label :latitude, "緯度" %>
