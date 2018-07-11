@@ -4,7 +4,7 @@ class NurseriesController < ApplicationController
 		@hash = Gmaps4rails.build_markers(@nurseries) do |nursery, marker|
 			marker.lat nursery.latitude
 			marker.lng nursery.longitude
-			marker.infowindow nursery.address
+			marker.infowindow nursery.name
 			marker.json({name: nursery.name})
     	end
 	end
@@ -24,7 +24,7 @@ class NurseriesController < ApplicationController
 	end
 
 	def create
-		@admin = current_admin.id
+		admin = current_admin.id
 		nursery = Nursery.new(nursery_params)
 		nursery.save
 		redirect_to nursery_path(nursery)

@@ -29,6 +29,7 @@
           <div class="box-3">
             <p class="user-info1">住所</p>
             <p class="user-info"><%= f.text_field :address, autofocus: true, :placeholder=>"住所", class:"form-control" %></p>
+            <%= @user.latitude %>/<%= @user.longitude %>
           </div>
           <div class="prof-btn-area">
             <%= f.submit "更新する", class:"btn btn-lg prof-btn" %>
