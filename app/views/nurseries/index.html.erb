@@ -1,17 +1,4 @@
-<!-- 検索フォーム実装位置 -->
-<div class="index-header">
-  <div class="search">
-    <form id="form">
-    <input id="sbox" name="" type="text" placeholder="保育園名　地域" />
-    <button id="sbtn" type="submit"><i class="fas fa-search mushimegane"></i></button>
-    </form>
-  </div>
-</div>
 
-<!-- マップ実装位置 -->
-<div class="map-area">
-  <div id="map" style='width: 100%; height: 800px;'></div>
-</div>
 
 
 
@@ -119,10 +106,34 @@
       </div> -->
 
       <div class="col-sm-12 main-content">
-
-
-
+        <!-- 検索フォーム実装位置 -->
+        <div class="index-header clearfix">
+          <div class="index-header-box search">
+            <form id="form">
+            <input id="sbox" name="" type="text" placeholder="保育園名　地域" />
+            <button id="sbtn" type="submit"><i class="fas fa-search mushimegane"></i></button>
+            </form>
+          </div>
+          <div class="index-header-box category">
+            <ul class="list-cate">
+              <li class="item-cate btn btn-info">認可</li>
+              <li class="item-cate btn btn-info">認証</li>
+              <li class="item-cate btn btn-info">認可外</li>
+            </ul>
+          </div>
         </div>
+        <div class="route">
+          <ul class="list-route">
+            <li class="item-route">自宅</li>
+            <li class="item-route">保育園</li>
+          </ul>
+        </div>
+
+        <!-- マップ実装位置 -->
+        <div class="map-area">
+          <div id="map" style='width: 100%; height: 600px;'></div>
+        </div>
+      </div>
 
         <div class="nursery-area">
           <% @nurseries.each do |nursery| %>
@@ -160,6 +171,7 @@
           "infowindow": '<%= nursery.name %>'
         },
       <% end %>
+      <% if  user_signed_in? %>
 
       {
         "lat": <%= @user.latitude %>,
@@ -170,6 +182,8 @@
         },
         "infowindow": '<%= @user.name %>'
       }
+
+      <% end %>
     ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();

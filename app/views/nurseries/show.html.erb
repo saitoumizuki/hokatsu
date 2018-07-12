@@ -1,31 +1,27 @@
 <div class="body-content">
-  <div class="container-fluid">
 
-    <div class="row">
-      <div class="col-sm-8 head-box">
-        <div class="f type-box">
-          <p class="h3 type">認証</p>
-        </div>
-        <div class="f head">
-          <%= link_to @nursery.url do %>
-           <div class="s">
-             <div class="hukidasi">外部サイトに移動します</div>
-              <h1 class="h1"><%= @nursery.name %></h1>
-           </div>
-          <% end %>
-          <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
-        </div>
 
-      </div>
-      <div class="col-sm-4">
-        <div class="addlist-box">
-          <div class="addlist">
-            <a class="addlist-a addlist-icon fas fa-heart" href=""><span class="h3">マイリストに追加</span></a>
-          </div>
-        </div>
-      </div>
+  <div class="show-header">
+    <div class="f cate-logo">
+      <p class="h3 cate"><%= @nursery.category %></p>
     </div>
+    <div class="f head">
+      <%= link_to @nursery.url do %>
+       <div class="s">
+         <div class="hukidasi">外部サイトに移動します</div>
+          <h1 class="h1"><%= @nursery.name %></h1>
+       </div>
+      <% end %>
+      <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
+    </div>
+    <div class="add-box">
+      <a class="addlist fas fa-heart" href=""></a>
+    </div>
+  </div>
 
+
+
+  <div class="container-fluid">
     <div class="row">
       <div class="col-sm-8 main-content">
         <div class="main-img"></div>　<!-- 保育園の写真　メイン -->
@@ -34,16 +30,15 @@
           <p class="concept-detail"><%= @nursery.concept_detail %></p>
         </div>
         <div class="tag-box">
-          <p>土日あり</p>
-          <p>延長・夜間あり</p>
-          <p>夕食あり</p>
+          <p></p>
         </div>
-        <div class="">
-          <div id="map" style="width: 600px; height: 400px;"></div>
-
-
+        <div class="map-area">
+          <div id="map" style="width: 720px; height: 400px;"></div>
         </div>
-        <%= link_to "　編集する　",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
+        <div class="button-area">
+          <%= link_to "　編集する　",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
+          <%= link_to "　削除する　",nurseries_path(@nursery), method: :delete, data: { confirm:'本当に削除しますか？'}, class:"btn btn-lg btn-danger"%>
+        </div>
       </div>
 
       <div class="col-sm-4 sidebar">
@@ -97,6 +92,7 @@
 
         <div class="price-box box ohana">
           <h4 class="h4 center-text price-h4">保育料</h4>
+          <% @nursery.prices.each do |price| %>
           <table class="table table-bordered">
             <thead>
               <tr>
@@ -105,30 +101,31 @@
               </tr>
               <tr>
                 <th class="price-th center-text">０歳</th>
-                <td class="center-text">74,000円</td>
+                <td class="center-text"><%= price.zero %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">1歳</th>
-                <td class="center-text">70,000円</td>
+                <td class="center-text"><%= price.one %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">2歳</th>
-                <td class="center-text">70,000円</td>
+                <td class="center-text"><%= price.twe %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">3歳</th>
-                <td class="center-text">64,000円</td>
+                <td class="center-text"><%= price.three %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">4歳</th>
-                <td class="center-text">64,000円</td>
+                <td class="center-text"><%= price.four %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">5歳</th>
-                <td class="center-text">64,000円</td>
+                <td class="center-text"><%= price.five %>円</td>
               </tr>
             </thead>
           </table>
+          <% end %>
           <p>※上記はあくまで一例です。費用に関する詳細は、保育園に直接お問い合わせください。</p>
         </div>
 
@@ -151,6 +148,8 @@
         },
         "infowindow": '<%= @nursery.name %>'
       },
+
+      <% if  user_signed_in? %>
       {
         "lat": <%= @user.latitude %>,
         "lng": <%= @user.longitude %>,
@@ -160,6 +159,7 @@
         },
         "infowindow": '<%= @user.name %>'
       }
+      <% end %>
     ]);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();

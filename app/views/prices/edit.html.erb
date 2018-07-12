@@ -1,2 +1,38 @@
-<h1>Prices#edit</h1>
-<p>Find me in app/views/prices/edit.html.erb</p>
+<div class="body-content">
+	<p><%= @nursery.name %></p>
+	<p>週５、一日10時間利用の場合の料金を入力してください。</p>
+
+<%= form_for(@price) do |f| %>
+
+	<div class="field">
+		<%= f.label :zero, "0歳" %>
+		<%= f.text_field :zero, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :one, "1歳" %>
+		<%= f.text_field :one, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :twe, "2歳" %>
+		<%= f.text_field :twe, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :three, "3歳" %>
+		<%= f.text_field :three, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :four, "3歳" %>
+		<%= f.text_field :four, class: "" %>
+	</div>
+	<div class="field">
+		<%= f.label :five, "3歳" %>
+		<%= f.text_field :five, class: "" %>
+	</div>
+
+
+	<div class="button-area item-button">
+		<%= f.submit "　完 了　", class: "btn btn-lg btn-info" %>
+	</div>
+<% end %>
+
+</div>

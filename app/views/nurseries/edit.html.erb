@@ -1,3 +1,5 @@
+<div class="body-content">
+
 <%= form_for(@nursery) do |f| %>
 	<%= f.hidden_field :admin_id, :value => @admin %>
 	<div class="field">
@@ -69,7 +71,21 @@
 		<%= f.text_field :longitude, class: "" %>
 	</div>
 
+	<div class="field">
+		<%= f.label :prices, "料金" %>
+		<%= f.fields_for :prices do |m| %>
+			<p>0 <%= m.text_field :zero %></p>
+			<p>1 <%= m.text_field :one %></p>
+			<p>2 <%= m.text_field :twe %></p>
+			<p>3 <%= m.text_field :three %></p>
+			<p>4 <%= m.text_field :four %></p>
+			<p>5 <%= m.text_field :five %></p>
+		<% end %>
+	</div>
+
 	<div class="button-area item-button">
 		<%= f.submit "　完 了　", class: "btn btn-lg btn-info" %>
 	</div>
 <% end %>
+
+</div>

@@ -13,23 +13,19 @@ class NurseriesController < ApplicationController
 	def show
 		@nursery = Nursery.find(params[:id])
 		@user = current_user
-		# @hash = Gmaps4rails.build_markers(@nursery) do |nursery, marker|
-		# 	marker.lat nursery.latitude
-		# 	marker.lng nursery.longitude
-		# 	marker.infowindow nursery.name
-		# end
 	end
 
 	def new
 		@admin = current_admin.id
 		@nursery = Nursery.new
+		@nursery.prices.build
 	end
 
 	def create
 		admin = current_admin.id
 		nursery = Nursery.new(nursery_params)
 		nursery.save
-		redirect_to nursery_path(nursery)
+		redirect_to root_path
 	end
 
 	def edit
@@ -53,6 +49,7 @@ private
   	def nursery_params
       	params.require(:nursery).permit(:admin_id, :name, :type, :nearest, :phone, :email,
       									 :price, :capacity, :date, :time, :url, :concept, :concept_detail,
-      									 :post_code, :address, :latidute, :longitude)
+      									 :post_code, :address, :latidute, :longitude,
+      									 prices_attributes: [:nursery_id, :zero, :one, :twe, :three, :four, :five])
   	end
 end
