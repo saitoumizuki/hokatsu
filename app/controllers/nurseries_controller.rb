@@ -43,13 +43,13 @@ class NurseriesController < ApplicationController
 	def destroy
 		nursery = Nursery.find(params[:id])
   		nursery.destroy
-  		redirect_to nurseries_path
+  		redirect_to root_path
 	end
 private
   	def nursery_params
       	params.require(:nursery).permit(:admin_id, :name, :type, :nearest, :phone, :email,
-      									 :price, :capacity, :date, :time, :url, :concept, :concept_detail,
+      									 :price, :capacity, :date, :time, :url, :image, :concept, :concept_detail,
       									 :post_code, :address, :latidute, :longitude,
-      									 prices_attributes: [:nursery_id, :zero, :one, :twe, :three, :four, :five])
+      									 prices_attributes: [:_destroy,:id, :nursery_id, :zero, :one, :twe, :three, :four, :five])
   	end
 end
