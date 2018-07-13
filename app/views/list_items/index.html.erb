@@ -1,8 +1,8 @@
-<div class="body-content">
+<div class="body-content-mylist">
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-4 sidebar">
-        <div class="todo-box">
+<!--         <div class="todo-box">
           <h3 class="h3">To Do</h3>
           <ul>
             <li class="side-item">
@@ -24,9 +24,9 @@
               </label>
             </li>
           </ul>
-        </div>
+        </div> -->
         <div class="memo-box">
-          <h3 class="h3">メモ</h3>
+          <h3 class="h3">Memo</h3>
           <ul>
             <li>時短だと点数が下がる？→要確認</li>
             <li>メリーポピンズ：2か月おきに電話で待機更新</li>
@@ -42,27 +42,31 @@
           <a class="list-a" href="">並べ替え</a>
         </div>
         <div class="item-box">
-          <table class="table">
+          <table class="table table-bordered">
             <thead>
               <tr class="center-text">
-                <th></th>
                 <th>保育園名</th>
                 <th></th>
                 <th>所在地</th>
                 <th>電話番号</th>
                 <th>家からの距離</th>
+                <th></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td class="center-text">1</td>
-                <td class="center-text">シンフォニア保育園</td>
-                <td class="center-text">認可</td>
-                <td class="center-text">江東区豊洲</td>
-                <td class="center-text">data</td>
-                <td class="center-text">data</td>
-              </tr>
-            </tbody>
+
+            <% @list_items.each do |list_item| %>
+              <tbody>
+                <tr>
+                  <td class="center-text"><%= link_to list_item.nursery.name, nurseries_path(list_item.nursery.id), class: "mylist-a" %></td>
+                  <td class="center-text"><%= list_item.nursery.category %></td>
+                  <td class="center-text"><%= list_item.nursery.address %></td>
+                  <td class="center-text"><%= list_item.nursery.phone %></td>
+                  <td class="center-text">data</td>
+                  <td class="center-text"><%= link_to "解除", list_item_path(list_item.id), method: :delete,data: { confirm: 'マイリストから解除してよろしいですか？' }, class:"btn btn-default btn-xs" %></td>
+                </tr>
+              </tbody>
+            <% end %>
+
           </table>
         </div>
       </div>

@@ -1,8 +1,11 @@
 
 <header class="header">
   <div class="header-content">
-    <div class="header-logo"><%= link_to "ホーム",root_path %></div>
-
+    <%= link_to root_path do %>
+      <div class="logo-box">
+        <p class="header-logo">WithYou</p>
+      </div>
+    <% end %>
 
     <% if  user_signed_in? %>
 
@@ -14,13 +17,13 @@
           </li>
           <li class="item">
             <!-- マイリスト -->
-            <%= link_to " ","#", class: "item-a a2 fas fa-heart" %>
+            <%= link_to " ",list_items_path(current_user.id), class: "item-a a2 fas fa-heart" %>
           </li>
           <li class="item mypage">
             <!-- マイページ -->
             <%= link_to " ","#", class: "item-a a3 fas fa-user" %>
             <ul class="mypage-ul">
-              <li class="mypage-li li-gray"><%= link_to  @user.name, user_path(current_user.id), class: "fas fa-user mypage-a" %></li>
+              <li class="mypage-li li-gray"><%= link_to  current_user.name, user_path(current_user.id), class: "fas fa-user mypage-a" %></li>
               <li class="mypage-li"><%= link_to "マイリスト", list_items_path(current_user.id), class: "fas fa-heart mypage-a" %></li>
               <li class="mypage-li"><%= link_to "スポット編集", edit_spot_path(current_user.id), class: "fas fa-map mypage-a" %></li>
               <li class="mypage-li"><%= link_to "ログアウト", users_sign_out_path, method: :delete, class: "fas fa-sign-out-alt mypage-a" %></li>

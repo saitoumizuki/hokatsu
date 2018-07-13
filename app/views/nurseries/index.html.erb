@@ -1,7 +1,3 @@
-
-
-
-
 <div class="body-content">
   <div class="container-fluid">
     <div class="row">
@@ -109,10 +105,18 @@
         <!-- 検索フォーム実装位置 -->
         <div class="index-header clearfix">
           <div class="index-header-box search">
-            <form id="form">
-            <input id="sbox" name="" type="text" placeholder="保育園名　地域" />
-            <button id="sbtn" type="submit"><i class="fas fa-search mushimegane"></i></button>
+            <form class="form">
+            <%= search_form_for(@search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
+              <%= f.search_field :name_cont, class: "sbox", placeholder: '保育園名、地名で検索' %>
+              <%= f.search_field :category, class: "sbox-2", placeholder: '認可、認証、認可外で検索' %>
+              <%= f.submit '', :class =>"sbtn" %>
+              <i class="fas fa-search mushimegane"></i>
+            <% end %>
             </form>
+            
+<!--             <input id="sbox" name="" type="text" placeholder="保育園名　地域" />
+            <button id="sbtn" type="submit"><i class="fas fa-search mushimegane"></i></button>
+ -->
           </div>
           <div class="index-header-box category">
             <ul class="list-cate">
@@ -166,7 +170,7 @@
             "width":  32,
             "height": 32
           },
-          "infowindow": '<%= nursery.name %>'
+          "infowindow": '<%= nursery.name %>',
         },
       <% end %>
       <% if  user_signed_in? %>
