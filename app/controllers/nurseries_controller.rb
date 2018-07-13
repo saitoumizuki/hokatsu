@@ -13,10 +13,12 @@ class NurseriesController < ApplicationController
 	end
 
 	def show
-		@list_item = ListItem.new
 		@nursery = Nursery.find(params[:id])
-		@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
-		@user = current_user
+		if user_signed_in?
+			@list_item = ListItem.new
+			@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
+			@user = current_user
+		end
 	end
 
 	def new
@@ -53,7 +55,7 @@ private
   	def nursery_params
       	params.require(:nursery).permit(:admin_id, :name, :type, :nearest, :phone, :email,
       									 :price, :capacity, :date, :time, :url, :image, :concept, :concept_detail,
-      									 :post_code, :address, :latidute, :longitude,
+      									 :post_code, :address, :latidute, :longitude, :category,
       									 prices_attributes: [:_destroy,:id, :nursery_id, :zero, :one, :twe, :three, :four, :five])
   	end
   	# def list_item_params

@@ -104,7 +104,7 @@ button{
   // background-size:cover;
   // background-position: center;
   color:#fff;
-  font-size:15px;
+  font-size:25px;
   font-weight:600;
   margin: 0;
   padding: 0;
@@ -176,20 +176,20 @@ button{
   left:16px;
 }
 .a7::after{
-  content: "保育園の追加";
+  content: "＋保育園";
   font-size:14px;
   font-weight:600;
   position:absolute;
   top: 45px;
-  left:16px;
+  left:10px;
 }
 .a8::after{
-  content: "ユーザー 一覧";
+  content: "ユーザー's";
   font-size:14px;
   font-weight:600;
   position:absolute;
   top: 45px;
-  left:16px;
+  left:10px;
 }
 .a9::after{
   content: "ログアウト";
@@ -197,7 +197,7 @@ button{
   font-weight:600;
   position:absolute;
   top: 45px;
-  left:16px;
+  left:7px;
 }
 
 
@@ -329,39 +329,44 @@ button{
   margin-bottom:20px;
 }
 .search{
-  width:450px;
-}
-.form{
+  // width:450px;
   position:relative;
-  padding:27px;
+  // padding:27px;
 }
 .sbox{
   height:50px;
   padding:0 10px;
-  position:absolute;
-  left:0;
-  top:0;
-  width:200px;
-  border-radius:25px;
-  border:solid 3px #eaeaea;
+  float:left;
+  // position:absolute;
+  // left:0;
+  // top:0;
+  width:250px;
+  border-radius:25px 0 0 25px;
+  border:solid 2.5px #eaeaea;
   outline: 0;
 }
 .sbox-2{
   height:50px;
   padding:0 10px;
-  position:absolute;
-  right:1;
-  top:0;
+  float:left;
+  // position:absolute;
+  // right:1;
+  // top:0;
   width:100px;
-  border-radius:25px;
-  border:solid 3px #eaeaea;
+  // border-radius:25px;
+  border:none;
+  border-top:solid 2.5px #eaeaea;
+  border-bottom:solid 2.5px #eaeaea;
   outline: 0;
 }
 .sbtn{
   height: 50px;
-  position: absolute;
-  left:350px;
-  top: 0;
+  padding:0 10px;
+  display:block;
+  float:left;
+  // position: absolute;
+  // left:350px;
+  // top: 0;
   background:#7fbfff;
   color:#fff;
   border:none;
@@ -529,19 +534,19 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .cate-logo{
   padding: 0.2em 0.5em;
   margin: 0 10px;
-  margin-top:20px;
+  margin-top:15px;
   background: #ffeaea;
   box-shadow: 0px 0px 0px 5px #ffeaea;
   border: dashed 2px #ffc3c3;
   border-radius: 50%;
-  width:50px;
-  height:50px;
+  width:70px;
+  height:70px;
 }
 .cate{
   margin: 0;
   padding: 0;
   text-align:center;
-  line-height: 40px;
+  line-height: 60px;
 }
 .f{
   float:left;
@@ -596,7 +601,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   text-align:center;
 }
 .ohana{
-  background-image:url(img/ohana.png);
+  background-image:url(ohana.png);
   background-size:15%;
   background-repeat: no-repeat;
   background-position: 60% 0;
