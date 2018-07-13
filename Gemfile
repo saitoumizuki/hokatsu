@@ -64,3 +64,4 @@ gem 'gmaps4rails'
 # 住所から経度、緯度を取得するやつ
 gem 'geocoder'
 gem 'enum_help'
+gem 'ransack'

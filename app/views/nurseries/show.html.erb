@@ -14,9 +14,20 @@
       <% end %>
       <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
     </div>
-    <div class="add-box">
-      <a class="addlist fas fa-heart" href=""></a>
-    </div>
+
+    <% if user_signed_in? %>
+        <% if @list_itema.present? %>
+          <%= link_to "", list_item_path(@list_itema.id), method: :delete, class:"addlist2 fas fa-heart"%>
+        <% else %> <!-- if リストアイテム -->
+          <div class="add-box">
+            <%= form_for (@list_item) do |f| %>
+              <%= f.hidden_field :nursery_id, :value => @nursery.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= button_tag "", class: "addlist fas fa-heart" %> <!-- マイリストに追加 -->
+            <% end %> <!-- form_for -->
+          </div>
+        <% end %> <!-- if リストアイテム -->
+    <% end %> <!-- if ユーザー -->
   </div>
 
 
