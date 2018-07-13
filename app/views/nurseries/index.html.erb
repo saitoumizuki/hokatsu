@@ -104,27 +104,22 @@
       <div class="main-content">
         <!-- 検索フォーム実装位置 -->
         <div class="index-header clearfix">
-          <div class="index-header-box search">
-            <form class="form">
+          <div class="index-header-box search crearfix">
             <%= search_form_for(@search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
               <%= f.search_field :name_cont, class: "sbox", placeholder: '保育園名、地名で検索' %>
-              <%= f.search_field :category, class: "sbox-2", placeholder: '認可、認証、認可外で検索' %>
+              <%= f.select :category, {"認可" => "認可","認証" => "認証","認可外" => "認可外","その他" => "その他"}, {include_blank: true}, {class: 'sbox-2 btn btn-default'} %>
+              <%= f.collection_select :category, Nursery.all, :category, :category %>
               <%= f.submit '', :class =>"sbtn" %>
               <i class="fas fa-search mushimegane"></i>
             <% end %>
-            </form>
-            
-<!--             <input id="sbox" name="" type="text" placeholder="保育園名　地域" />
-            <button id="sbtn" type="submit"><i class="fas fa-search mushimegane"></i></button>
- -->
           </div>
-          <div class="index-header-box category">
+<!--           <div class="index-header-box category">
             <ul class="list-cate">
               <li class="item-cate btn btn-info">認可</li>
               <li class="item-cate btn btn-info">認証</li>
               <li class="item-cate btn btn-info">認可外</li>
             </ul>
-          </div>
+          </div> -->
         </div>
         <div class="route">
           <ul class="list-route">
@@ -170,7 +165,7 @@
             "width":  32,
             "height": 32
           },
-          "infowindow": '<%= nursery.name %>',
+          "infowindow": '<%= link_to nursery.name, nurseries_path(nursery) %>',
         },
       <% end %>
       <% if  user_signed_in? %>

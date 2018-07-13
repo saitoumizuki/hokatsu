@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712133558) do
+ActiveRecord::Schema.define(version: 20180713124112) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20180712133558) do
   create_table "nurseries", force: :cascade do |t|
     t.integer "admin_id", null: false
     t.string "name", null: false
-    t.integer "category", default: 0, null: false
     t.string "nearest"
     t.string "phone"
     t.string "email"
@@ -72,7 +71,8 @@ ActiveRecord::Schema.define(version: 20180712133558) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "category", "nearest", "address"], name: "index_nurseries_on_name_and_category_and_nearest_and_address"
+    t.string "category"
+    t.index ["name", "nearest", "address"], name: "index_nurseries_on_name_and_category_and_nearest_and_address"
   end
 
   create_table "prices", force: :cascade do |t|
