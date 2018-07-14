@@ -35,16 +35,7 @@
   <div class="container-fluid">
     <div class="row show-main">
       <div class="col-sm-8 main-content">
-        <div class="main-img">
-          <%= attachment_image_tag @nursery, :image, :fill, 720, 300, fallback: "noimage.png", size: '720x300' %>
-        </div>　<!-- 保育園の写真　メイン -->
-        <div class="concept-box">
-          <h2 class="h2"><%= @nursery.concept %></h2>
-          <p class="concept-detail"><%= @nursery.concept_detail %></p>
-        </div>
-        <div class="tag-box">
-          <p></p>
-        </div>
+
         <div class="map-area">
           <div id="map" style="width: 720px; height: 400px;"></div>
         </div>

@@ -53,9 +53,8 @@ class NurseriesController < ApplicationController
 	end
 private
   	def nursery_params
-      	params.require(:nursery).permit(:admin_id, :name, :type, :nearest, :phone, :email,
-      									 :price, :capacity, :date, :time, :url, :image, :concept, :concept_detail,
-      									 :post_code, :address, :latidute, :longitude, :category,
+      	params.require(:nursery).permit(:admin_id, :name, :nearest, :phone, :email,
+      									 :capacity, :date, :time, :holiday, :url, :post_code, :address, :latidute, :longitude, :category,
       									 prices_attributes: [:_destroy,:id, :nursery_id, :zero, :one, :twe, :three, :four, :five])
   	end
   	# def list_item_params

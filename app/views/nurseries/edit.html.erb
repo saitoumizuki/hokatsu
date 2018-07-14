@@ -2,10 +2,7 @@
 
 <%= form_for(@nursery) do |f| %>
 	<%= f.hidden_field :admin_id, :value => @admin %>
-	<div class="field">
-		<%= f.label :image_id, "イメージ" %>
-		<%= f.attachment_field :image, placeholder: "画像のアップロード" %>
-	</div>
+
 	<div class="field">
 		<%= f.label :name, "保育園の名前" %>
 		<%= f.text_field :name, class: "" %>
@@ -45,14 +42,6 @@
 	<div class="field">
 		<%= f.label :url, "URL" %>
 		<%= f.text_field :url, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :concept, "コンセプト（保育理念、キャッチコピー）" %>
-		<%= f.text_field :concept, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :concept_detail, "コンセプト詳細" %>
-		<%= f.text_field :concept_detail, class: "" %>
 	</div>
 	<div class="field">
 		<%= f.label :post_code, "郵便番号" %>

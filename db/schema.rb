@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180713124112) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "checked_tasks", force: :cascade do |t|
+  create_table "checked_tasks", force: :cascade do |t|  # いらん
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 20180713124112) do
     t.text "time"
     t.text "holiday"
     t.text "url"
-    t.text "image_id"
-    t.text "concept"
-    t.text "concept_detail"
+    t.text "image_id" # いらん
+    t.text "concept" # いらん
+    t.text "concept_detail"  # いらん
     t.string "post_code"
     t.string "address"
     t.float "latitude"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20180713124112) do
     t.index ["name", "address"], name: "index_spots_on_name_and_address"
   end
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "tasks", force: :cascade do |t|  # いらん
     t.integer "user_id", null: false
     t.text "body"
     t.datetime "created_at", null: false
