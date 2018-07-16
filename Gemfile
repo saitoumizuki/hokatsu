@@ -53,11 +53,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-# いらんかも　ここから
 gem 'kaminari'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
-# いらんかも　ここまで
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "font-awesome-rails"
@@ -65,6 +61,6 @@ gem "font-awesome-rails"
 gem 'gmaps4rails'
 # 住所から経度、緯度を取得するやつ
 gem 'geocoder'
-gem 'enum_help'
 gem 'ransack'
-# gem 'ranked-model'
+gem 'ranked-model'
+gem 'jquery-ui-rails'

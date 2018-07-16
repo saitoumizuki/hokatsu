@@ -1,6 +1,6 @@
 class ListItemsController < ApplicationController
 	def index
-		@list_items = ListItem.all
+		@list_items = ListItem.rank(:row_order)
 	end
 
 	# def show
@@ -25,8 +25,14 @@ class ListItemsController < ApplicationController
 		redirect_to list_items_path, notice: "削除されました。"
 	end
 
+	def sort
+		list_item = ListItem.find(params[:list_item_id])
+		list_item.update(list_item_params)
+		render nothing: true
+	end
+
 private
   	def list_item_params
-      	params.require(:list_item).permit(:user_id, :nursery_id)
+      	params.require(:list_item).permit(:user_id, :nursery_id, :row_order_position)
   	end
 end

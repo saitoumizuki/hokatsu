@@ -21,7 +21,9 @@ resources :users, only: [:index, :show, :edit, :update, :destroy]
 resources :prices, only: [:new, :create, :edit, :update, :destroy]
 resources :spots
 resources :nurseries
-resources :list_items, only: [:index, :create, :edit, :update, :destroy]
+resources :list_items do
+	put :sort
+end
 resources :memos, only: [:create, :update]
 resources :tasks, only: [:create, :update, :destroy]
 resources :checked_tasks, only: [:create, :destroy]

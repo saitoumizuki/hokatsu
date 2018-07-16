@@ -37,7 +37,7 @@
       <div class="col-sm-8 main-content">
 
         <div class="map-area">
-          <div id="map" style="width: 720px; height: 400px;"></div>
+          <div id="map2" style="width: 720px; height: 400px;"></div>
         </div>
         <div class="button-area">
           <%= link_to "　編集する　",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
@@ -140,33 +140,90 @@
 </div>
 
 <script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers([
-      {
-        "lat": <%= @nursery.latitude %>,
-        "lng": <%= @nursery.longitude %>,
-        "picture": {
-          "width":  32,
-          "height": 32
-        },
-        "infowindow": '<%= @nursery.name %>'
-      },
 
-      <% if  user_signed_in? %>
-      {
-        "lat": <%= @user.latitude %>,
-        "lng": <%= @user.longitude %>,
-        "picture": {
-          "width":  32,
-          "height": 32
-        },
-        "infowindow": '<%= @user.name %>'
-      }
-      <% end %>
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(15);
+let map;
+let marker = [];
+let infoWindow = [];
+let markerData = [
+
+<% if  user_signed_in? %>
+  {
+      name: '<%= @user.name %>',
+      lat: <%= @user.latitude %>,
+      lng: <%= @user.longitude %>,
+      // ico: 'assets/icon.png'
+ },
+<% end %>
+
+  {
+      name: '<%= @nursery.name %>',
+      lat: <%= @nursery.latitude %>,
+      lng: <%= @nursery.longitude %>,
+      // ico: 'assets/icon2.png'
+  }
+
+];
+
+function initMap() {
+ // 地図の作成
+    let mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']});
+    map = new google.maps.Map(document.getElementById('map2'), {
+    center: mapLatLng,
+    zoom: 14
+   });
+
+ // マーカー毎の処理
+ for (let i = 0; i < markerData.length; i++) {
+        // let image = ({
+        //             url: markerData[i].ico,
+        //             scaledSize: new google.maps.Size(50,50)
+        //             });
+        markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']});
+        marker[i] = new google.maps.Marker({
+                                            position: markerLatLng,
+                                            map: map,
+                                            // icon: image
+                                           });
+
+     infoWindow[i] = new google.maps.InfoWindow({
+                                                 content: '<div class="map2">' + markerData[i]['name'] + '</div>'
+                                               });
+
+     markerEvent(i); // マーカーにクリックイベントを追加
+ }
+}
+// マーカーにクリックイベントを追加
+function markerEvent(i) {
+    marker[i].addListener('click', function() { // マーカーをクリックしたとき
+    infoWindow[i].open(map, marker[i]); // 吹き出しの表示
   });
+}
+
+// function getRoute(latlng){
+//     var request = {
+//         origin:  {
+
+//       lat: <%= @user.latitude %>,
+//       lng: <%= @user.longitude %>,
+
+//   }, //入力地点の緯度、経度
+//         destination:  {
+
+//       lat: <%= @nursery.latitude %>,
+//       lng: <%= @nursery.longitude %>,
+
+//   } //到着地点の緯度、経度
+//         travelMode: google.maps.DirectionsTravelMode.WALKING //ルートの種類
+//     }
+//     directionsService.route(request,function(result, status){
+//         toRender(result);
+//     });
+// }
+// function toRender(result){
+//     directionsDisplay = new google.maps.DirectionsRenderer();
+//     directionsDisplay.setDirections(result); //取得した情報をset
+//     directionsDisplay.setMap(map2); //マップに描画
+// }
 </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfiov9mIsmVcZyqJb-jQiTRTS_2rFY9gM&callback=initMap"></script>

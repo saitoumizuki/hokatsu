@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180713124112) do
+ActiveRecord::Schema.define(version: 20180714141711) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180713124112) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "checked_tasks", force: :cascade do |t|  # いらん
+  create_table "checked_tasks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180713124112) do
     t.integer "nursery_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "row_order"
   end
 
   create_table "memos", force: :cascade do |t|
@@ -62,9 +63,9 @@ ActiveRecord::Schema.define(version: 20180713124112) do
     t.text "time"
     t.text "holiday"
     t.text "url"
-    t.text "image_id" # いらん
-    t.text "concept" # いらん
-    t.text "concept_detail"  # いらん
+    t.text "image_id"
+    t.text "concept"
+    t.text "concept_detail"
     t.string "post_code"
     t.string "address"
     t.float "latitude"
@@ -100,7 +101,7 @@ ActiveRecord::Schema.define(version: 20180713124112) do
     t.index ["name", "address"], name: "index_spots_on_name_and_address"
   end
 
-  create_table "tasks", force: :cascade do |t|  # いらん
+  create_table "tasks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.text "body"
     t.datetime "created_at", null: false

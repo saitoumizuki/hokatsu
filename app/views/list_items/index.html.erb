@@ -42,7 +42,7 @@
           <a class="list-a" href="">並べ替え</a>
         </div>
         <div class="item-box">
-          <table class="table table-bordered">
+          <table class="table table-bordered table-sortable">
             <thead>
               <tr class="center-text">
                 <th>保育園名</th>
@@ -56,7 +56,7 @@
 
             <% @list_items.each do |list_item| %>
               <tbody>
-                <tr>
+                <tr class="item" data="model_name: list_item.class.name.underscore, update_url: list_item_sort_path(list_item)">
                   <td class="center-text"><%= link_to list_item.nursery.name, nurseries_path(list_item.nursery.id), class: "mylist-a" %></td>
                   <td class="center-text"><%= list_item.nursery.category %></td>
                   <td class="center-text"><%= list_item.nursery.address %></td>
