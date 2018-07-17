@@ -1,50 +1,47 @@
-<div class="body-content-mylist">
+<div class="body-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-4 sidebar">
-<!--         <div class="todo-box">
-          <h3 class="h3">To Do</h3>
-          <ul>
-            <li class="side-item">
-              <label>
-                <input type="checkbox" name="checkbox01[]" class="checkbox01-input">
-                <span class="checkbox01-parts">ゆらりん豊洲に電話</span>
-              </label>
-            </li>
-            <li class="side-item">
-              <label>
-                <input type="checkbox" name="checkbox01[]" class="checkbox01-input">
-                <span class="checkbox01-parts">メリーポピンズ待機更新</span>
-              </label>
-            </li>
-            <li class="side-item">
-              <label>
-                <input type="checkbox" name="checkbox01[]" class="checkbox01-input">
-                <span class="checkbox01-parts">保育課に問い合わせ</span>
-              </label>
-            </li>
-          </ul>
-        </div> -->
-        <div class="memo-box">
-          <h3 class="h3">Memo</h3>
-          <ul>
-            <li>時短だと点数が下がる？→要確認</li>
-            <li>メリーポピンズ：2か月おきに電話で待機更新</li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="col-sm-8 list-content">
+      <div class="list-content">
         <div class="list-head">
           <h2 class="h2">マイリスト</h2>
         </div>
-        <div class="list-a-box">
+
+      <div class="col-sm-3 sidebar">
+        <h3 class="h3 memo">Memo</h3>
+
+        <% if @memo1.present? %>
+
+          <div class="memo-box">
+            <%= form_for(@memo1) do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.text_area :body, class: "memo-form" %>
+              <div>
+                <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+              </div>
+              
+            <% end %>
+          </div>
+        <% else %>
+          <div class="memo-box">
+            <%= form_for(@memo2) do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.text_area :body, size: "35x10", class: "" %>
+              <div>
+                <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+        <div class="col-sm-9">
+          <div class="list-a-box">
           <a class="list-a" href="">並べ替え</a>
         </div>
-        <div class="item-box">
-          <table class="table table-bordered table-sortable">
+          <table class="table table-bordered">
             <thead>
-              <tr class="center-text">
+              <tr>
+                <th>並び順</th>
                 <th>保育園名</th>
                 <th></th>
                 <th>所在地</th>
@@ -53,20 +50,19 @@
                 <th></th>
               </tr>
             </thead>
-
-            <% @list_items.each do |list_item| %>
-              <tbody>
-                <tr class="item" data="model_name: list_item.class.name.underscore, update_url: list_item_sort_path(list_item)">
-                  <td class="center-text"><%= link_to list_item.nursery.name, nurseries_path(list_item.nursery.id), class: "mylist-a" %></td>
-                  <td class="center-text"><%= list_item.nursery.category %></td>
-                  <td class="center-text"><%= list_item.nursery.address %></td>
-                  <td class="center-text"><%= list_item.nursery.phone %></td>
-                  <td class="center-text">data</td>
-                  <td class="center-text"><%= link_to "解除", list_item_path(list_item.id), method: :delete,data: { confirm: 'マイリストから解除してよろしいですか？' }, class:"btn btn-default btn-xs" %></td>
-                </tr>
-              </tbody>
-            <% end %>
-
+            <tbody>
+              <% @list_items.each do |list_item| %>
+              <tr>
+                <td>1</td>
+                <td><%= link_to list_item.nursery.name, nurseries_path(list_item.nursery.id) %></td>
+                <td><%= list_item.nursery.category %></td>
+                <td><%= list_item.nursery.address %></td>
+                <td><%= list_item.nursery.phone %></td>
+                <td>data</td>
+                <td><%= link_to "解除", list_item_path(list_item.id), method: :delete,data: { confirm: 'マイリストから解除してよろしいですか？' }, class:"btn btn-default btn-xs" %></td>
+              </tr>
+              <% end %>
+            </tbody>
           </table>
         </div>
       </div>
