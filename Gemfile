@@ -54,8 +54,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'kaminari'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "font-awesome-rails"
@@ -63,5 +61,6 @@ gem "font-awesome-rails"
 gem 'gmaps4rails'
 # 住所から経度、緯度を取得するやつ
 gem 'geocoder'
-gem 'enum_help'
 gem 'ransack'
+gem 'ranked-model'
+gem 'jquery-ui-rails'

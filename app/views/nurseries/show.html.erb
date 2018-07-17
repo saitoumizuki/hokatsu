@@ -35,18 +35,9 @@
   <div class="container-fluid">
     <div class="row show-main">
       <div class="col-sm-8 main-content">
-        <div class="main-img">
-          <%= attachment_image_tag @nursery, :image, :fill, 720, 300, fallback: "noimage.png", size: '720x300' %>
-        </div>　<!-- 保育園の写真　メイン -->
-        <div class="concept-box">
-          <h2 class="h2"><%= @nursery.concept %></h2>
-          <p class="concept-detail"><%= @nursery.concept_detail %></p>
-        </div>
-        <div class="tag-box">
-          <p></p>
-        </div>
+
         <div class="map-area">
-          <div id="map" style="width: 720px; height: 400px;"></div>
+          <div id="map2" style="width: 720px; height: 600px;"></div>
         </div>
         <div class="button-area">
           <%= link_to "　編集する　",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
@@ -139,7 +130,7 @@
             </thead>
           </table>
           <% end %>
-          <p>※上記はあくまで一例です。費用に関する詳細は、保育園に直接お問い合わせください。</p>
+          <p>※上記はあくまで公式サイトから引用した一例です。詳細は、保育園の公式サイトをご覧になるか、保育園に直接お問い合わせください。</p>
         </div>
 
       </div>
@@ -148,34 +139,110 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers([
-      {
-        "lat": <%= @nursery.latitude %>,
-        "lng": <%= @nursery.longitude %>,
-        "picture": {
-          "width":  32,
-          "height": 32
-        },
-        "infowindow": '<%= @nursery.name %>'
-      },
+<!-- <script type="text/javascript">
 
-      <% if  user_signed_in? %>
-      {
-        "lat": <%= @user.latitude %>,
-        "lng": <%= @user.longitude %>,
-        "picture": {
-          "width":  32,
-          "height": 32
-        },
-        "infowindow": '<%= @user.name %>'
-      }
-      <% end %>
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(15);
+let map;
+let marker = [];
+let infoWindow = [];
+let markerData = [
+
+<% if  user_signed_in? %>
+  {
+      name: '<%= @user.name %>',
+      lat: <%= @user.latitude %>,
+      lng: <%= @user.longitude %>,
+      // ico: 'assets/icon.png'
+ },
+<% end %>
+
+  {
+      name: '<%= @nursery.name %>',
+      lat: <%= @nursery.latitude %>,
+      lng: <%= @nursery.longitude %>,
+      // ico: 'assets/icon2.png'
+  }
+
+];
+
+function initMap() {
+ // 地図の作成
+    let mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']});
+    map = new google.maps.Map(document.getElementById('map2'), {
+    center: mapLatLng,
+    zoom: 14
+   });
+
+ // マーカー毎の処理
+ for (let i = 0; i < markerData.length; i++) {
+        // let image = ({
+        //             url: markerData[i].ico,
+        //             scaledSize: new google.maps.Size(50,50)
+        //             });
+        markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']});
+        marker[i] = new google.maps.Marker({
+                                            position: markerLatLng,
+                                            map: map,
+                                            // icon: image
+                                           });
+
+     infoWindow[i] = new google.maps.InfoWindow({
+                                                 content: '<div class="map2">' + markerData[i]['name'] + '</div>'
+                                               });
+
+     markerEvent(i); // マーカーにクリックイベントを追加
+ }
+}
+// マーカーにクリックイベントを追加
+function markerEvent(i) {
+    marker[i].addListener('click', function() { // マーカーをクリックしたとき
+    infoWindow[i].open(map, marker[i]); // 吹き出しの表示
   });
+}
+</script> -->
+
+
+<script type="text/javascript">
+let startLatLng = [<%= @user.latitude %>, <%= @user.longitude %>];
+let targetLatLng = [<%= @nursery.latitude %>, <%= @nursery.longitude %>];
+let map;
+function initMap() {
+    // ルート検索の条件
+    let request = {
+        origin: new google.maps.LatLng(startLatLng[0], startLatLng[1]), // 出発地
+        destination: new google.maps.LatLng(targetLatLng[0], targetLatLng[1]), // 目的地
+        waypoints: [], // 経由地点
+        travelMode: google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
+    };
+
+    // マップの生成
+    let map = new google.maps.Map(document.getElementById("map2"), {
+        center: new google.maps.LatLng(startLatLng[0], startLatLng[1]), // マップの中心
+        zoom: 14 // ズームレベル
+    });
+
+    let d = new google.maps.DirectionsService(); // ルート検索オブジェクト
+    let r = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+        map: map, // 描画先の地図
+        preserveViewport: true, // 描画後に中心点をずらさない
+        // suppressMarkers: true 
+    });
+    // ルート検索
+    d.route(request, function(result, status){
+        if (status == google.maps.DirectionsStatus.OK) {
+            // ルートの所要時間
+            var time = result.routes[0].legs[0].duration.text;
+            // ルートの距離
+            var dist = result.routes[0].legs[0].distance.text;
+            result.routes[0].legs[0].start_address = '<%= @user.name %>';
+            result.routes[0].legs[0].end_address = '<%= @nursery.name %>' + '　(家からの距離：' + dist + ' /所要時間：'+ time +' )';
+            r.setMap(map);
+            r.setDirections(result);
+        }
+    });
+}
+
+
+
 </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfiov9mIsmVcZyqJb-jQiTRTS_2rFY9gM&callback=initMap"></script>

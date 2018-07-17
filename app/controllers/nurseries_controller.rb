@@ -4,12 +4,6 @@ class NurseriesController < ApplicationController
 		@user = current_user
 		@search = Nursery.ransack(params[:q])
 		@nurseries = @search.result
-		# @hash = Gmaps4rails.build_markers(@nurseries) do |nursery, marker|
-		# 	marker.lat nursery.latitude
-		# 	marker.lng nursery.longitude
-		# 	marker.infowindow nursery.name
-		# 	marker.json({name: nursery.name})
-		# end
 	end
 
 	def show
@@ -53,12 +47,8 @@ class NurseriesController < ApplicationController
 	end
 private
   	def nursery_params
-      	params.require(:nursery).permit(:admin_id, :name, :type, :nearest, :phone, :email,
-      									 :price, :capacity, :date, :time, :url, :image, :concept, :concept_detail,
-      									 :post_code, :address, :latidute, :longitude, :category,
+      	params.require(:nursery).permit(:admin_id, :name, :nearest, :phone, :email,
+      									 :capacity, :date, :time, :holiday, :url, :post_code, :address, :latidute, :longitude, :category,
       									 prices_attributes: [:_destroy,:id, :nursery_id, :zero, :one, :twe, :three, :four, :five])
   	end
-  	# def list_item_params
-   #    	params.require(:list_item).permit(:user_id, :nursery_id)
-  	# end
 end

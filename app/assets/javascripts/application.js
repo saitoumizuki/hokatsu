@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require jquery-ui/widgets/sortable
 //= require_tree .
 
 // ヘッダー　マイページのプルダウンメニュー
