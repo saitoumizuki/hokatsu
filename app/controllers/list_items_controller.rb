@@ -1,6 +1,9 @@
 class ListItemsController < ApplicationController
 	def index
-		@list_items = ListItem.rank(:row_order)
+		@list_items = ListItem.all
+		@memo1 = Memo.find_by(user_id: current_user.id)
+		@memo2 = Memo.new
+		@memo2.user_id = current_user.id
 	end
 
 	# def show
@@ -25,14 +28,8 @@ class ListItemsController < ApplicationController
 		redirect_to list_items_path, notice: "削除されました。"
 	end
 
-	def sort
-		list_item = ListItem.find(params[:list_item_id])
-		list_item.update(list_item_params)
-		render nothing: true
-	end
-
 private
   	def list_item_params
-      	params.require(:list_item).permit(:user_id, :nursery_id, :row_order_position)
+      	params.require(:list_item).permit(:user_id, :nursery_id)
   	end
 end

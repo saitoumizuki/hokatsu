@@ -1,5 +1,8 @@
 class MemosController < ApplicationController
 	def create
+		memo = Memo.new(memo_params)
+		memo.user_id = current_user.id
+		memo.save
 	end
 
 	def update
