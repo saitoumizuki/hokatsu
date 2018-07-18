@@ -128,12 +128,36 @@
       </div>
 
         <div class="nursery-area">
+          <div class="row nursery-area-head">
+              <div class="col-sm-2">保育園名</div>
+              <div class="col-sm-1">カテゴリ</div>
+              <div class="col-sm-4">住所</div>
+              <div class="col-sm-3">最寄り駅</div>
+              <div class="col-sm-2">電話番号</div>
+          </div>
           <% @nurseries.each do |nursery| %>
-            <%= link_to nursery.name, nurseries_path(nursery) %>
+            <%= link_to nurseries_path(nursery) do %>
+              <div class="row nursery-area-list">
+                <div class="col-sm-2">
+                  <%= nursery.name %>
+                </div>
+                <div class="col-sm-1">
+                  <%= nursery.category %>
+                </div>
+                <div class="col-sm-4">
+                  <%= nursery.address %>
+                </div>
+                <div class="col-sm-3">
+                  <%= nursery.nearest %>
+                </div>
+                <div class="col-sm-2">
+                  <%= nursery.phone %>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -177,15 +201,58 @@ let markerData = [
       lng: <%= @user.longitude %>,
       ico: 'assets/icon.png'
  },
+  <% @spots.each do |spot| %>
+    {
+        name: '<%= spot.name %>',
+        lat: <%= spot.latitude %>,
+        lng: <%= spot.longitude %>,
+        ico: 'assets/icon6.png'
+    },
+  <% end %>
 <% end %>
 
-<% @nurseries.each do |nursery| %>
-  {
-      name: '<%= nursery.name %>',
-      lat: <%= nursery.latitude %>,
-      lng: <%= nursery.longitude %>,
-      ico: 'assets/icon2.png'
-  },
+<% if  @ninka.present? %>
+  <% @ninka.each do |nursery| %>
+    {
+        name: '<%= nursery.name %>',
+        lat: <%= nursery.latitude %>,
+        lng: <%= nursery.longitude %>,
+        ico: 'assets/icon2.png'
+    },
+  <% end %>
+<% end %>
+
+<% if  @ninsyo.present? %>
+  <% @ninsyo.each do |nursery| %>
+    {
+        name: '<%= nursery.name %>',
+        lat: <%= nursery.latitude %>,
+        lng: <%= nursery.longitude %>,
+        ico: 'assets/icon3.png'
+    },
+  <% end %>
+<% end %>
+
+<% if  @gai.present? %>
+  <% @gai.each do |nursery| %>
+    {
+        name: '<%= nursery.name %>',
+        lat: <%= nursery.latitude %>,
+        lng: <%= nursery.longitude %>,
+        ico: 'assets/icon4.png'
+    },
+  <% end %>
+<% end %>
+
+<% if  @sonota.present? %>
+  <% @nsonota.each do |nursery| %>
+    {
+        name: '<%= nursery.name %>',
+        lat: <%= nursery.latitude %>,
+        lng: <%= nursery.longitude %>,
+        ico: 'assets/icon5.png'
+    },
+  <% end %>
 <% end %>
 
 ];
