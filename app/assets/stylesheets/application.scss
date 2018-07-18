@@ -81,15 +81,16 @@ button{
 /*header----------------------------------------------------*/
 .header{
   width:100%;
-  height:80px;
+  height:120px;
   background-color:#fff;
-  box-shadow: 0px 6px 10px rgba(0,0,0,0.1);
+  position: fixed;
+  z-index:10;
 }
 .header-content{
   width:1080px;
   margin:0 auto;
-  margin-top:10px;
-  line-height: 60px;
+  padding-top:25px;
+  // line-height: 100px;
 }
 .logo-box{
   padding: 0.2em 0.5em;
@@ -199,37 +200,6 @@ button{
   top: 45px;
   left:7px;
 }
-
-
-// .item-a-span1{
-//   position:absolute;
-//   top: 50px;
-// }
-// .item-a-span2{
-//   position:absolute;
-//   top: 50px;
-//   left: 12px;
-// }
-// .item-a-span3{
-//   position:absolute;
-//   top: 50px;
-//   left: 10px;
-// }
-// .item-a-span4{
-//   position:absolute;
-//   top: 50px;
-//   left: 17px;
-// }
-// .item-a-span5{
-//   position:absolute;
-//   top: 35px;
-//   left: 14px;
-// }
-// .item-a-span6{
-//   position:absolute;
-//   top: 35px;
-//   left: 17px;
-// }
 .mypage{
   position: relative;
 }
@@ -264,79 +234,19 @@ button{
   line-height:15px;
   margin-top:10px;
 }
-/*メインの幅---------------------------------------*/
-.body-content{
-  width:1080px;
-  margin:30px auto;
-  line-height:1.65;
-}
-#notice{
-  font-size: 18px;
-  font-weight:700;
-  color: #5858FA;
-  border-bottom: #5858FA;
-}
-
-/*footer--------------------------------------------*/
-.footer-wrapper{
-  background-color:#218F9B;
-  margin-top:20px;/*商品一覧下部とフッター上部の間に余白*/
-}
-.footer-content{
-  width:960px;
-  margin:0 auto;
-  padding-top:20px;
-}
-.footer-list{
-  list-style-type: none;
-  line-height:25px;
-}
-.footer-item{
-  color:white;
-}
-.copyright{
-  color:white;
-}
-
-/*サイトバー----------------------------------------------------------*/
-.sidebar-box{
-  margin:30px 0;
-}
-.side-list{
-  list-style-type: none;
-  line-height:30px;
-}
-.side-item{
-  margin:0 10px;
-  display:block;
-}
-/*メインコンテンツ--------------------------------------------*/
-.nursery-area{
-  margin:50px 0;
-}
-.nursery-area-head{
-  font-weight:600;
-  margin:10px 0;
-  border-bottom: double 5px #4ec4d3;
-}
-.nursery-area-list{
-  padding:10px 0;
-}
-.nursery-area-list::hover{
-}
 /*検索--------------------------------------------------*/
 .index-header{
-  width:1080px;
-  margin:0 auto;
-  border-bottom:solid 1px #eaeaea;
+  // width:100%;
+  // margin:0 auto;
+  // border-bottom:solid 1px #eaeaea;
 }
-.index-header-box{
-  float:left;
-  margin-bottom:20px;
-}
-.search{
+
+.search-box{
   // width:450px;
   position:relative;
+  margin:5px 30px;
+  float:left;
+  // margin-bottom:20px;
   // padding:27px;
 }
 .sbox{
@@ -391,6 +301,97 @@ color:#7fbfff;
   left:370px;
   top: 18px;
 }
+
+
+/* タブレット横置き(1024px)程度の大きさ以下に適用される設定です */
+@media screen and (max-width:1024px) {
+  .header-content{
+    width:100%;
+  }
+  .body-content{
+    width:100%;
+  }
+}
+
+/* タブレット縦置きサイズ(768px)程度の画面の大きさ以下に適用される設定です */
+@media screen and (max-width:768px) {
+  .social i {
+    color: red;
+    }
+}
+
+/* スマートフォンサイズ(425px)程度の画面の大きさ以下に適用される設定です */
+@media screen and (max-width:425px) {
+.social i {
+    color: blue;
+    }
+}
+
+
+
+/*メインの幅---------------------------------------*/
+.body-content{
+  width:1080px;
+  margin:30px auto;
+  line-height:1.65;
+}
+#notice{
+  font-size: 18px;
+  font-weight:700;
+  color: #5858FA;
+  border-bottom: #5858FA;
+}
+
+/*footer--------------------------------------------*/
+.footer-wrapper{
+  background-color:#218F9B;
+  margin-top:20px;/*商品一覧下部とフッター上部の間に余白*/
+}
+.footer-content{
+  width:960px;
+  margin:0 auto;
+  padding-top:20px;
+}
+.footer-list{
+  list-style-type: none;
+  line-height:25px;
+}
+.footer-item{
+  color:white;
+}
+.copyright{
+  color:white;
+}
+
+/*サイトバー----------------------------------------------------------*/
+.sidebar-box{
+  margin:30px 0;
+}
+.side-list{
+  list-style-type: none;
+  line-height:30px;
+}
+.side-item{
+  margin:0 10px;
+  display:block;
+}
+/*メインコンテンツ--------------------------------------------*/
+.nursery-area{
+  width:100%;
+  margin:50px 0;
+}
+.nursery-area-head{
+  font-weight:600;
+  margin:10px 0;
+  border-bottom: double 5px #4ec4d3;
+}
+.nursery-area-list{
+  padding:10px 0;
+}
+#map {
+        height: 700px;
+        width: 100%;
+      }
 
 // カテゴリー選択ボタン
 .category{
@@ -773,4 +774,25 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .message-box{
   height:80px;
   width:225px;
+}
+
+/* タブレット横置き(1024px)程度の大きさ以下に適用される設定です */
+@media screen and (max-width:1024px) {
+  .social i {
+    color: green;
+    }
+}
+
+/* タブレット縦置きサイズ(768px)程度の画面の大きさ以下に適用される設定です */
+@media screen and (max-width:768px) {
+  .social i {
+    color: red;
+    }
+}
+
+/* スマートフォンサイズ(425px)程度の画面の大きさ以下に適用される設定です */
+@media screen and (max-width:425px) {
+.social i {
+    color: blue;
+    }
 }
