@@ -57,10 +57,10 @@ gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "font-awesome-rails"
-# google map
-gem 'gmaps4rails'
+
 # 住所から経度、緯度を取得するやつ
 gem 'geocoder'
 gem 'ransack'
-gem 'ranked-model'
-gem 'jquery-ui-rails'
+
+# あとで消す
+
