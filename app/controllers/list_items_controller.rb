@@ -13,7 +13,11 @@ class ListItemsController < ApplicationController
 		list_item = ListItem.new(list_item_params)
 		list_item.user_id = current_user.id
 		list_item.save
-		redirect_to list_items_path, notice: "マイリストに追加されました"
+		@nursery = list_item.nursery
+		@list_item = ListItem.new
+		@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
+		@user = current_user
+		render :template => "nurseries/show"
 	end
 
 	# def edit
@@ -24,8 +28,12 @@ class ListItemsController < ApplicationController
 
 	def destroy
 		list_item = ListItem.find(params[:id])
+		@nursery = list_item.nursery
 		list_item.destroy
-		redirect_to list_items_path, notice: "削除されました。"
+		@list_item = ListItem.new
+		@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
+		@user = current_user
+		render :template => "nurseries/show"
 	end
 
 private

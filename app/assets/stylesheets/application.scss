@@ -311,8 +311,18 @@ button{
   display:block;
 }
 /*メインコンテンツ--------------------------------------------*/
-.map-area{
-  // margin:10px auto;
+.nursery-area{
+  margin:50px 0;
+}
+.nursery-area-head{
+  font-weight:600;
+  margin:10px 0;
+  border-bottom: double 5px #4ec4d3;
+}
+.nursery-area-list{
+  padding:10px 0;
+}
+.nursery-area-list::hover{
 }
 /*検索--------------------------------------------------*/
 .index-header{

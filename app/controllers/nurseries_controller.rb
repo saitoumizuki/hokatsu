@@ -2,8 +2,13 @@ class NurseriesController < ApplicationController
 	def index
 		@nurseries = Nursery.all
 		@user = current_user
+		@spots = @user.spots.all
 		@search = Nursery.ransack(params[:q])
 		@nurseries = @search.result
+		@ninka = @nurseries.where("category = '認可'")
+		@ninsyo = @nurseries.where("category = '認証'")
+		@gai = @nurseries.where("category = '認可外'")
+		@sonota = @nurseries.where("category = 'その他'")
 	end
 
 	def show
@@ -48,7 +53,7 @@ class NurseriesController < ApplicationController
 private
   	def nursery_params
       	params.require(:nursery).permit(:admin_id, :name, :nearest, :phone, :email,
-      									 :capacity, :date, :time, :holiday, :url, :post_code, :address, :latidute, :longitude, :category,
+      									 :capacity, :date, :time, :holiday, :url, :post_code, :address, :latitude, :longitude, :category,
       									 prices_attributes: [:_destroy,:id, :nursery_id, :zero, :one, :twe, :three, :four, :five])
   	end
 end

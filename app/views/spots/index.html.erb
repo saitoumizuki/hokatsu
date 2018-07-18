@@ -1,2 +1,67 @@
-<h1>Spots#index</h1>
-<p>Find me in app/views/spots/index.html.erb</p>
+<div class="body-content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="list-content">
+        <div class="list-head">
+          <h2 class="h2">スポットの登録・編集</h2>
+        </div>
+
+      <div class="">
+        <h3 class="h3">スポットの新規登録</h3>
+          <div class="memo-box">
+            <%= form_for(@spot) do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.text_field :name , class: "" ,placeholder: 'スポット名（必須）'%>
+              <%= f.text_field :detail, class: "" ,placeholder: 'スポットの説明' %>
+              <%= f.text_field :post_code, class: "" ,placeholder: '郵便番号' %>
+              <%= f.text_field :address, class: "" ,placeholder: '住所' %>
+              <%= f.hidden_field :latitude %>
+              <%= f.hidden_field :longitude %>
+                <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+            <% end %>
+          </div>
+      </div>
+
+        <div class="">
+          <div class="list-a-box">
+          <a class="list-a" href="">並べ替え</a>
+        </div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>並び順</th>
+                <th>スポット名</th>
+                <th>説明</th>
+                <th>郵便番号</th>
+                <th>住所</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if @spots.present? %>
+                <% @spots.each do |spot| %>
+                  <%= form_for(spot) do |f| %>
+                    <tr>
+                      <td>1</td>
+                      <td><%= f.text_field :name, class: "" %></td>
+                      <td><%= f.text_field :detail, class: "" %></td>
+                      <td><%= f.text_field :post_code, class: "" %></td>
+                      <td><%= f.text_field :address, class: "" %></td>
+                      <td><%= f.text_field :latitude, class: "" %></td>
+                      <td><%= f.submit "更新", class: "btn btn-sm btn-info" %></td>
+                      <td><%= link_to "削除", spot_path(spot), method: :delete,data: { confirm: 'スポットを削除してよろしいですか？' }, class:"btn btn-default btn-xs" %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
