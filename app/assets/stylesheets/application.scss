@@ -84,7 +84,7 @@ button{
   height:120px;
   background-color:#fff;
   position: fixed;
-  z-index:10;
+  z-index:5;
 }
 .header-area{
   height:120px;
@@ -214,7 +214,7 @@ button{
 }
 .mypage-ul{
   background-color: #fff;
-  z-index:1;
+  z-index:10;
   margin-top:30px;
   width:200px;
   list-style-type:none;
@@ -224,7 +224,7 @@ button{
 .mypage-li{
   text-align:center;
   line-height:60px;
-  z-index:2;
+  z-index:11;
 }
 .li-gray{
   background-color: #f7f7f7;
@@ -335,7 +335,7 @@ color:#7fbfff;
 /*メインの幅---------------------------------------*/
 .body-content{
   width:1080px;
-  margin:30px auto;
+  margin:20px auto;
   line-height:1.65;
 }
 #notice{
@@ -502,6 +502,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   font-size:13px;
   line-height:50px;
   text-align:center;
+  z-index:12;
 }
 .hukidasi:after {
   content: '';
@@ -768,7 +769,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .user-message{
   display:none;
   position:absolute;
-  top:40px;
+  top:50px;
   left:90px;
   height:50px;
   font-size:13px;
