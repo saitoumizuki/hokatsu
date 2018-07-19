@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
 	def index
+		@search = Nursery.ransack(params[:q])
 		@users = User.all
 		@admins = Admin.all
 	end
 
 	def show
+		@search = Nursery.ransack(params[:q])
 		@user = User.find(params[:id])
 	end
 
 	def edit
+		@search = Nursery.ransack(params[:q])
 		@user = User.find(params[:id])
 	end
 

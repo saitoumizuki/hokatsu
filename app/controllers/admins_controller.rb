@@ -3,6 +3,7 @@ class AdminsController < ApplicationController
 	end
 
   	def show
+  		@search = Nursery.ransack(params[:q])
 		if admin_signed_in?
 			@admin = Admin.find(params[:id])
 		else
@@ -11,6 +12,7 @@ class AdminsController < ApplicationController
 	end
 
 	def edit
+		@search = Nursery.ransack(params[:q])
 		if admin_signed_in?
 			@admin = Admin.find(params[:id])
 		else

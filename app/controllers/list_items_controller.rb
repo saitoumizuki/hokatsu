@@ -1,5 +1,6 @@
 class ListItemsController < ApplicationController
 	def index
+		@search = Nursery.ransack(params[:q])
 		@list_items = ListItem.all
 		@memo1 = Memo.find_by(user_id: current_user.id)
 		@memo2 = Memo.new
