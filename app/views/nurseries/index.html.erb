@@ -1,13 +1,10 @@
+<!-- マップ実装位置 -->
 <div id="map"></div>
+
+
 <div class="body-content">
   <div class="container-fluid">
     <div class="row">
-
-      <div class="main-content">
-
-        <!-- マップ実装位置 -->
-        
-      </div>
 
         <div class="nursery-area">
           <div class="row nursery-area-head">
@@ -52,14 +49,14 @@ let markerData = [
 
 <% if  user_signed_in? %>
   {
-      name: '<%= @user.name %>',
+      name: '<%= link_to @user.name, user_path(current_user) %>',
       lat: <%= @user.latitude %>,
       lng: <%= @user.longitude %>,
       ico: 'assets/icon.png'
  },
   <% @spots.each do |spot| %>
     {
-        name: '<%= spot.name %>',
+        name: '<%=link_to spot.name, spots_path %>',
         lat: <%= spot.latitude %>,
         lng: <%= spot.longitude %>,
         ico: 'assets/icon6.png'
@@ -70,7 +67,7 @@ let markerData = [
 <% if  @ninka.present? %>
   <% @ninka.each do |nursery| %>
     {
-        name: '<%= nursery.name %>',
+        name: '<%= link_to nursery.name, nurseries_path(nursery) %>',
         lat: <%= nursery.latitude %>,
         lng: <%= nursery.longitude %>,
         ico: 'assets/icon2.png'
@@ -81,7 +78,7 @@ let markerData = [
 <% if  @ninsyo.present? %>
   <% @ninsyo.each do |nursery| %>
     {
-        name: '<%= nursery.name %>',
+        name: '<%= link_to nursery.name, nurseries_path(nursery) %>',
         lat: <%= nursery.latitude %>,
         lng: <%= nursery.longitude %>,
         ico: 'assets/icon3.png'
@@ -92,7 +89,7 @@ let markerData = [
 <% if  @gai.present? %>
   <% @gai.each do |nursery| %>
     {
-        name: '<%= nursery.name %>',
+        name: '<%= link_to nursery.name, nurseries_path(nursery) %>',
         lat: <%= nursery.latitude %>,
         lng: <%= nursery.longitude %>,
         ico: 'assets/icon4.png'
@@ -103,7 +100,7 @@ let markerData = [
 <% if  @sonota.present? %>
   <% @nsonota.each do |nursery| %>
     {
-        name: '<%= nursery.name %>',
+        name: '<%= link_to nursery.name, nurseries_path(nursery) %>',
         lat: <%= nursery.latitude %>,
         lng: <%= nursery.longitude %>,
         ico: 'assets/icon5.png'
@@ -150,6 +147,8 @@ function markerEvent(i) {
 </script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfiov9mIsmVcZyqJb-jQiTRTS_2rFY9gM&callback=initMap"></script>
+
+
 
 
 

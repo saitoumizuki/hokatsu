@@ -1,6 +1,6 @@
 class NurseriesController < ApplicationController
 	def index
-		@nurseries = Nursery.all
+		@nurseries = Nursery.all.order(id: "DESC")
 		@user = current_user
 		@spots = @user.spots.all
 		@search = Nursery.ransack(params[:q])
@@ -12,6 +12,7 @@ class NurseriesController < ApplicationController
 	end
 
 	def show
+		@search = Nursery.ransack(params[:q])
 		@nursery = Nursery.find(params[:id])
 		if user_signed_in?
 			@list_item = ListItem.new
@@ -21,6 +22,7 @@ class NurseriesController < ApplicationController
 	end
 
 	def new
+		@search = Nursery.ransack(params[:q])
 		@admin = current_admin.id
 		@nursery = Nursery.new
 		@nursery.prices.build
@@ -34,6 +36,7 @@ class NurseriesController < ApplicationController
 	end
 
 	def edit
+		@search = Nursery.ransack(params[:q])
 		@admin = current_admin.id
 		@nursery = Nursery.find(params[:id])
 	end

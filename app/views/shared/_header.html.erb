@@ -25,13 +25,13 @@
           </li>
           <li class="item">
             <!-- マイリスト -->
-            <%= link_to " ",list_items_path(current_user.id), class: "item-a a2 fas fa-heart" %>
+            <%= link_to " ",list_items_path(current_user), class: "item-a a2 fas fa-heart" %>
           </li>
           <li class="item mypage">
             <!-- マイページ -->
-            <%= link_to " ","#", class: "item-a a3 fas fa-user" %>
+            <%= link_to " ", user_path(current_user.id), class: "item-a a3 fas fa-user" %>
             <ul class="mypage-ul">
-              <li class="mypage-li li-gray"><%= link_to  current_user.name, user_path(current_user.id), class: "fas fa-user mypage-a" %></li>
+              <li class="mypage-li li-gray"><%= link_to  current_user.name, user_path(current_user), class: "fas fa-user mypage-a" %></li>
               <li class="mypage-li"><%= link_to "マイリスト", list_items_path(current_user.id), class: "fas fa-heart mypage-a" %></li>
               <li class="mypage-li"><%= link_to "スポット編集", spots_path, class: "fas fa-map mypage-a" %></li>
               <li class="mypage-li"><%= link_to "ログアウト", users_sign_out_path, method: :delete, class: "fas fa-sign-out-alt mypage-a" %></li>

@@ -46,21 +46,23 @@
                 <th></th>
                 <th>所在地</th>
                 <th>電話番号</th>
-                <th>家からの距離</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
+              <% if @list_items.present? %>
               <% @list_items.each do |list_item| %>
+              <%= form_for(list_item) do |f| %>
               <tr>
-                <td>1</td>
+                <td><%=f.text_field :row_order %><%= f.submit %></td>
                 <td><%= link_to list_item.nursery.name, nurseries_path(list_item.nursery.id) %></td>
                 <td><%= list_item.nursery.category %></td>
                 <td><%= list_item.nursery.address %></td>
                 <td><%= list_item.nursery.phone %></td>
-                <td>data</td>
                 <td><%= link_to "解除", list_item_path(list_item.id), method: :delete,data: { confirm: 'マイリストから解除してよろしいですか？' }, class:"btn btn-default btn-xs" %></td>
               </tr>
+              <% end %>
+              <% end %>
               <% end %>
             </tbody>
           </table>

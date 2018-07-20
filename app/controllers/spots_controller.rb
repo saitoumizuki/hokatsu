@@ -1,7 +1,8 @@
 class SpotsController < ApplicationController
 	def index
-		@spots = current_user.spots.all
+		@spots = current_user.spots.all.order(id: "DESC")
 		@spot = Spot.new
+		@search = Nursery.ransack(params[:q])
 	end
 
 	# def new

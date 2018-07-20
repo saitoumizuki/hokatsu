@@ -1,5 +1,6 @@
 class PricesController < ApplicationController
 	def new
+		@search = Nursery.ransack(params[:q])
 		@nursery = Nursery.find(params[:id])
 		@price = Price.new
 	end
@@ -11,6 +12,7 @@ class PricesController < ApplicationController
 	end
 
 	def edit
+		@search = Nursery.ransack(params[:q])
 		@price = Price.find(params[:id])
 		@nursery = @price.nursery
 	end

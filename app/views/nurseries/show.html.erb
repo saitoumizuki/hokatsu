@@ -23,6 +23,7 @@
             <%= form_for (@list_item) do |f| %>
               <%= f.hidden_field :nursery_id, :value => @nursery.id %>
               <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.hidden_field :row_order, :value => current_user.list_items.count + 1 %>
               <%= button_tag "", class: "addlist fas fa-heart" %> <!-- マイリストに追加 -->
             <% end %> <!-- form_for -->
           </div>
@@ -40,14 +41,14 @@
           <div id="map2" style="width: 720px; height: 600px;"></div>
         </div>
         <div class="button-area">
-          <%= link_to "　編集する　",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
-          <%= link_to "　削除する　",nurseries_path(@nursery), method: :delete, data: { confirm:'本当に削除しますか？'}, class:"btn btn-lg btn-danger"%>
+          <%= link_to "  編集する  ",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
+          <%= link_to "  削除する  ",nurseries_path(@nursery), method: :delete, data: { confirm:'本当に削除しますか？'}, class:"btn btn-lg btn-danger"%>
         </div>
       </div>
 
       <div class="col-sm-4 sidebar">
         <div class="tell-box">
-          <a class="tell fas fa-phone" href="tel:08061599312"><%= @nursery.phone %></a>
+          <a class="tell fas fa-phone" href="tel:<%= @nursery.phone %>"><%= @nursery.phone %></a>
           <!-- スマホのときのみ発信できるように書き換える -->
         </div>
         <div class="address-box box ohana">
@@ -73,7 +74,7 @@
             </thead>
             <tbody>
               <tr>
-                <td class="center-text"><%= @nursery.date %>　<%= @nursery.time %></td>
+                <td class="center-text"><%= @nursery.date %>  <%= @nursery.time %></td>
               </tr>
             </tbody>
           </table>
@@ -146,14 +147,14 @@ let marker = [];
 let infoWindow = [];
 let markerData = [
 
-<% if  user_signed_in? %>
+<%# if  user_signed_in? %>
   {
       name: '<%= @user.name %>',
       lat: <%= @user.latitude %>,
       lng: <%= @user.longitude %>,
       // ico: 'assets/icon.png'
  },
-<% end %>
+<%# end %>
 
   {
       name: '<%= @nursery.name %>',
@@ -204,6 +205,7 @@ function markerEvent(i) {
 <script type="text/javascript">
 let startLatLng = [<%= @user.latitude %>, <%= @user.longitude %>];
 let targetLatLng = [<%= @nursery.latitude %>, <%= @nursery.longitude %>];
+let goalMarkerImg = 'assets/icon5.png';
 let map;
 function initMap() {
     // ルート検索の条件
@@ -230,11 +232,11 @@ function initMap() {
     d.route(request, function(result, status){
         if (status == google.maps.DirectionsStatus.OK) {
             // ルートの所要時間
-            var time = result.routes[0].legs[0].duration.text;
+            let time = result.routes[0].legs[0].duration.text;
             // ルートの距離
-            var dist = result.routes[0].legs[0].distance.text;
+            let dist = result.routes[0].legs[0].distance.text;
             result.routes[0].legs[0].start_address = '<%= @user.name %>';
-            result.routes[0].legs[0].end_address = '<%= @nursery.name %>' + '　(家からの距離：' + dist + ' /所要時間：'+ time +' )';
+            result.routes[0].legs[0].end_address = '<%= @nursery.name %>' + '  【家からの距離：' + dist + ' /所要時間(徒歩)：'+ time +' 】';
             r.setMap(map);
             r.setDirections(result);
         }

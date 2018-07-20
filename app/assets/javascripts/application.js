@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
-
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
@@ -44,7 +43,7 @@ $(function(){
     $('.s').hover(function(){
         $(".user-message:not(:animated)", this).slideDown(900);
     }, function(){
-        $(".user-message",this).slideUp();
+        $(".user-message",this).slideUp(900);
     });
 });
 
