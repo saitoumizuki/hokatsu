@@ -81,12 +81,19 @@ button{
 /*header----------------------------------------------------*/
 .header{
   width:100%;
-  height:120px;
+  height:100px;
   background-color:#fff;
   // position: fixed;
   z-index:5;
+  // border-bottom:solid 1px #eaeaea;
+  box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
 }
 .header-n{
+  display:none;
+}
+.header-nn{
   display:none;
 }
 .header-area{
@@ -251,6 +258,7 @@ button{
 
 .search-box{
   margin:5px 0;
+  position:relative;
 }
 .sbox{
   height:50px;
@@ -396,41 +404,7 @@ color:#7fbfff;
   margin:20px;
 }
 
-/*チェックボックス--------------------------------*/
-// .checkbox01-input{
-//   display: none;
-// }
-// .checkbox01-parts{
-//   padding-left: 20px;
-//   position:relative;
-//   margin-right: 20px;
-// }
-// .checkbox01-parts::before{
-//   content: "";
-//   display: block;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 15px;
-//   height: 15px;
-//   border: 1px solid #999;
-//   border-radius: 4px;
-// }
-// .checkbox01-input:checked + .checkbox01-parts{
-//   color: #009a9a;
-// }
-// .checkbox01-input:checked + .checkbox01-parts::after{
-//   content: "";
-//   display: block;
-//   position: absolute;
-//   top: -5px;
-//   left: 5px;
-//   width: 7px;
-//   height: 14px;
-//   transform: rotate(40deg);
-//   border-bottom: 3px solid #009a9a;
-//   border-right: 3px solid #009a9a;
-// }
+
 
 /*保育園詳細------------------------------------*/
 .show-header{
@@ -790,20 +764,17 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 
 /* タブレット縦置きサイズ(768px)程度の画面の大きさ以下に適用される設定です */
 @media screen and (max-width:992px) {
-  .sidebar-wide {
-    display:none;
-    }
-  .sidebar-narrow {
-    display:block;
-    }
-}
-
-/* スマートフォンサイズ(425px)程度の画面の大きさ以下に適用される設定です */
-@media screen and (max-width:425px) {
+.sidebar-wide {
+  display:none;
+  }
+.sidebar-narrow {
+  display:block;
+  }
 
   .logo-box{
-  float:none;
-}
+    float:none;
+    margin:20px 0;
+  }
 
 .list{
   float:none;
@@ -814,28 +785,355 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 }
 .header-n{
   display:block;
-  height:150px;
+  height:200px;
 }
 
 .n-box{
   width:100%;
-  height:100px;
   background-color: #fff;
 }
-
+.logo-box{
+  // padding: 0.2em 0.5em;
+  margin: 0em 0;
+  // background: #d6ebff;
+  box-shadow:none;
+  border:none;
+}
 .n-nav{
-  margin-bottom:200px;
+  margin-top:10px;
+  height:65px;
+  width:480px;
+  margin:10px auto 20px auto;
+  border-bottom:dashed 1px #CCC;
 }
-.test1{
-  background-color: red;
-  height:100px;
+
+.search-box{
+  width:400px;
+  margin:0 auto;
+  margin-top:20px;
 }
-.test2{
-   background-color: blue;
-   height:100px;
+.sbox{
+  height: 40px;
+  // padding:0 10px;
+  // float:left;
+  // width:250px;
+  // border-radius:25px 0 0 25px;
+  // border:solid 2.5px #eaeaea;
+  // outline: 0;
 }
-.test3{
-   background-color: yellow;
-   height:100px;
+.sbox-2{
+  height: 40px;
+  // padding:0 10px;
+  // float:left;
+  // width:100px;
+  // border:none;
+  // border-top:solid 2.5px #eaeaea;
+  // border-bottom:solid 2.5px #eaeaea;
+  // outline: 0;
 }
+.sbtn{
+  height: 40px;
+  // padding:0 10px;
+  // display:block;
+  // float:left;
+  // background:#7fbfff;
+  // color:#fff;
+  // border:none;
+  // font-size:20px;
+  // border-radius:0 25px 25px 0;
+  // outline: 0;
+  // width:50px;
+}
+.mushimegane{
+  // position: absolute;
+  left:370px;
+  top: 15px;
+}
+// .item{
+//   float:left;
+//   margin:0 10px;
+//   position:relative;
+// }
+.item-a{
+  display:block;
+  width:100px;
+  // text-align:center;
+  // font-size:30px;
+  // color:#9AB1B7;
+}
+.a1::after{
+  // content: "スポット登録";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:-3px;
+}
+.a2::after{
+  // content: "マイリスト";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:10px;
+}
+.a3::after{
+  // content: "マイページ";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:8px;
+}
+.a4::after{
+  // content: "ログイン";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:15px;
+}
+.a5::after{
+  // content: "新規登録";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:12px;
+}
+.a6::after{
+  // content: "About";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:16px;
+}
+.a7::after{
+  // content: "＋保育園";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:10px;
+}
+.a8::after{
+  // content: "ユーザー's";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:10px;
+}
+.a9::after{
+  // content: "ログアウト";
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  top: 37px;
+  // left:7px;
+}
+}
+
+/* スマートフォンサイズ(425px)程度の画面の大きさ以下に適用される設定です */
+@media screen and (max-width:425px) {
+.header-n{
+  display:none;
+}
+.header-nn{
+  display:block;
+  height:230px;
+}
+.n-box{
+  width:100%;
+  background-color: #fff;
+}
+.header-logo{
+  font-size:20px;
+}
+.n-nav{
+  height:50px;
+  width:380px;
+}
+.n-nav{
+  margin:10px auto;
+}
+
+.search-box{
+  // margin-left:10px;
+}
+.item-a{
+  width:75px;
+  font-size:25px;
+  color:#9AB1B7;
+}
+.a1::after{
+  // content: "スポット登録";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:0px;
+}
+.a2::after{
+  // content: "マイリスト";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:6px;
+}
+.a3::after{
+  // content: "マイページ";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:6px;
+}
+.a4::after{
+  // content: "ログイン";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:4px;
+}
+.a5::after{
+  // content: "新規登録";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:4px;
+}
+.a6::after{
+  // content: "About";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:4px;
+}
+.a7::after{
+  // content: "＋保育園";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:4px;
+}
+.a8::after{
+  // content: "ユーザー's";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:4px;
+}
+.a9::after{
+  // content: "ログアウト";
+  font-size:10px;
+  // font-weight:600;
+  // position:absolute;
+  top: 28px;
+  left:6px;
+}
+.search-box{
+  width:250px;
+  margin:0 auto;
+  // margin-top:20px;
+}
+.sbox{
+  height: 30px;
+  // padding:0 10px;
+  float:none;
+  // width:250px;
+  border-radius:25px;
+  // border:solid 2.5px #eaeaea;
+  // outline: 0;
+  display:block;
+}
+.sbox-2{
+  height: 30px;
+  // padding:0 10px;
+  float:left;
+  // width:100px;
+  // border:none;
+  // border-top:solid 2.5px #eaeaea;
+  // border-bottom:solid 2.5px #eaeaea;
+  // outline: 0;
+  border-radius:25px;
+  display:block;
+}
+.sbtn{
+  height: 30px;
+  width:80px;
+  padding:0 10px;
+  // display:block;
+  float:none;
+  background:#7fbfff;
+  // color:#fff;
+  border:none;
+  border-radius:25px;
+  font-size:20px;
+  // outline: 0;
+  width:150px;
+  margin:0 auto;
+}
+.mushimegane{
+  position: absolute;
+  left:120px;
+  top: 95px;
+}
+
+/*チェックボックス--------------------------------*/
+.radio-button{
+  margin:15px 0;
+  text-align:center;
+}
+.checkbox01-input{
+  display: none;
+}
+.checkbox01-parts{
+  padding: 5px 15px;
+  position:relative;
+  border: 2px solid #9AB1B7;
+  border-radius: 20px;
+  background-color:#9AB1B7;
+  color: #fff;
+  // margin-right: 20px;
+}
+// .checkbox01-parts::before{
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 15px;
+//   height: 15px;
+//   border: 1px solid #999;
+//   border-radius: 4px;
+// }
+.p1{
+  padding-right:20px;
+  padding-left:20px;
+}
+.checkbox01-input:checked + .checkbox01-parts{
+  background-color: #fff;
+  color: #ffa9af;
+  border-color: #ffa9af;
+}
+// .checkbox01-input:checked + .checkbox01-parts::after{
+//   content: "";
+//   display: block;
+//   position: absolute;
+//   top: -5px;
+//   left: 5px;
+//   width: 7px;
+//   height: 14px;
+//   transform: rotate(40deg);
+//   border-bottom: 3px solid #009a9a;
+//   border-right: 3px solid #009a9a;
+// }
 }

@@ -1,14 +1,16 @@
 class NurseriesController < ApplicationController
 	def index
 		@nurseries = Nursery.all.order(id: "DESC")
-		@user = current_user
-		@spots = @user.spots.all
 		@search = Nursery.ransack(params[:q])
 		@nurseries = @search.result
 		@ninka = @nurseries.where("category = '認可'")
 		@ninsyo = @nurseries.where("category = '認証'")
 		@gai = @nurseries.where("category = '認可外'")
 		@sonota = @nurseries.where("category = 'その他'")
+		if user_signed_in?
+			@user = current_user
+			@spots = @user.spots.all
+		end
 	end
 
 	def show
