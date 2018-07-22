@@ -604,7 +604,11 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   padding: 0.5em 1em;
   border: double 5px #4ec4d3;
 }
-
+.roworder{
+  width:30px;
+  border-radius:5px;
+  padding:3px;
+}
 .sidebar-wide {
   display:block;
   }
@@ -997,7 +1001,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   // font-weight:600;
   // position:absolute;
   top: 28px;
-  left:4px;
+  left:12px;
 }
 .a5::after{
   // content: "新規登録";
@@ -1005,7 +1009,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   // font-weight:600;
   // position:absolute;
   top: 28px;
-  left:4px;
+  left:8px;
 }
 .a6::after{
   // content: "About";
@@ -1013,7 +1017,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   // font-weight:600;
   // position:absolute;
   top: 28px;
-  left:4px;
+  left:14px;
 }
 .a7::after{
   // content: "＋保育園";

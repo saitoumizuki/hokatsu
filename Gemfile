@@ -60,7 +60,8 @@ gem "font-awesome-rails"
 
 # 住所から経度、緯度を取得するやつ
 gem 'geocoder'
+# ほぼ使ってないけど、geocoderが動くためには必要みたい
+gem 'gmaps4rails'
 gem 'ransack'
-
 # あとで消す
 

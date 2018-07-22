@@ -69,7 +69,7 @@ $(function() {
 
 var number;
 $(function(){
-    $('input').click(function(){
+    $('.checkbox01-input').click(function(){
         if($(this).val() == number) {
             $(this).prop('checked', false);
             number = 0;

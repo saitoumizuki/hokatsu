@@ -1,3 +1,5 @@
+<%= render 'shared/header' %>
+
 <div class="body-content">
 
   <div class="show-header">
@@ -140,6 +142,8 @@
 </div>
 
 
+<% if current_user.address.present? %><!-- ユーザーの住所があるとき -->
+
 <script type="text/javascript">
 let startLatLng = [<%= @user.latitude %>, <%= @user.longitude %>];
 let targetLatLng = [<%= @nursery.latitude %>, <%= @nursery.longitude %>];
@@ -263,8 +267,59 @@ function markerEvent(map) {
 
 initMap()
 
-
-
 </script>
+
+<% else %><!-- ユーザーの住所がないとき -->
+
+
+<script type="text/javascript">
+let map;
+let marker;
+let infoWindow;
+let center = {
+  lat: <%= @nursery.latitude %>,
+  lng: <%= @nursery.longitude %>,
+
+<% if @nursery.category == '認可' %>
+  ico: '/assets/icon2.png'
+
+<% elsif @nursery.category == '認証' %>
+  ico: '/assets/icon3.png'
+
+<% elsif @nursery.category == '認可外' %>
+  ico: '/assets/icon4.png'
+
+<% else @nursery.category == 'その他' %>
+  ico: '/assets/icon5.png'
+
+<% end %>
+};
+
+function initMap() {
+ map = new google.maps.Map(document.getElementById('map2'), {
+     center: center,
+     zoom: 14
+   });
+
+ let image = ({
+                    url: center.ico,
+                    scaledSize: new google.maps.Size(50,50)
+                    });
+
+ marker = new google.maps.Marker({
+      position: center,
+      map: map,
+      icon: image
+   });
+
+ infoWindow = new google.maps.InfoWindow({
+        content: '<div class="map"><%= @nursery.name %></div>'
+  });
+ marker.addListener('click', function() {
+     infoWindow.open(map, marker);
+    });
+}
+</script>
+<% end %><!-- ユーザー住所の有無分岐　おわり -->
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfiov9mIsmVcZyqJb-jQiTRTS_2rFY9gM&callback=initMap"></script>

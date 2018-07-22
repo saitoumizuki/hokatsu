@@ -1,9 +1,9 @@
 class PricesController < ApplicationController
-	def new
-		@search = Nursery.ransack(params[:q])
-		@nursery = Nursery.find(params[:id])
-		@price = Price.new
-	end
+	# def new
+	# 	@search = Nursery.ransack(params[:q])
+	# 	@nursery = Nursery.find(params[:id])
+	# 	@price = Price.new
+	# end
 
 	def create
 		price = Price.new(price_params)
@@ -11,11 +11,11 @@ class PricesController < ApplicationController
 		redirect_to edit_price_path(price)
 	end
 
-	def edit
-		@search = Nursery.ransack(params[:q])
-		@price = Price.find(params[:id])
-		@nursery = @price.nursery
-	end
+	# def edit
+	# 	@search = Nursery.ransack(params[:q])
+	# 	@price = Price.find(params[:id])
+	# 	@nursery = @price.nursery
+	# end
 
 	def update
 		price = Price.find(params[:id])
