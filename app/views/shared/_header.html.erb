@@ -7,6 +7,17 @@
         <p class="header-logo">WithYou</p>
         <% end %>
       </div>
+      <div class="welcome">
+        <p class="welcome-p">
+          <% if  user_signed_in? %>
+            ようこそ<%= current_user.name %>さん
+          <% elsif  admin_signed_in? %>
+            ようこそ<%= current_admin.name %>さん
+          <% else %>
+            ようこそゲストさん
+          <% end %>
+        </p>
+      </div>
     </div>
   <div class="n-box n-nav">
     <% if  user_signed_in? %>
@@ -70,8 +81,7 @@
 
     <% end %>
     </div>
-<!--   </div> -->
-<!-- <div class="test3"> -->
+
     <div class="search-box">
       <%= search_form_for(@search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
         <%= f.search_field :name_or_address_or_nearest_or_category_cont, class: "sbox", placeholder: '保育園名、住所、最寄り駅で検索' %>
@@ -90,8 +100,6 @@
 
 
 
-
-
 <!-- タブレット画面用 -->
 <header class="header-n">
 
@@ -100,6 +108,17 @@
         <%= link_to root_path do %>
         <p class="header-logo">WithYou</p>
         <% end %>
+      </div>
+      <div class="welcome">
+        <p class="welcome-p">
+          <% if  user_signed_in? %>
+            ようこそ<%= current_user.name %>さん
+          <% elsif  admin_signed_in? %>
+            ようこそ<%= current_admin.name %>さん
+          <% else %>
+            ようこそゲストさん
+          <% end %>
+        </p>
       </div>
     </div>
 
@@ -126,7 +145,6 @@
       </nav>
 
     <% elsif  admin_signed_in? %>
-
       <nav class="header-right">
         <ul class="list">
           <li class="item">
@@ -145,7 +163,6 @@
       </nav>
 
     <% else %>
-
       <nav class="header-right">
         <ul class="list">
           <li class="item">
@@ -180,6 +197,17 @@
 
 <!-- PC画面用 -->
 <header class="header">
+  <div class="welcome">
+    <p class="welcome-p">
+      <% if  user_signed_in? %>
+        ようこそ<%= current_user.name %>さん
+      <% elsif  admin_signed_in? %>
+        ようこそ<%= current_admin.name %>さん
+      <% else %>
+        ようこそゲストさん
+      <% end %>
+    </p>
+  </div>
   <div class="header-content row">
 
     <%= link_to root_path do %>
@@ -188,7 +216,6 @@
         <p class="header-logo">WithYou</p>
       </div>
     </div>
-
     <% end %>
     <div class="h-box search-box col-md-5">
       <%= search_form_for(@search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>

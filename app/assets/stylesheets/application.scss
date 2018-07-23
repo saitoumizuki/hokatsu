@@ -81,7 +81,7 @@ button{
 /*header----------------------------------------------------*/
 .header{
   width:100%;
-  height:100px;
+  height:120px;
   background-color:#fff;
   // position: fixed;
   z-index:5;
@@ -104,8 +104,16 @@ button{
 .header-content{
   width:1080px;
   margin:0 auto;
-  padding-top:25px;
+  padding-top:15px;
   // line-height: 100px;
+}
+.welcome{
+  font-weight:600;
+  width:100%;
+}
+.welcome-p{
+  color:#acbfc6;
+  text-align:right;
 }
 .logo-box{
   padding: 0.2em 0.5em;
@@ -148,7 +156,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 40px;
   left:-3px;
 }
 .a2::after{
@@ -156,7 +164,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 40px;
   left:10px;
 }
 .a3::after{
@@ -164,7 +172,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 40px;
   left:8px;
 }
 .a4::after{
@@ -172,7 +180,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 35px;
   left:15px;
 }
 .a5::after{
@@ -180,7 +188,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 35px;
   left:12px;
 }
 .a6::after{
@@ -188,7 +196,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 35px;
   left:16px;
 }
 .a7::after{
@@ -196,7 +204,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 35px;
   left:10px;
 }
 .a8::after{
@@ -204,7 +212,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 35px;
   left:10px;
 }
 .a9::after{
@@ -212,7 +220,7 @@ button{
   font-size:14px;
   font-weight:600;
   position:absolute;
-  top: 45px;
+  top: 35px;
   left:7px;
 }
 .mypage{
@@ -248,6 +256,10 @@ button{
   margin:0 auto;
   line-height:15px;
   margin-top:10px;
+}
+
+.welcome{
+
 }
 /*検索--------------------------------------------------*/
 .index-header{
@@ -768,7 +780,6 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   float:left;
 }
 
-
 /* タブレット横置き(1024px)程度の大きさ以下に適用される設定です */
 @media screen and (max-width:1024px) {
   .header-content{
@@ -950,10 +961,22 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   top: 37px;
   // left:7px;
 }
+.welcome{
+  // position:absolute;
+  // top:10px;
+  // left:500px;
+  font-weight:600;
+  width:100%;
+}
+.welcome-p{
+  color:#acbfc6;
+  text-align:right;
+}
 }
 
 /* スマートフォンサイズ(425px)程度の画面の大きさ以下に適用される設定です */
 @media screen and (max-width:425px) {
+
 .header-n{
   display:none;
 }

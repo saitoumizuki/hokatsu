@@ -36,19 +36,20 @@
 
   <div class="container-fluid">
     <div class="row show-main">
-
-      <% if admin_signed_in? %>
       <div class="col-sm-8 main-content">
 
         <div class="map-area">
           <div id="map2" style="width: 720px; height: 600px;"></div>
         </div>
+
+        <% if admin_signed_in? %>
         <div class="button-area">
           <%= link_to "  編集する  ",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
           <%= link_to "  削除する  ",nurseries_path(@nursery), method: :delete, data: { confirm:'本当に削除しますか？'}, class:"btn btn-lg btn-danger"%>
         </div>
+        <% end %>
       </div>
-      <% end %>
+
 
       <div class="col-sm-4 sidebar">
         <div class="tell-box">
