@@ -1,21 +1,16 @@
 class SpotsController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@spots = current_user.spots.all.order(id: "DESC")
 		@spot = Spot.new
 		@search = Nursery.ransack(params[:q])
 	end
 
-	# def new
-	# end
-
 	def create
 		spot = Spot.new(spot_params)
 		spot.save
 		redirect_to spots_path
 	end
-
-	# def edit
-	# end
 
 	def update
 		spot = Spot.find(params[:id])

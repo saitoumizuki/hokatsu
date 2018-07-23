@@ -1,4 +1,5 @@
 class ListItemsController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@search = Nursery.ransack(params[:q])
 		@list_items = current_user.list_items.all.order("row_order")

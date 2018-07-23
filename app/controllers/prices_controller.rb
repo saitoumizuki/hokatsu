@@ -1,4 +1,5 @@
 class PricesController < ApplicationController
+	before_action :authenticate_admin!
 	# def new
 	# 	@search = Nursery.ransack(params[:q])
 	# 	@nursery = Nursery.find(params[:id])
@@ -28,6 +29,6 @@ class PricesController < ApplicationController
 	# end
 private
   	def price_params
-      	params.require(:price).permit(:nursery_id, :zero, :one, :twe, :three, :four, :five)
+      	params.require(:price).permit(:nursery_id, :title, :zero, :one, :twe, :three, :four, :five)
   	end
 end

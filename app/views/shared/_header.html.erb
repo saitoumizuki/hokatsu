@@ -1,6 +1,6 @@
-<header class="header-nn">
+<!-- スマホ画面用 -->
 
-<!-- <div class="test1"> -->
+<header class="header-nn">
     <div class="n-box">
       <div class="logo-box">
         <%= link_to root_path do %>
@@ -8,8 +8,6 @@
         <% end %>
       </div>
     </div>
-<!-- </div> -->
-<!-- <div class="test2"> -->
   <div class="n-box n-nav">
     <% if  user_signed_in? %>
       <nav>
@@ -42,7 +40,7 @@
           </li>
           <li class="item">
             <!-- ユーザー 一覧 -->
-            <%= link_to "", users_path, class: "item-a a8 fas fa-users" %>
+            <%= link_to "", admins_path, class: "item-a a8 fas fa-users" %>
           </li>
           <li class="item">
             <!-- ログアウト -->
@@ -86,19 +84,17 @@
         <i class="fas fa-search mushimegane"></i>
       <% end %>
     </div>
-<!-- </div> -->
 
-
-
-<!-- <div class="sukima">
-
-</div> -->
 </header>
 
 
+
+
+
+
+<!-- タブレット画面用 -->
 <header class="header-n">
 
-<!-- <div class="test1"> -->
     <div class="n-box">
       <div class="logo-box">
         <%= link_to root_path do %>
@@ -106,8 +102,7 @@
         <% end %>
       </div>
     </div>
-<!-- </div> -->
-<!-- <div class="test2"> -->
+
   <div class="n-box n-nav">
     <% if  user_signed_in? %>
       <nav>
@@ -140,7 +135,7 @@
           </li>
           <li class="item">
             <!-- ユーザー 一覧 -->
-            <%= link_to "", users_path, class: "item-a a8 fas fa-users" %>
+            <%= link_to "", admins_path, class: "item-a a8 fas fa-users" %>
           </li>
           <li class="item">
             <!-- ログアウト -->
@@ -170,8 +165,7 @@
 
     <% end %>
     </div>
-<!--   </div> -->
-<!-- <div class="test3"> -->
+
     <div class="n-box search-box">
       <%= search_form_for(@search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
         <%= f.search_field :name_or_address_or_nearest_or_category_cont, class: "sbox", placeholder: '保育園名、住所、最寄り駅で検索' %>
@@ -180,20 +174,11 @@
         <i class="fas fa-search mushimegane"></i>
       <% end %>
     </div>
-<!-- </div> -->
-
-<!-- <div class="sukima">
-
-</div> -->
 </header>
 
 
 
-
-
-
-
-
+<!-- PC画面用 -->
 <header class="header">
   <div class="header-content row">
 
@@ -252,7 +237,7 @@
           </li>
           <li class="item">
             <!-- ユーザー 一覧 -->
-            <%= link_to "", users_path, class: "item-a a8 fas fa-users" %>
+            <%= link_to "", admins_path, class: "item-a a8 fas fa-users" %>
           </li>
           <li class="item">
             <!-- ログアウト -->

@@ -1,82 +1,124 @@
 <%= render 'shared/header' %>
-
 <div class="body-content">
+	<div class="container-fluid">
+		<div class="row">
 
-<%= form_for(@nursery) do |f| %>
-	<%= f.hidden_field :admin_id, :value => @admin %>
+			<div class="list-head">
+				<h2 class="h2">保育園情報の編集</h2>
+			</div>
 
-	<div class="field">
-		<%= f.label :name, "保育園の名前" %>
-		<%= f.text_field :name, class: "" %>
+			<div class="n-form">
+				<%= form_for(@nursery) do |f| %>
+					<%= f.hidden_field :admin_id, :value => @admin %>
+					<div class="col-md-6 col-sm-12">
+						<table class="table table-bordered table-hover">
+							<tbody>
+								<tr>
+									<td class="col-sm-3"><%= f.label :name, "保育園の名前" %></td>
+									<td><%= f.text_field :name, autofocus: true, class:"form-control" %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :category, "施設区分" %></td>
+									<td><%= f.select :category, [["認可", "認可"], ["認証", "認証"], ["認可外", "認可外"]],  :include_blank => true, autofocus: true, class:"form-control" %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :nearst, "最寄り駅" %></td>
+									<td><%= f.text_field :nearest, autofocus: true, class:"form-control" %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :phone, "電話番号" %></td>
+									<td><%= f.text_field :phone, autofocus: true, class:"form-control", placeholder: '半角数字・ハイフンなしで入力してください' %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :email, "メールアドレス" %></td>
+									<td><%= f.text_field :email, autofocus: true, class:"form-control", placeholder: '半角で入力してください' %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :date, "開所日" %></td>
+									<td><%= f.text_field :date, autofocus: true, class:"form-control" %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :time, "開所時間" %></td>
+									<td><%= f.text_field :time, autofocus: true, class:"form-control" %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :holiday, "休園日" %></td>
+									<td><%= f.text_field :holiday, autofocus: true, class:"form-control" %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :url, "URL" %></td>
+									<td><%= f.text_field :url, autofocus: true, class:"form-control" %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :post_code, "郵便番号" %></td>
+									<td><%= f.text_field :post_code, autofocus: true, class:"form-control", placeholder: '半角数字・ハイフンなしで入力してください' %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :address, "住所" %></td>
+									<td><%= f.text_field :address, autofocus: true, class:"form-control" %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :latitude, "緯度" %></td>
+									<td><%= f.text_field :latitude, autofocus: true, class:"form-control", placeholder: '自動で保存されます。入力する必要はありません。' %></td>
+								</tr>
+								<tr>
+									<td><%= f.label :longitude, "経度" %></td>
+									<td><%= f.text_field :longitude, autofocus: true, class:"form-control", placeholder: '自動で保存されます。入力する必要はありません。' %></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<%= f.fields_for :prices do |m| %>
+							<table class="table table-bordered table-hover">
+								<tbody>
+									<tr>
+										<td class="col-sm-3"><%= f.label :title, "料金タイトル" %></td>
+										<td class="col-sm-6"><%= m.text_field :title, autofocus: true, class:"form-control", placeholder: '(例　1日10時間・週5登園の場合　など)' %></td>
+										<td class="col-sm-3"></td>
+									</tr>
+									<tr>
+										<td><%= f.label :zero, "0歳児" %></td>
+										<td><%= m.text_field :zero, autofocus: true, class:"form-control",placeholder: '半角数字・カンマなしで入力してください' %></td>
+										<td>円</td>
+									</tr>
+									<tr>
+										<td><%= f.label :one, "1歳児" %></td>
+										<td><%= m.text_field :one, autofocus: true, class:"form-control",placeholder: '半角数字・カンマなしで入力してください' %></td>
+										<td>円</td>
+									</tr>
+									<tr>
+										<td><%= f.label :twe, "2歳児" %></td>
+										<td><%= m.text_field :twe, autofocus: true, class:"form-control",placeholder: '半角数字・カンマなしで入力してください' %></td>
+										<td>円</td>
+									</tr>
+									<tr>
+										<td><%= f.label :three, "3歳児" %></td>
+										<td><%= m.text_field :three, autofocus: true, class:"form-control",placeholder: '半角数字・カンマなしで入力してください' %></td>
+										<td>円</td>
+									</tr>
+									<tr>
+										<td><%= f.label :four, "4歳児" %></td>
+										<td><%= m.text_field :four, autofocus: true, class:"form-control",placeholder: '半角数字・カンマなしで入力してください' %></td>
+										<td>円</td>
+									</tr>
+									<tr>
+										<td><%= f.label :five, "5歳児" %></td>
+										<td><%= m.text_field :five, autofocus: true, class:"form-control",placeholder: '半角数字・カンマなしで入力してください' %></td>
+										<td>円</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="checkbox n-check">
+							    <%= m.check_box :_destroy %>
+								<span class="check-span">料金一覧を削除する</span>
+								<p>※更新時に削除する場合はチェックを入れてください</p>
+							</div>
+						<% end %>
+					</div>
+				<%= f.submit "　完 了　", class: "btn btn-lg btn-info btn-block" %>
+			<% end %>
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :category, "施設区分" %>
-		<%= f.select :category, [["認可", "認可"], ["認証", "認証"], ["認可外", "認可外"]],  :include_blank => true, class: 'sbox-2 btn btn-default' %>
-	</div>
-	<div class="field">
-		<%= f.label :nearst, "最寄り駅" %>
-		<%= f.text_field :nearest, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :phone, "電話番号" %>
-		<%= f.text_field :phone, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :email, "メールアドレス" %>
-		<%= f.text_field :email, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :capacity, "定員" %>
-		<%= f.text_field :capacity, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :date, "開所日" %>
-		<%= f.text_field :date, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :time, "開所時間" %>
-		<%= f.text_field :time, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :holiday, "休園日" %>
-		<%= f.text_field :holiday, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :url, "URL" %>
-		<%= f.text_field :url, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :post_code, "郵便番号" %>
-		<%= f.text_field :post_code, class: "" %>
-	</div>
-		<div class="field">
-		<%= f.label :address, "住所" %>
-		<%= f.text_field :address, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :latitude, "緯度" %>
-		<%= f.text_field :latitude, class: "" %>
-	</div>
-	<div class="field">
-		<%= f.label :longitude, "経度" %>
-		<%= f.text_field :longitude, class: "" %>
-	</div>
-
-	<div class="field">
-		<%= f.label :prices, "料金" %>
-		<%= f.fields_for :prices do |m| %>
-			<p>0 <%= m.text_field :zero %></p>
-			<p>1 <%= m.text_field :one %></p>
-			<p>2 <%= m.text_field :twe %></p>
-			<p>3 <%= m.text_field :three %></p>
-			<p>4 <%= m.text_field :four %></p>
-			<p>5 <%= m.text_field :five %></p>
-		<% end %>
-	</div>
-
-	<div class="button-area item-button">
-		<%= f.submit "　完 了　", class: "btn btn-lg btn-info" %>
-	</div>
-<% end %>
-
+</div>
 </div>
