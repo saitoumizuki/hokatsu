@@ -62,8 +62,8 @@
                 <td><%= link_to list_item.nursery.name, nurseries_path(list_item.nursery.id) %></td>
                 <td><%= list_item.nursery.category %></td>
                 <td><%= list_item.nursery.address %></td>
-                <td><%= list_item.nursery.phone %></td>
-                <td><%= link_to "解除", list_item_path(list_item.id), method: :delete,data: { confirm: 'マイリストから解除してよろしいですか？' }, class:"btn btn-default btn-xs" %></td>
+                <td><%= list_item.nursery.phone %>-<%= list_item.nursery.phone_middle %>-<%= list_item.nursery.phone_right %></td>
+                <td><%= link_to "解除", list_item_path(list_item.id), method: :delete,data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモも削除されます' }, class:"btn btn-default btn-xs" %></td>
               </tr>
               <% end %>
               <% end %>

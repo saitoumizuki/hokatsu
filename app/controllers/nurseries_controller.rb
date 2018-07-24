@@ -8,7 +8,9 @@ class NurseriesController < ApplicationController
 		@ninsyo = @nurseries.where("category = '認証'")
 		@gai = @nurseries.where("category = '認可外'")
 		@sonota = @nurseries.where("category = 'その他'")
+		# 「その他」が生かしきれていない感
 		if user_signed_in?
+		# ログインしている場合、ユーザーに紐づくスポットもマップに表示する。
 			@user = current_user
 			@spots = @user.spots.all
 		end
@@ -18,9 +20,20 @@ class NurseriesController < ApplicationController
 		@search = Nursery.ransack(params[:q])
 		@nursery = Nursery.find(params[:id])
 		if user_signed_in?
-			@list_item = ListItem.new
-			@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
 			@user = current_user
+			@list_item = ListItem.new
+			# マイリストに追加する用
+			@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
+			# マイリストから削除する用、メモを追加・編集する用
+			if @list_itema.present?
+				# マイリストに登録している場合、メモ書きができるようにする。
+				@list_memo1 = ListMemo.find_by(list_item_id: @list_itema.id)
+				# メモが既に存在するなら、edit
+				@list_memo2 = ListMemo.new
+				# メモがないなら、create
+				@list_memo2.list_item_id = @list_itema.id
+				# list_memoの親はlist_item
+			end
 		end
 	end
 
@@ -59,7 +72,7 @@ class NurseriesController < ApplicationController
 	end
 private
   	def nursery_params
-      	params.require(:nursery).permit(:admin_id, :name, :nearest, :phone, :email,
+      	params.require(:nursery).permit(:admin_id, :name, :nearest, :phone, :phone_middle, :phone_right, :email,
       									 :capacity, :date, :time, :holiday, :url, :post_code, :address, :latitude, :longitude, :category,
       									 prices_attributes: [:_destroy, :id, :title, :nursery_id, :zero, :one, :twe, :three, :four, :five])
   	end

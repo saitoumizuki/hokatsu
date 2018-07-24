@@ -50,7 +50,7 @@
 
       <div class="user-box4">
         <div class="prof-btn-area s">
-          <a class="prof-btn4" href="">アカウントを削除する</a>
+          <%= link_to "アカウントを削除する", user_path(@user), method: :delete, data: { confirm: 'アカウントを削除してよろしいですか？' }, class: "prof-btn4" %>
           <div class="user-message message-box">アカウントを削除すると、プロフィール、スポット、マイリスト等、登録されたすべての情報が削除されます。</div>
         </div>
       </div>

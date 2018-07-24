@@ -40,6 +40,7 @@
             <th>説明</th>
             <th>郵便番号</th>
             <th>住所</th>
+            <th>緯度/経度</th>
             <th></th>
             <th></th>
           </tr>
@@ -53,7 +54,7 @@
                   <td><%= f.text_field :detail, autofocus: true, class:"form-control" %></td>
                   <td><%= f.text_field :post_code, autofocus: true, class:"form-control" %></td>
                   <td><%= f.text_field :address, autofocus: true, class:"form-control" %></td>
-                      <%= f.text_field :latitude %>
+                  <td><%= spot.latitude %>/<%= spot.longitude %></td>
                   <td><%= f.submit "更新", class: "btn btn-sm btn-info" %></td>
                   <td><%= link_to "削除", spot_path(spot), method: :delete,data: { confirm: 'スポットを削除してよろしいですか？' }, class:"btn btn-default btn-sm" %></td>
                 </tr>

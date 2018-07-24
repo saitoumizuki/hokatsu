@@ -8,23 +8,23 @@ class ListItemsController < ApplicationController
 		@memo2.user_id = current_user.id
 	end
 
-	# def show
-	# end
-
 	def create
 		list_item = ListItem.new(list_item_params)
 		list_item.user_id = current_user.id
 		list_item.save
+		# "nurseries/show"を生成するための変数
 		@nursery = list_item.nursery
 		@list_item = ListItem.new
 		@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
 		@user = current_user
 		@search = Nursery.ransack(params[:q])
+		if @list_itema.present?
+			@list_memo1 = ListMemo.find_by(list_item_id: @list_itema.id)
+			@list_memo2 = ListMemo.new
+			@list_memo2.list_item_id = @list_itema.id
+		end
 		render :template => "nurseries/show"
 	end
-
-	# def edit
-	# end
 
 	def update
 		list_item = ListItem.find(params[:id])
@@ -34,20 +34,20 @@ class ListItemsController < ApplicationController
 
 	def destroy
 		list_item = ListItem.find(params[:id])
-		# destroyの前に@nurseryを取得しておく
 		@nursery = list_item.nursery
+		# destroyの前に@nurseryを取得しておく
 		list_item.destroy
-		# list_itemの並び順を更新する
-		# list_items = current_user.list_items.all
-		# 	list_items.each do |list_item|
-		# 		list_item.row_order = list_items.count + 1
-		# 		list_item.save
-		# 	end
-		# nursery/showを表示する
-		@list_item = ListItem.new
-		@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
+
+		# "nurseries/show"を生成するための変数
 		@user = current_user
 		@search = Nursery.ransack(params[:q])
+		@list_item = ListItem.new
+		@list_itema = ListItem.find_by(nursery_id: @nursery.id, user_id: current_user.id)
+		if @list_itema.present?
+			@list_memo1 = ListMemo.find_by(list_item_id: @list_itema.id)
+			@list_memo2 = ListMemo.new
+			@list_memo2.list_item_id = @list_itema.id
+		end
 		render :template => "nurseries/show"
 	end
 

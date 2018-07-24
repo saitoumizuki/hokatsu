@@ -18,7 +18,7 @@
 
     <% if user_signed_in? %>
         <% if @list_itema.present? %>
-          <%= link_to "", list_item_path(@list_itema.id), method: :delete, class:"addlist2 fas fa-heart"%>
+          <%= link_to "", list_item_path(@list_itema.id), method: :delete, data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモは削除されます' } , class:"addlist2 fas fa-heart"%>
         <% else %> <!-- if リストアイテム -->
           <div class="add-box">
             <%= form_for (@list_item) do |f| %>
@@ -41,6 +41,34 @@
         <div class="map-area">
           <div id="map2" style="width: 720px; height: 600px;"></div>
         </div>
+        <% if @list_itema.present? %>
+          <div class="listmemo">
+            <h3 class="h3 memo">Memo</h3>
+            <% if @list_memo1.present? %>
+
+              <div class="memo-box">
+                <%= form_for(@list_memo1) do |f| %>
+                  <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
+                  <%= f.text_area :body, class: "memo-form" %>
+                  <div>
+                    <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+                  </div>
+                <% end %><!-- form_for -->
+              </div>
+            <% else %><!-- @list_memo1.present? -->
+              <div class="memo-box">
+                <%= form_for(@list_memo2) do |f| %>
+                  <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
+                  <%= f.text_area :body, size: "35x10", class: "memo-form" %>
+                  <div>
+                    <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+                  </div>
+                <% end %><!-- form_for -->
+              </div>
+            <% end %><!-- @list_memo1.present? -->
+          </div>
+        <% end %>
+
 
         <% if admin_signed_in? %>
         <div class="button-area">
@@ -53,7 +81,7 @@
 
       <div class="col-sm-4 sidebar">
         <div class="tell-box">
-          <a class="tell fas fa-phone" href="tel:<%= @nursery.phone %>"><%= @nursery.phone %></a>
+          <a class="tell fas fa-phone" href="tel:<%= @nursery.phone %>+<%= @nursery.phone_middle %>+<%= @nursery.phone_right %>"><%= @nursery.phone %>-<%= @nursery.phone_middle %>-<%= @nursery.phone_right %></a>
           <!-- スマホのときのみ発信できるように書き換える? -->
         </div>
         <div class="address-box box ohana">
@@ -146,7 +174,7 @@
 </div>
 
 <% if user_signed_in? %>
-<% if current_user.address.present? %><!-- ユーザーの住所があるとき -->
+<% if current_user.latitude.present? %><!-- ユーザーの住所があるとき -->
 
 <script type="text/javascript">
 let startLatLng = [<%= @user.latitude %>, <%= @user.longitude %>];
