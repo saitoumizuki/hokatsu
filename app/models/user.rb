@@ -7,8 +7,6 @@ class User < ApplicationRecord
         has_many :spots, dependent: :delete_all
         has_many :list_items,dependent: :delete_all
         has_one :memo, dependent: :delete
-        has_many :task, dependent: :delete_all
-        has_many :checked_task, dependent: :delete_all
 
         geocoded_by :address
   		after_validation :geocode

@@ -1,3 +1,4 @@
+<%= render 'shared/header' %>
 <!-- マップ実装位置 -->
 <div id="map"></div>
 
@@ -47,13 +48,16 @@ let marker = [];
 let infoWindow = [];
 let markerData = [
 
-<% if  user_signed_in? %>
+<% if user_signed_in? %>
+<% if @user.address.present? %>
   {
       name: '<%= link_to @user.name, user_path(current_user) %>',
       lat: <%= @user.latitude %>,
       lng: <%= @user.longitude %>,
       ico: 'assets/icon.png'
  },
+ <% end %>
+
   <% @spots.each do |spot| %>
     {
         name: '<%=link_to spot.name, spots_path %>',
@@ -62,7 +66,8 @@ let markerData = [
         ico: 'assets/icon6.png'
     },
   <% end %>
-<% end %>
+  <% end %>
+
 
 <% if  @ninka.present? %>
   <% @ninka.each do |nursery| %>

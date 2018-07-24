@@ -1,9 +1,12 @@
+<%= render 'shared/header2' %>
+<div class="body-content">
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -24,3 +27,5 @@
 <% end %>
 
 <%= render "admins/shared/links" %>
+
+</div>

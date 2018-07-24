@@ -65,3 +65,16 @@ $(function() {
  
   });
 });
+
+
+var number;
+$(function(){
+    $('.checkbox01-input').click(function(){
+        if($(this).val() == number) {
+            $(this).prop('checked', false);
+            number = 0;
+        } else {
+            number = $(this).val();
+        }
+    });
+});

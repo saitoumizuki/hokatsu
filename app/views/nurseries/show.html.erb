@@ -1,3 +1,5 @@
+<%= render 'shared/header' %>
+
 <div class="body-content">
 
   <div class="show-header">
@@ -39,16 +41,20 @@
         <div class="map-area">
           <div id="map2" style="width: 720px; height: 600px;"></div>
         </div>
+
+        <% if admin_signed_in? %>
         <div class="button-area">
           <%= link_to "  編集する  ",edit_nurseries_path(@nursery), class:"btn btn-lg btn-info"%>
           <%= link_to "  削除する  ",nurseries_path(@nursery), method: :delete, data: { confirm:'本当に削除しますか？'}, class:"btn btn-lg btn-danger"%>
         </div>
+        <% end %>
       </div>
+
 
       <div class="col-sm-4 sidebar">
         <div class="tell-box">
           <a class="tell fas fa-phone" href="tel:<%= @nursery.phone %>"><%= @nursery.phone %></a>
-          <!-- スマホのときのみ発信できるように書き換える -->
+          <!-- スマホのときのみ発信できるように書き換える? -->
         </div>
         <div class="address-box box ohana">
           <table class="box-table">
@@ -101,7 +107,7 @@
             <thead>
               <tr>
                 <th ></th>
-                <th class="center-text">例)週5/1日10時間の場合</th>
+                <th class="center-text"><%= price.title %></th>
               </tr>
               <tr>
                 <th class="price-th center-text">０歳</th>
@@ -139,6 +145,8 @@
   </div>
 </div>
 
+<% if user_signed_in? %>
+<% if current_user.address.present? %><!-- ユーザーの住所があるとき -->
 
 <script type="text/javascript">
 let startLatLng = [<%= @user.latitude %>, <%= @user.longitude %>];
@@ -263,8 +271,109 @@ function markerEvent(map) {
 
 initMap()
 
-
-
 </script>
+
+<% else %><!-- ユーザーの住所がないとき -->
+
+
+<script type="text/javascript">
+let map;
+let marker;
+let infoWindow;
+let center = {
+  lat: <%= @nursery.latitude %>,
+  lng: <%= @nursery.longitude %>,
+
+<% if @nursery.category == '認可' %>
+  ico: '/assets/icon2.png'
+
+<% elsif @nursery.category == '認証' %>
+  ico: '/assets/icon3.png'
+
+<% elsif @nursery.category == '認可外' %>
+  ico: '/assets/icon4.png'
+
+<% else @nursery.category == 'その他' %>
+  ico: '/assets/icon5.png'
+
+<% end %>
+};
+
+function initMap() {
+ map = new google.maps.Map(document.getElementById('map2'), {
+     center: center,
+     zoom: 14
+   });
+
+ let image = ({
+                    url: center.ico,
+                    scaledSize: new google.maps.Size(50,50)
+                    });
+
+ marker = new google.maps.Marker({
+      position: center,
+      map: map,
+      icon: image
+   });
+
+ infoWindow = new google.maps.InfoWindow({
+        content: '<div class="map"><%= @nursery.name %></div>'
+  });
+ marker.addListener('click', function() {
+     infoWindow.open(map, marker);
+    });
+}
+</script>
+<% end %><!-- ユーザー住所の有無分岐　おわり -->
+<% else %><!-- ユーザーがログインしていないとき -->
+<script type="text/javascript">
+let map;
+let marker;
+let infoWindow;
+let center = {
+  lat: <%= @nursery.latitude %>,
+  lng: <%= @nursery.longitude %>,
+
+<% if @nursery.category == '認可' %>
+  ico: '/assets/icon2.png'
+
+<% elsif @nursery.category == '認証' %>
+  ico: '/assets/icon3.png'
+
+<% elsif @nursery.category == '認可外' %>
+  ico: '/assets/icon4.png'
+
+<% else @nursery.category == 'その他' %>
+  ico: '/assets/icon5.png'
+
+<% end %>
+};
+
+function initMap() {
+ map = new google.maps.Map(document.getElementById('map2'), {
+     center: center,
+     zoom: 14
+   });
+
+ let image = ({
+                    url: center.ico,
+                    scaledSize: new google.maps.Size(50,50)
+                    });
+
+ marker = new google.maps.Marker({
+      position: center,
+      map: map,
+      icon: image
+   });
+
+ infoWindow = new google.maps.InfoWindow({
+        content: '<div class="map"><%= @nursery.name %></div>'
+  });
+ marker.addListener('click', function() {
+     infoWindow.open(map, marker);
+    });
+}
+</script>
+<% end %>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfiov9mIsmVcZyqJb-jQiTRTS_2rFY9gM&callback=initMap"></script>

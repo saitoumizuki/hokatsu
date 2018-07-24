@@ -1,3 +1,5 @@
+<%= render 'shared/header' %>
+
 <div class="body-content">
   <div class="container-fluid">
     <div class="row">
@@ -11,8 +13,6 @@
        <!--    <div class=""> -->
         <%= form_for(@spot) do |f| %>
           <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.hidden_field :latitude %>
-          <%= f.hidden_field :longitude %>
 
           <table class="table">
             <tbody>
@@ -21,6 +21,8 @@
                 <td><%= f.text_field :detail, autofocus: true, class:"form-control",placeholder: 'スポットの説明' %></td>
                 <td><%= f.text_field :post_code, autofocus: true, class:"form-control",placeholder: '郵便番号' %></td>
                 <td><%= f.text_field :address,  autofocus: true, class:"form-control" ,placeholder: '住所' %></td>
+                <%= f.hidden_field :latitude %>
+                <%= f.hidden_field :longitude %>
                 <td><%= f.submit "　保存　", class: "btn btn-sm btn-info" %></td>
               </tr>
             </tbody>
@@ -51,7 +53,7 @@
                   <td><%= f.text_field :detail, autofocus: true, class:"form-control" %></td>
                   <td><%= f.text_field :post_code, autofocus: true, class:"form-control" %></td>
                   <td><%= f.text_field :address, autofocus: true, class:"form-control" %></td>
-                      <%= f.hidden_field :latitude %>
+                      <%= f.text_field :latitude %>
                   <td><%= f.submit "更新", class: "btn btn-sm btn-info" %></td>
                   <td><%= link_to "削除", spot_path(spot), method: :delete,data: { confirm: 'スポットを削除してよろしいですか？' }, class:"btn btn-default btn-sm" %></td>
                 </tr>

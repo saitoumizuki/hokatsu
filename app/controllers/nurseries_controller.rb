@@ -1,14 +1,17 @@
 class NurseriesController < ApplicationController
+	before_action :authenticate_admin!, except: [:index, :show]
 	def index
 		@nurseries = Nursery.all.order(id: "DESC")
-		@user = current_user
-		@spots = @user.spots.all
 		@search = Nursery.ransack(params[:q])
 		@nurseries = @search.result
 		@ninka = @nurseries.where("category = '認可'")
 		@ninsyo = @nurseries.where("category = '認証'")
 		@gai = @nurseries.where("category = '認可外'")
 		@sonota = @nurseries.where("category = 'その他'")
+		if user_signed_in?
+			@user = current_user
+			@spots = @user.spots.all
+		end
 	end
 
 	def show
@@ -39,6 +42,7 @@ class NurseriesController < ApplicationController
 		@search = Nursery.ransack(params[:q])
 		@admin = current_admin.id
 		@nursery = Nursery.find(params[:id])
+		@nursery.prices.build
 	end
 
 	def update
@@ -57,6 +61,6 @@ private
   	def nursery_params
       	params.require(:nursery).permit(:admin_id, :name, :nearest, :phone, :email,
       									 :capacity, :date, :time, :holiday, :url, :post_code, :address, :latitude, :longitude, :category,
-      									 prices_attributes: [:_destroy,:id, :nursery_id, :zero, :one, :twe, :three, :four, :five])
+      									 prices_attributes: [:_destroy, :id, :title, :nursery_id, :zero, :one, :twe, :three, :four, :five])
   	end
 end
