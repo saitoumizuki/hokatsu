@@ -3,9 +3,12 @@ class ListItemsController < ApplicationController
 	def index
 		@search = Nursery.ransack(params[:q])
 		@list_items = current_user.list_items.all.order("row_order")
+		# ユーザーに紐づくリストアイテムをすべて取り出し、並び順(row_order)で並べる
 		@memo1 = Memo.find_by(user_id: current_user.id)
+		# メモが既にあるなら編集
 		@memo2 = Memo.new
-		@memo2.user_id = current_user.id
+		# メモがないなら新規作成
+		# @memo2.user_id = current_user.id
 	end
 
 	def create

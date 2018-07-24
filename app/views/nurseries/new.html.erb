@@ -28,7 +28,14 @@
 								</tr>
 								<tr>
 									<td><%= f.label :phone, "電話番号" %></td>
-									<td><%= f.text_field :phone, autofocus: true, class:"form-control" %>-<%= f.text_field :phone_middle, autofocus: true, class:"form-control" %>-<%= f.text_field :phone_right, autofocus: true, class:"form-control" %>※半角数字・ハイフンなしで入力してください</td>
+									<td>
+										<p class="phone-notice">※半角数字・ハイフンなしで入力してください</p>
+										<%= f.text_field :phone, autofocus: true, class:"form-control phone-form" %>
+										<p class="haihun">‐</p>
+										<%= f.text_field :phone_middle, autofocus: true, class:"form-control phone-form" %>
+										<p class="haihun">‐</p>
+										<%= f.text_field :phone_right, autofocus: true, class:"form-control phone-form" %>
+									</td>
 								</tr>
 								<tr>
 									<td><%= f.label :email, "メールアドレス" %></td>

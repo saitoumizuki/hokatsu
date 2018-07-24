@@ -19,6 +19,9 @@ class NurseriesController < ApplicationController
 	def show
 		@search = Nursery.ransack(params[:q])
 		@nursery = Nursery.find(params[:id])
+		if @nursery.phone.present? && @nursery.phone_middle.present? && @nursery.phone_right.present?
+			@phone = @nursery.phone + @nursery.phone_middle + @nursery.phone_right
+		end
 		if user_signed_in?
 			@user = current_user
 			@list_item = ListItem.new
@@ -42,6 +45,7 @@ class NurseriesController < ApplicationController
 		@admin = current_admin.id
 		@nursery = Nursery.new
 		@nursery.prices.build
+		# priceも同時に作成する
 	end
 
 	def create

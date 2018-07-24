@@ -27,7 +27,14 @@
 								</tr>
 								<tr>
 									<td><%= f.label :phone, "電話番号" %></td>
-									<td><%= f.text_field :phone, autofocus: true, class:"form-control phone-form" %>-<%= f.text_field :phone_middle, autofocus: true, class:"form-control phone-form" %>-<%= f.text_field :phone_right, autofocus: true, class:"form-control phone-form" %>※半角数字・ハイフンなしで入力してください</td>
+									<td>
+										<p class="phone-notice">※半角数字・ハイフンなしで入力してください</p>
+										<%= f.text_field :phone, autofocus: true, class:"form-control phone-form" %>
+										<p class="haihun">‐</p>
+										<%= f.text_field :phone_middle, autofocus: true, class:"form-control phone-form" %>
+										<p class="haihun">‐</p>
+										<%= f.text_field :phone_right, autofocus: true, class:"form-control phone-form" %>
+									</td>
 								</tr>
 								<tr>
 									<td><%= f.label :email, "メールアドレス" %></td>
@@ -74,8 +81,8 @@
 								<tbody>
 									<tr>
 										<td class="col-sm-3"><%= f.label :title, "料金タイトル" %></td>
-										<td class="col-sm-6"><%= m.text_field :title, autofocus: true, class:"form-control", placeholder: '(例　1日10時間・週5登園の場合　など)' %></td>
-										<td class="col-sm-3"></td>
+										<td class="col-sm-8"><%= m.text_field :title, autofocus: true, class:"form-control", placeholder: '(例　1日10時間・週5登園の場合　など)' %></td>
+										<td class="col-sm-1"></td>
 									</tr>
 									<tr>
 										<td><%= f.label :zero, "0歳児" %></td>

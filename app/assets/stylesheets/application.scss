@@ -463,6 +463,9 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   bottom: -9px;
   left: 30px;
 }
+.n-add-box{
+  display:none;
+}
 .addlist{
   display:block;
   float:right;
@@ -522,6 +525,9 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 }
 .head-p{
   line-height:15px;
+}
+.show-head-n{
+  display:none;
 }
 .concept-detail{
   margin-top:10px;
@@ -596,13 +602,22 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 }
 .check-span{
   font-size:13px;
+  color:#f95f92;
   font-weight:600;
 }
 .phone-form{
   width:30%;
   float:left;
 }
-
+.haihun{
+  float:left;
+  font-size:20px;
+  margin:3px;
+}
+.phone-notice{
+  // display:block;
+  // width:150px;
+}
 /*マイリスト一覧　list-item/index*/
 .list-head{
   position:relative;
@@ -792,6 +807,15 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   .body-content{
     width:100%;
   }
+  .n-add-box{
+  display:block;
+  margin-top:20px;
+  font-weight:600;
+  font-size:15px;
+}
+.l-add-box{
+  display:none;
+}
 }
 
 /* タブレット縦置きサイズ(768px)程度の画面の大きさ以下に適用される設定です */
@@ -976,6 +1000,45 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   color:#acbfc6;
   text-align:right;
 }
+.h1{
+  font-size:20px;
+  font-weight:600;
+}
+.show-head{
+  display:none;
+}
+.show-head-n{
+  display:block;
+}
+.addlist{
+  margin-right:0px;
+  font-size:25px;
+  color:#5EE1EF;
+  margin-top:60px;
+}
+.addlist::after{
+  content:'マイリストに追加';
+  font-size:15px;
+  font-weight:600;
+}
+.addlist2{
+  display:block;
+  float:right;
+  margin-right:20px;
+  font-size:20px;
+  color:#f95f92;
+  margin-top:0px;
+}
+.addlist2::after{
+  content:'マイリストに追加済み';
+  font-size:12px;
+  font-weight:600;
+}
+.addlist2::hover{
+  color:#f95f92;
+}
+
+
 }
 
 /* スマートフォンサイズ(425px)程度の画面の大きさ以下に適用される設定です */
@@ -1180,4 +1243,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 //   border-bottom: 3px solid #009a9a;
 //   border-right: 3px solid #009a9a;
 // }
+.h1{
+  font-size:15px;
+}
 }
