@@ -83,7 +83,7 @@
     </div>
 
     <div class="search-box">
-      <%= search_form_for(@search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
+      <%= search_form_for(search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
         <%= f.search_field :name_or_address_or_nearest_or_category_cont, class: "sbox", placeholder: '保育園名、住所、最寄り駅で検索' %>
         <div class="radio-button">
           <label><%= f.radio_button :category_eq, "認可", class: "checkbox01-input" %><span class="checkbox01-parts p1">認可</span></label>
@@ -184,7 +184,7 @@
     </div>
 
     <div class="n-box search-box">
-      <%= search_form_for(@search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
+      <%= search_form_for(search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
         <%= f.search_field :name_or_address_or_nearest_or_category_cont, class: "sbox", placeholder: '保育園名、住所、最寄り駅で検索' %>
         <%= f.select :category_eq, {"認可" => "認可","認証" => "認証","認可外" => "認可外"}, {include_blank: true}, {class: 'sbox-2 btn btn-default'} %>
         <%= f.submit '', :class =>"sbtn" %>
@@ -218,7 +218,7 @@
     </div>
     <% end %>
     <div class="h-box search-box col-md-5">
-      <%= search_form_for(@search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
+      <%= search_form_for(search,:url => { :controller => :nurseries, :action => :index } ) do |f| %>
         <%= f.search_field :name_or_address_or_nearest_or_category_cont, class: "sbox", placeholder: '保育園名、住所、最寄り駅で検索' %>
 
         <%= f.select :category_eq, {"認可" => "認可","認証" => "認証","認可外" => "認可外"}, {include_blank: true}, {class: 'sbox-2 btn btn-default'} %>

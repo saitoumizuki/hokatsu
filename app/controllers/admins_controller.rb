@@ -9,18 +9,20 @@ class AdminsController < ApplicationController
 
   	def show
   		@search = Nursery.ransack(params[:q])
-		@admin = Admin.find(params[:id])
+		# @admin = Admin.find(params[:id])
+		@user = User.find(params[:id])
 	end
 
 	def edit
 		@search = Nursery.ransack(params[:q])
-		@admin = Admin.find(params[:id])
+		# @admin = Admin.find(params[:id])
+		user = User.find(params[:id])
 	end
 
 	def update
-		admin = Admin.find(params[:id])
-      	if admin.update(admin_params)
-      		redirect_to admin_path(admin)
+		user = User.find(params[:id])
+      	if user.update(admin_params)
+      		redirect_to admin_path(user)
       	else
       		render :edit
       	end
