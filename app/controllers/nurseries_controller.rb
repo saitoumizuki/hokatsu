@@ -1,5 +1,5 @@
 class NurseriesController < ApplicationController
-	before_action :authenticate_admin!, except: [:index, :show]
+	before_action :authenticate_admin!, except: [:index, :show, :about]
 	def index
 		@nurseries = Nursery.all.order(id: "DESC")
 		@search = Nursery.ransack(params[:q])
@@ -73,6 +73,9 @@ class NurseriesController < ApplicationController
 		nursery = Nursery.find(params[:id])
   		nursery.destroy
   		redirect_to root_path
+	end
+	def about
+		@search = Nursery.ransack(params[:q])
 	end
 private
   	def nursery_params

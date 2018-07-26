@@ -15,6 +15,7 @@ devise_scope :user do
 end
 
 root 'nurseries#index'
+get '/nurseries/about' => 'nurseries#about',  as:'about'
 
 resources :admins, only: [:index, :show, :edit, :update]
 resources :users, only: [:index, :show, :edit, :update, :destroy]

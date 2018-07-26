@@ -332,7 +332,8 @@ color:#7fbfff;
 /*footer--------------------------------------------*/
 .footer-wrapper{
   background-color:#218F9B;
-  margin-top:20px;/*商品一覧下部とフッター上部の間に余白*/
+  margin-top:20px;
+  height:400px;
 }
 .footer-content{
   width:960px;
@@ -348,6 +349,7 @@ color:#7fbfff;
 }
 .copyright{
   color:white;
+  margin-top:300px;
 }
 
 /*サイトバー----------------------------------------------------------*/
@@ -362,6 +364,53 @@ color:#7fbfff;
 //   margin:0 10px;
 //   display:block;
 // }
+/*アバウト--------------------------------------------*/
+.img-area{
+  position:relative;
+}
+.about-text{
+  position:absolute;
+  top:150px;
+  width:100%;
+  height:70px;
+  text-align:center;
+  font-family:'SimSun','serif','ＭＳ 明朝';
+}
+.about-h1{
+  text-align:center;
+  font-size:25px;
+  font-weight:600;
+}
+.about-h1-2{
+  text-align:center;
+  font-size:25px;
+  font-weight:600;
+}
+.about-img{
+  background-image: url(about1.jpg);
+  background-size: cover;
+  background-position:0 -500px;
+  background-repeat: no-repeat;
+  width:100%;
+  height:400px;
+}
+.about-box{
+  width:600px;
+  margin:0 auto;
+  margin-top:50px;
+  text-align:center;
+}
+.about-box-p{
+  text-align:center;
+}
+.about-img1{
+  background-image: url(ohana.png);
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height:400px;
+}
+
 /*メインコンテンツ--------------------------------------------*/
 .nursery-area{
   width:100%;
@@ -649,7 +698,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   border: double 5px #4ec4d3;
 }
 .roworder{
-  width:30px;
+  width:40px;
   border-radius:5px;
   padding:3px;
 }
@@ -820,6 +869,9 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 
 /* タブレット縦置きサイズ(768px)程度の画面の大きさ以下に適用される設定です */
 @media screen and (max-width:992px) {
+  #map{
+    margin-top:10px;
+  }
 .sidebar-wide {
   display:none;
   }
@@ -1043,7 +1095,9 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 
 /* スマートフォンサイズ(425px)程度の画面の大きさ以下に適用される設定です */
 @media screen and (max-width:425px) {
-
+  #map{
+    margin-top:20px;
+  }
 .header-n{
   display:none;
 }
