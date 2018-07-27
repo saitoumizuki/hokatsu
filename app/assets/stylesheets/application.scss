@@ -391,20 +391,26 @@ color:#7fbfff;
 }
 .about-text{
   position:absolute;
-  top:150px;
+  top:40%;
   width:100%;
   height:70px;
   text-align:center;
+  color:#fff;
   font-family:'SimSun','serif','ＭＳ 明朝';
+  text-shadow: 2px  2px 5px #f95f92,
+            -2px  2px 5px #f95f92,
+             2px -2px 5px #f95f92,
+            -2px -2px 5px #f95f92;
 }
 .about-h1{
   text-align:center;
-  font-size:25px;
+  font-size:30px;
   font-weight:600;
 }
+
 .about-h1-2{
   text-align:center;
-  font-size:25px;
+  font-size:30px;
   font-weight:600;
 }
 .about-img{
