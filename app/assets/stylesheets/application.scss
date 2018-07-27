@@ -121,6 +121,7 @@ button{
   background: #d6ebff;
   box-shadow: 0px 0px 0px 10px #d6ebff;
   border: dashed 2px white;
+  border-radius:10px;
   float:left;
 }
 .header-logo{
@@ -132,6 +133,7 @@ button{
   font-weight:600;
   margin: 0;
   padding: 0;
+  border-radius:10px;
 }
 
 .list{
@@ -332,22 +334,43 @@ color:#7fbfff;
 /*footer--------------------------------------------*/
 .footer-wrapper{
   background-color:#218F9B;
-  margin-top:20px;/*商品一覧下部とフッター上部の間に余白*/
+  margin-top:20px;
+  height:400px;
+  width:100%;
+
 }
+
 .footer-content{
-  width:960px;
+  width:1080px;
   margin:0 auto;
-  padding-top:20px;
 }
-.footer-list{
-  list-style-type: none;
-  line-height:25px;
+.footer-box{
+  margin-top:10px;
 }
 .footer-item{
-  color:white;
+  display:block;
+  color:#fff;
+  border:dashed 1px #fff;
+  padding:10px;
+  text-align:center;
+  margin:20px;
+  font-weight:600;
+}
+
+.footer-item:hover{
+  color:#218f9b;
 }
 .copyright{
-  color:white;
+  // color:#fff;
+  // margin-top:200px;
+}
+.footerimg{
+  background-image: url(footerimg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width:550px;
+  height:400px;
+  margin:0 auto;
 }
 
 /*サイトバー----------------------------------------------------------*/
@@ -362,6 +385,53 @@ color:#7fbfff;
 //   margin:0 10px;
 //   display:block;
 // }
+/*アバウト--------------------------------------------*/
+.img-area{
+  position:relative;
+}
+.about-text{
+  position:absolute;
+  top:150px;
+  width:100%;
+  height:70px;
+  text-align:center;
+  font-family:'SimSun','serif','ＭＳ 明朝';
+}
+.about-h1{
+  text-align:center;
+  font-size:25px;
+  font-weight:600;
+}
+.about-h1-2{
+  text-align:center;
+  font-size:25px;
+  font-weight:600;
+}
+.about-img{
+  background-image: url(about1.jpg);
+  background-size: cover;
+  background-position:0 -500px;
+  background-repeat: no-repeat;
+  width:100%;
+  height:400px;
+}
+.about-box{
+  width:600px;
+  margin:0 auto;
+  margin-top:50px;
+  text-align:center;
+}
+.about-box-p{
+  text-align:center;
+}
+.about-img1{
+  background-image: url(ohana.png);
+  background-size: cover;
+  background-position: center;
+  width:100%;
+  height:400px;
+}
+
 /*メインコンテンツ--------------------------------------------*/
 .nursery-area{
   width:100%;
@@ -463,6 +533,9 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   bottom: -9px;
   left: 30px;
 }
+.n-add-box{
+  display:none;
+}
 .addlist{
   display:block;
   float:right;
@@ -522,6 +595,9 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 }
 .head-p{
   line-height:15px;
+}
+.show-head-n{
+  display:none;
 }
 .concept-detail{
   margin-top:10px;
@@ -596,9 +672,22 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 }
 .check-span{
   font-size:13px;
+  color:#f95f92;
   font-weight:600;
 }
-
+.phone-form{
+  width:30%;
+  float:left;
+}
+.haihun{
+  float:left;
+  font-size:20px;
+  margin:3px;
+}
+.phone-notice{
+  // display:block;
+  // width:150px;
+}
 /*マイリスト一覧　list-item/index*/
 .list-head{
   position:relative;
@@ -630,7 +719,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   border: double 5px #4ec4d3;
 }
 .roworder{
-  width:30px;
+  width:40px;
   border-radius:5px;
   padding:3px;
 }
@@ -788,10 +877,29 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   .body-content{
     width:100%;
   }
+  .n-add-box{
+  display:block;
+  margin-top:20px;
+  font-weight:600;
+  font-size:15px;
+}
+.l-add-box{
+  display:none;
+}
+.footer-content{
+  width:100%;
+}
+.footerimg{
+  width:60%;
+  height:300px;
+}
 }
 
 /* タブレット縦置きサイズ(768px)程度の画面の大きさ以下に適用される設定です */
 @media screen and (max-width:992px) {
+  #map{
+    margin-top:10px;
+  }
 .sidebar-wide {
   display:none;
   }
@@ -972,11 +1080,59 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   color:#acbfc6;
   text-align:right;
 }
+.h1{
+  font-size:20px;
+  font-weight:600;
+}
+.show-head{
+  display:none;
+}
+.show-head-n{
+  display:block;
+}
+.addlist{
+  margin-right:0px;
+  font-size:25px;
+  color:#5EE1EF;
+  margin-top:60px;
+}
+.addlist::after{
+  content:'マイリストに追加';
+  font-size:15px;
+  font-weight:600;
+}
+.addlist2{
+  display:block;
+  float:right;
+  margin-right:20px;
+  font-size:20px;
+  color:#f95f92;
+  margin-top:0px;
+}
+.addlist2::after{
+  content:'マイリストに追加済み';
+  font-size:12px;
+  font-weight:600;
+}
+.addlist2::hover{
+  color:#f95f92;
+}
+.footer-content{
+  width:100%;
+}
+.footerimg{
+  width:60%;
+  height:300px;
+}
+
+
 }
 
 /* スマートフォンサイズ(425px)程度の画面の大きさ以下に適用される設定です */
 @media screen and (max-width:425px) {
-
+  #map{
+    margin-top:20px;
+  }
 .header-n{
   display:none;
 }
@@ -1176,4 +1332,12 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 //   border-bottom: 3px solid #009a9a;
 //   border-right: 3px solid #009a9a;
 // }
+.h1{
+  font-size:15px;
+}
+.footerimg{
+  width:100%;
+  height:300px;
+}
+
 }

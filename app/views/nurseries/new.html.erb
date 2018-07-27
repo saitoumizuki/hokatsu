@@ -1,5 +1,4 @@
-
-<%= render 'shared/header' %>
+<%= render 'shared/header', search: @search %>
 <div class="body-content">
 	<div class="container-fluid">
 		<div class="row">
@@ -28,7 +27,14 @@
 								</tr>
 								<tr>
 									<td><%= f.label :phone, "電話番号" %></td>
-									<td><%= f.text_field :phone, autofocus: true, class:"form-control", placeholder: '半角数字・ハイフンなしで入力してください' %></td>
+									<td>
+										<p class="phone-notice">※半角数字・ハイフンなしで入力してください</p>
+										<%= f.text_field :phone, autofocus: true, class:"form-control phone-form" %>
+										<p class="haihun">‐</p>
+										<%= f.text_field :phone_middle, autofocus: true, class:"form-control phone-form" %>
+										<p class="haihun">‐</p>
+										<%= f.text_field :phone_right, autofocus: true, class:"form-control phone-form" %>
+									</td>
 								</tr>
 								<tr>
 									<td><%= f.label :email, "メールアドレス" %></td>

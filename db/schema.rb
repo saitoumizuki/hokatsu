@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180723052555) do
+ActiveRecord::Schema.define(version: 20180724070245) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,9 +33,16 @@ ActiveRecord::Schema.define(version: 20180723052555) do
   create_table "list_items", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "nursery_id", null: false
+    t.integer "row_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "row_order"
+  end
+
+  create_table "list_memos", force: :cascade do |t|
+    t.integer "list_item_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "memos", force: :cascade do |t|
@@ -48,6 +55,7 @@ ActiveRecord::Schema.define(version: 20180723052555) do
   create_table "nurseries", force: :cascade do |t|
     t.integer "admin_id", null: false
     t.string "name", null: false
+    t.string "category"
     t.string "nearest"
     t.string "phone"
     t.string "email"
@@ -56,17 +64,15 @@ ActiveRecord::Schema.define(version: 20180723052555) do
     t.text "time"
     t.text "holiday"
     t.text "url"
-    t.text "image_id"
-    t.text "concept"
-    t.text "concept_detail"
     t.string "post_code"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "category"
-    t.index ["name", "nearest", "address"], name: "index_nurseries_on_name_and_category_and_nearest_and_address"
+    t.string "phone_middle"
+    t.string "phone_right"
+    t.index ["name", "category", "nearest", "address"], name: "index_nurseries_on_name_and_category_and_nearest_and_address"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -77,9 +83,9 @@ ActiveRecord::Schema.define(version: 20180723052555) do
     t.integer "three"
     t.integer "four"
     t.integer "five"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
   end
 
   create_table "spots", force: :cascade do |t|

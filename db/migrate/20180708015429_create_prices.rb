@@ -8,6 +8,7 @@ class CreatePrices < ActiveRecord::Migration[5.1]
     	t.integer :three
     	t.integer :four
     	t.integer :five
+      t.string :title
       t.timestamps
     end
   end

@@ -1,46 +1,107 @@
-<%= render 'shared/header' %>
+<%= render 'shared/header', search: @search %>
 
 <div class="body-content">
 
   <div class="show-header">
-    <div class="f cate-logo">
-      <p class="h3 cate"><%= @nursery.category %></p>
-    </div>
-    <div class="f head">
-      <%= link_to @nursery.url do %>
-       <div class="s">
-         <div class="hukidasi">外部サイトに移動します</div>
-          <h1 class="h1"><%= @nursery.name %></h1>
-       </div>
-      <% end %>
-      <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
+<!-- PC画面用 -->
+    <div class="show-head">
+      <div class="f cate-logo">
+        <p class="h3 cate"><%= @nursery.category %></p>
+      </div>
+      <div class="f head">
+        <%= link_to @nursery.url do %>
+         <div class="s">
+           <div class="hukidasi">外部サイトに移動します</div>
+            <h1 class="h1"><%= @nursery.name %></h1>
+         </div>
+        <% end %>
+        <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
+      </div>
     </div>
 
-    <% if user_signed_in? %>
-        <% if @list_itema.present? %>
-          <%= link_to "", list_item_path(@list_itema.id), method: :delete, class:"addlist2 fas fa-heart"%>
-        <% else %> <!-- if リストアイテム -->
-          <div class="add-box">
-            <%= form_for (@list_item) do |f| %>
-              <%= f.hidden_field :nursery_id, :value => @nursery.id %>
-              <%= f.hidden_field :user_id, :value => current_user.id %>
-              <%= f.hidden_field :row_order, :value => current_user.list_items.count + 1 %>
-              <%= button_tag "", class: "addlist fas fa-heart" %> <!-- マイリストに追加 -->
-            <% end %> <!-- form_for -->
-          </div>
-        <% end %> <!-- if リストアイテム -->
-    <% end %> <!-- if ユーザー -->
+<!-- スマホ画面用 -->
+    <div class="show-head-n row">
+      <div class="f head col-sm-8">
+        <%= link_to @nursery.url do %>
+         <div class="s">
+           <div class="hukidasi">外部サイトに移動します</div>
+            <h1 class="h1">【<%= @nursery.category %>】<%= @nursery.name %></h1>
+         </div>
+        <% end %>
+        <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
+      </div>
+      <div class="col-sm-2 n-add-box">
+          <% if user_signed_in? %>
+            <% if @list_itema.present? %>
+              <%= link_to "", list_item_path(@list_itema.id), method: :delete, data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモは削除されます' } , class:"addlist2 fas fa-heart"%>
+            <% else %> <!-- if リストアイテム -->
+              <div class="add-box">
+                <%= form_for (@list_item) do |f| %>
+                  <%= f.hidden_field :nursery_id, :value => @nursery.id %>
+                  <%= f.hidden_field :user_id, :value => current_user.id %>
+                  <%= f.hidden_field :row_order, :value => current_user.list_items.count + 1 %>
+                  <%= button_tag "", class: "addlist fas fa-heart" %> <!-- マイリストに追加 -->
+                <% end %> <!-- form_for -->
+              </div>
+            <% end %> <!-- if リストアイテム -->
+        <% end %> <!-- if ユーザー -->
+      </div>
+    </div>
+
+  <div class="l-add-box">
+      <% if user_signed_in? %>
+          <% if @list_itema.present? %>
+            <%= link_to "", list_item_path(@list_itema.id), method: :delete, data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモは削除されます' } , class:"addlist2 fas fa-heart"%>
+          <% else %> <!-- if リストアイテム -->
+            <div class="add-box">
+              <%= form_for (@list_item) do |f| %>
+                <%= f.hidden_field :nursery_id, :value => @nursery.id %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.hidden_field :row_order, :value => current_user.list_items.count + 1 %>
+                <%= button_tag "", class: "addlist fas fa-heart" %> <!-- マイリストに追加 -->
+              <% end %> <!-- form_for -->
+            </div>
+          <% end %> <!-- if リストアイテム -->
+      <% end %> <!-- if ユーザー -->
+    </div>
   </div>
-
 
 
   <div class="container-fluid">
     <div class="row show-main">
-      <div class="col-sm-8 main-content">
+      <div class="col-md-8 col-sm-12 main-content">
 
         <div class="map-area">
           <div id="map2" style="width: 720px; height: 600px;"></div>
         </div>
+        <% if @list_itema.present? %>
+          <div class="listmemo">
+            <h3 class="h3 memo">Memo</h3>
+            <% if @list_memo1.present? %>
+
+              <div class="memo-box">
+                <%= form_for(@list_memo1) do |f| %>
+                  <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
+                  <%= f.text_area :body, class: "memo-form" %>
+                  <div>
+                    <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+                  </div>
+                <% end %><!-- form_for -->
+              </div>
+            <% else %><!-- @list_memo1.present? -->
+              <div class="memo-box">
+                <%= form_for(@list_memo2) do |f| %>
+                  <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
+                  <%= f.text_area :body, size: "35x10", class: "memo-form" %>
+                  <div>
+                    <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+                  </div>
+                <% end %><!-- form_for -->
+              </div>
+            <% end %><!-- @list_memo1.present? -->
+          </div>
+        <% end %>
+
 
         <% if admin_signed_in? %>
         <div class="button-area">
@@ -51,10 +112,12 @@
       </div>
 
 
-      <div class="col-sm-4 sidebar">
+      <div class="col-md-4 col-sm-12 sidebar">
         <div class="tell-box">
-          <a class="tell fas fa-phone" href="tel:<%= @nursery.phone %>"><%= @nursery.phone %></a>
+          <% if @phone.present? %>
+          <a class="tell fas fa-phone" href="tel:<%= @phone %>"><%= @nursery.phone %>-<%= @nursery.phone_middle %>-<%= @nursery.phone_right %></a>
           <!-- スマホのときのみ発信できるように書き換える? -->
+          <% end %>
         </div>
         <div class="address-box box ohana">
           <table class="box-table">
@@ -111,27 +174,27 @@
               </tr>
               <tr>
                 <th class="price-th center-text">０歳</th>
-                <td class="center-text"><%= price.zero %>円</td>
+                <td class="center-text"><%= number_with_delimiter(price.zero) %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">1歳</th>
-                <td class="center-text"><%= price.one %>円</td>
+                <td class="center-text"><%= number_with_delimiter(price.one) %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">2歳</th>
-                <td class="center-text"><%= price.twe %>円</td>
+                <td class="center-text"><%= number_with_delimiter(price.twe) %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">3歳</th>
-                <td class="center-text"><%= price.three %>円</td>
+                <td class="center-text"><%= number_with_delimiter(price.three) %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">4歳</th>
-                <td class="center-text"><%= price.four %>円</td>
+                <td class="center-text"><%= number_with_delimiter(price.four) %>円</td>
               </tr>
               <tr>
                 <th class="price-th center-text">5歳</th>
-                <td class="center-text"><%= price.five %>円</td>
+                <td class="center-text"><%= number_with_delimiter(price.five) %>円</td>
               </tr>
             </thead>
           </table>
@@ -146,7 +209,7 @@
 </div>
 
 <% if user_signed_in? %>
-<% if current_user.address.present? %><!-- ユーザーの住所があるとき -->
+<% if current_user.latitude.present? %><!-- ユーザーの住所があるとき -->
 
 <script type="text/javascript">
 let startLatLng = [<%= @user.latitude %>, <%= @user.longitude %>];

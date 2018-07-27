@@ -1,16 +1,13 @@
 <footer>
-    <div class="container-fluid footer-wrapper">
-      <div class="row footer-content">
-        <div class="col-sm-6 footer-left">
-        </div>
-        <div class="col-sm-6 footer-right">
-          <div class="">
-            <ul class="footer-list">
-              <li class="footer-item"><%= link_to "ホーム", root_path, class: "footer-item" %></li>
-              <li class="footer-item">当サイトについて</li>
-          </div>
-        </div>
-        <p class="copyright">©mizuki-saito.</p>
+  <div class="footer-wrapper container-fluid">
+    <div class="footer-content row">
+      <div class="footer-box col-md-3 col-sm-12">
+        <%= link_to "ホーム", root_path, class: "footer-item" %>
+        <%= link_to "当サイトについて", about_path, class: "footer-item" %>
       </div>
+      <div class="footerimg col-md-9 col-sm-12"></div>
+
     </div>
+    <p class="copyright">©mizuki-saito.</p>
+  </div>
 </footer>
