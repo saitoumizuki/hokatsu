@@ -414,29 +414,74 @@ color:#7fbfff;
   font-weight:600;
 }
 .about-img{
-  background-image: url(about1.jpg);
+  background-image: url(about1.png);
   background-size: cover;
-  background-position:0 -500px;
+  background-position:0 -300px;
   background-repeat: no-repeat;
   width:100%;
   height:400px;
 }
 .about-box{
-  width:600px;
+  width:100%;
   margin:0 auto;
-  margin-top:50px;
+  margin-top:100px;
   text-align:center;
 }
 .about-box-p{
   text-align:center;
 }
-.about-img1{
-  background-image: url(ohana.png);
-  background-size: cover;
-  background-position: center;
-  width:100%;
-  height:400px;
-}
+// .about-img1{
+//   background-image: url(about-1.png);
+//   background-size: cover;
+//   background-position: center;
+//   width:100%;
+//   height:600px;
+// }
+// .about-img2{
+//   background-image: url(about-2.png);
+//   background-size: cover;
+//   background-position: center;
+//   width:100%;
+//   height:600px;
+// }
+// .about-img3{
+//   background-image: url(about-3.png);
+//   background-size: cover;
+//   background-position: center;
+//   width:100%;
+//   height:600px;
+// }
+
+// .about-img4{
+//   background-image: url(about-4.png);
+//   background-size: cover;
+//   background-position: center;
+//   width:100%;
+//   height:600px;
+// }
+
+// .about-img5{
+//   background-image: url(about-5.png);
+//   background-size: cover;
+//   background-position: center;
+//   width:100%;
+//   height:600px;
+// }
+// .about-img6{
+//   background-image: url(about-6.png);
+//   background-size: cover;
+//   background-position: center;
+//   width:100%;
+//   height:600px;
+// }
+
+// .about-img7{
+//   background-image: url(about-7.png);
+//   background-size: cover;
+//   background-position: center;
+//   width:100%;
+//   height:600px;
+// }
 
 /*メインコンテンツ--------------------------------------------*/
 .nursery-area{
@@ -698,6 +743,9 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .list-head{
   position:relative;
 }
+.list-item{
+  margin-top:50px;
+}
 .list-head:after {
 content: "";
 position: absolute;
@@ -898,6 +946,14 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .footerimg{
   width:60%;
   height:300px;
+}
+.about-img{
+  background-image: url(about2.png);
+  background-size: cover;
+  background-position:0 -300px;
+  background-repeat: no-repeat;
+  width:100%;
+  height:600px;
 }
 }
 
@@ -1130,7 +1186,14 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   width:60%;
   height:300px;
 }
-
+.about-img{
+  background-image: url(about2.png);
+  background-size: cover;
+  background-position:0 -300px;
+  background-repeat: no-repeat;
+  width:100%;
+  height:800px;
+}
 
 }
 
@@ -1345,5 +1408,12 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   width:100%;
   height:300px;
 }
-
+.about-img{
+  background-image: url(about2.png);
+  background-size: cover;
+  background-position:0 -300px;
+  background-repeat: no-repeat;
+  width:100%;
+  height:800px;
+}
 }

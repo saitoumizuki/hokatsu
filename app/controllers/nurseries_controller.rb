@@ -51,8 +51,15 @@ class NurseriesController < ApplicationController
 	def create
 		admin = current_admin.id
 		nursery = Nursery.new(nursery_params)
-		nursery.save
-		redirect_to root_path
+		if nursery.save
+			redirect_to root_path
+		else
+			@search = Nursery.ransack(params[:q])
+			@admin = current_admin.id
+			@nursery = Nursery.new
+			@nursery.prices.build
+			render :new
+		end
 	end
 
 	def edit
