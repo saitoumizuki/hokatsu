@@ -25,7 +25,5 @@ resources :nurseries
 resources :list_items, only: [:index, :create, :update, :destroy]
 resources :list_memos, only: [:create, :update, :destroy]
 resources :memos, only: [:create, :update, :destroy]
-
-# get 'nurseries/new', to: 'nurseries#new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

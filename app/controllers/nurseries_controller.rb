@@ -42,15 +42,16 @@ class NurseriesController < ApplicationController
 
 	def new
 		@search = Nursery.ransack(params[:q])
-		@admin = current_admin.id
+		# @admin = current_admin.id
 		@nursery = Nursery.new
 		@nursery.prices.build
 		# priceも同時に作成する
 	end
 
 	def create
-		admin = current_admin.id
 		nursery = Nursery.new(nursery_params)
+		nursery.admin_id = current_admin.id
+
 		if nursery.save
 			redirect_to root_path
 		else
@@ -81,6 +82,10 @@ class NurseriesController < ApplicationController
   		nursery.destroy
   		redirect_to root_path
 	end
+	# def import
+	# 	Nursery.import(params[:file])
+	# 	redirect_to root_path
+	# end
 	def about
 		@search = Nursery.ransack(params[:q])
 	end
