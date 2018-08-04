@@ -41,14 +41,14 @@ a:hover{
   text-decoration:none;
 }
 body{
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, "ヒラノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", sans-serif;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   line-height: 1.5;
 }
-// button{
-//   background-color: #fff;
-//   // submitボタンのを枠を非表示にする
-//   border-style: none;
-// }
+// マイリストに追加するボタン
+button{
+  background-color: #fff;
+  border-style: none;
+}
 .clearfix::after{
   content:"";
   display: block;
@@ -74,23 +74,25 @@ body{
 /*header----------------------------------------------------*/
 .header{
   width:100%;
-  height:120px;
+  height:100px;
   background-color:#fff;
   z-index:5;
   box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
   -moz-box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
 }
+// タブレット用
 .header-n{
   display:none;
 }
+// スマホ用
 .header-nn{
   display:none;
 }
 .header-content{
   width:1080px;
   margin:0 auto;
-  padding-top:15px;
+  // padding-top:15px;
 }
 .welcome{
   font-weight:600;
@@ -100,22 +102,13 @@ body{
   color:#acbfc6;
   text-align:right;
 }
-.logo-box{
-  padding: 0.2em 0.5em;
-  margin: 0em 0;
-  background: #d6ebff;
-  box-shadow: 0px 0px 0px 10px #d6ebff;
-  border: dashed 2px white;
-  border-radius:10px;
-  float:left;
-}
 .header-logo{
-  color:#fff;
+  color:#d6ebff;
+  // line-height:60px;
   font-size:25px;
   font-weight:600;
-  margin: 0;
-  padding: 0;
-  border-radius:10px;
+  // margin: 0;
+  // padding: 0;
 }
 
 .list{
@@ -129,81 +122,83 @@ body{
 }
 .item-a{
   display:block;
-  width:100px;
+  width:90px;
   text-align:center;
-  font-size:30px;
+  font-size:25px;
   color:#9AB1B7;
+}
+.item-a::after{
+  font-size:13px;
+  font-weight:600;
+  position:absolute;
+  top: 35px;
 }
 .a1::after{
   content: "スポット登録";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 40px;
   left:-3px;
 }
 .a2::after{
   content: "マイリスト";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 40px;
+  // font-size:13px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:10px;
 }
 .a3::after{
   content: "マイページ";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 40px;
+  // font-size:13px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 40px;
   left:8px;
 }
 .a4::after{
   content: "ログイン";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:15px;
 }
 .a5::after{
   content: "新規登録";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:12px;
 }
 .a6::after{
   content: "About";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:16px;
 }
 .a7::after{
   content: "＋保育園";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:10px;
 }
 .a8::after{
   content: "ユーザー's";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:10px;
 }
 .a9::after{
   content: "ログアウト";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:7px;
 }
 .mypage{
@@ -250,7 +245,7 @@ body{
   position:relative;
 }
 .sbox{
-  height:50px;
+  height:40px;
   padding:0 10px;
   float:left;
   width:250px;
@@ -259,17 +254,17 @@ body{
   outline: 0;
 }
 .sbox-2{
-  height:50px;
+  height:40px;
   padding:0 10px;
   float:left;
-  width:100px;
+  width:70px;
   border:none;
   border-top:solid 2.5px #eaeaea;
   border-bottom:solid 2.5px #eaeaea;
   outline: 0;
 }
 .sbtn{
-  height: 50px;
+  height:40px;
   padding:0 10px;
   display:block;
   float:left;
@@ -287,8 +282,8 @@ color:#7fbfff;
 }
 .mushimegane{
   position: absolute;
-  left:380px;
-  top: 18px;
+  left:350px;
+  top: 14px;
 }
 /*メインの幅---------------------------------------*/
 .body-content{
@@ -384,7 +379,7 @@ color:#7fbfff;
   font-weight:600;
 }
 .about-img{
-  background-image: image-url('about1.png');
+  background-image: image-url('');
   background-size: cover;
   background-position:0 -300px;
   background-repeat: no-repeat;
@@ -908,12 +903,18 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   height:300px;
 }
 .about-img{
-  background-image: image-url('about2.png');
+  background-image: image-url('');
   background-size: cover;
   background-position:0 -300px;
   background-repeat: no-repeat;
   width:100%;
   height:600px;
+}
+.addlist{
+  margin-top:30px;
+}
+.addlist2{
+  margin-top:30px;
 }
 }
 
@@ -928,12 +929,6 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .sidebar-narrow {
   display:block;
   }
-
-  .logo-box{
-    float:none;
-    margin:20px 0;
-  }
-
 .list{
   float:none;
 }
@@ -950,12 +945,14 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   width:100%;
   background-color: #fff;
 }
+
+.header-logo{
+  color:#fff;
+}
 .logo-box{
-  // padding: 0.2em 0.5em;
+  padding: 0.2em 0.5em;
+  background: #d6ebff;
   margin: 0em 0;
-  // background: #d6ebff;
-  box-shadow:none;
-  border:none;
 }
 .n-nav{
   margin-top:10px;
@@ -970,17 +967,17 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   margin:0 auto;
   margin-top:20px;
 }
-.sbox{
-  height: 40px;
-}
-.sbox-2{
-  height: 40px;
-}
-.sbtn{
-  height: 40px;
-}
+// .sbox{
+//   height: 40px;
+// }
+// .sbox-2{
+//   height: 40px;
+// }
+// .sbtn{
+//   height: 40px;
+// }
 .mushimegane{
-  left:370px;
+  left:340px;
   top: 15px;
 }
 .item-a{
@@ -1032,33 +1029,33 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .show-head-n{
   display:block;
 }
-.addlist{
-  margin-right:0px;
-  font-size:25px;
-  color:#5EE1EF;
-  margin-top:60px;
-}
-.addlist::after{
-  content:'マイリストに追加';
-  font-size:15px;
-  font-weight:600;
-}
-.addlist2{
-  display:block;
-  float:right;
-  margin-right:20px;
-  font-size:20px;
-  color:#f95f92;
-  margin-top:0px;
-}
-.addlist2::after{
-  content:'マイリストに追加済み';
-  font-size:12px;
-  font-weight:600;
-}
-.addlist2::hover{
-  color:#f95f92;
-}
+// .addlist{
+//   margin-right:0px;
+//   font-size:25px;
+//   color:#5EE1EF;
+//   margin-top:0px;
+// }
+// .addlist::after{
+//   content:'マイリストに追加';
+//   font-size:15px;
+//   font-weight:600;
+// }
+// .addlist2{
+//   display:block;
+//   float:right;
+//   margin-right:20px;
+//   font-size:20px;
+//   color:#f95f92;
+//   margin-top:0px;
+// }
+// .addlist2::after{
+//   content:'マイリストに追加済み';
+//   font-size:15px;
+//   font-weight:600;
+// }
+// .addlist2::hover{
+//   color:#f95f92;
+// }
 .footer-content{
   width:100%;
 }
@@ -1220,7 +1217,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   height:300px;
 }
 .about-img{
-  background-image: image-url('about2.png');
+  background-image: image-url('');
   background-size: cover;
   background-position:0 -300px;
   background-repeat: no-repeat;
