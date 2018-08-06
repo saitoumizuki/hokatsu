@@ -54,14 +54,14 @@
 
       <% if @list_itema.present? %>
         <div class="col-sm-12">
-          <h3 class="h3 memo">Memo</h3>
+          <h3 class="memo">Memo</h3>
 
           <% if @list_memo1.present? %>
             <div>
               <%= form_for(@list_memo1) do |f| %>
                 <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
                 <%= f.text_area :body, class: "memo-form-show" %>
-                <div>
+                <div class=" memo-btn">
                   <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
                 </div>
               <% end %><!-- form_for -->
@@ -71,8 +71,8 @@
             <div>
               <%= form_for(@list_memo2) do |f| %>
                 <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
-                <%= f.text_area :body, size: "35x10", class: "memo-form-show" %>
-                <div>
+                <%= f.text_area :body, class: "memo-form-show" %>
+                <div class=" memo-btn">
                   <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
                 </div>
               <% end %><!-- form_for -->

@@ -1,14 +1,17 @@
 <div class="row">
 
   <div class="col-sm-5">
-    <div class="nursery-box nursery-box-left">
+    <div class="nursery-box nursery-box-left1">
       <div class="tell-box">
         <% if phone.present? %>
-        <a class="tell fas fa-phone" href="tel:<%= phone %>"><%= nursery.phone %>-<%= nursery.phone_middle %>-<%= nursery.phone_right %></a>
+        <a class="tell fas fa-phone" href="tel:<%= phone %>"><span class="tell"><%= nursery.phone %>-<%= nursery.phone_middle %>-<%= nursery.phone_right %></span></a>
         <!-- スマホのときのみ発信できるように書き換える? -->
         <% end %>
       </div>
+    </div>
 
+    <div class="nursery-box nursery-box-left2">
+      <h4 class="nursery-box-right-h4">info</h4>
       <table class="table">
         <tbody>
           <tr>
@@ -35,10 +38,10 @@
 
   <div class="col-sm-7">
     <div class="nursery-box nursery-box-right">
-      <h4 class="h4 nursery-box-right-h4">保育料</h4>
+      <h4 class="nursery-box-right-h4">保育料</h4>
       <% nursery.prices.each do |price| %>
       <p><%= price.title %></p>
-      <table class="table table-bordered">
+      <table class="table">
         <thead>
           <tr>
             <th>0歳</th>
@@ -64,6 +67,4 @@
   </div>
 
 </div>
-        <div>
-          <p>※上記はあくまで公式サイトから抜粋した情報です。詳細は、保育園の公式サイトをご覧になるか、保育園に直接お問い合わせください。</p>
-        </div>
+<p class="nursery-show-p">※上記はあくまで公式サイトから抜粋した情報です。詳細は、保育園の公式サイトをご覧になるか、保育園に直接お問い合わせください。</p>

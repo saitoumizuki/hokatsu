@@ -1,7 +1,7 @@
 class NurseriesController < ApplicationController
 	before_action :authenticate_admin!, except: [:index, :show, :about]
 	def index
-		@nurseries = Nursery.page(params[:page]).reverse_order
+		@nurseries = Nursery.all
 		@search = Nursery.ransack(params[:q])
 		@nurseries = @search.result.page(params[:page]).reverse_order
 		@ninka = @nurseries.where("category = '認可'")
