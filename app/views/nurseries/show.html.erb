@@ -1,109 +1,42 @@
 <%= render 'shared/header', search: @search %>
 
 <div class="body-content">
-
-  <div class="show-header">
-<!-- PC画面用 -->
-    <div class="show-head">
-      <div class="f cate-logo">
-        <p class="h3 cate"><%= @nursery.category %></p>
-      </div>
-      <div class="f head">
-        <%= link_to @nursery.url do %>
-         <div class="s">
-           <div class="hukidasi">外部サイトに移動します</div>
-            <h1 class="h1"><%= @nursery.name %></h1>
-         </div>
-        <% end %>
-        <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
-      </div>
-    </div>
-  <div class="l-add-box">
-      <% if user_signed_in? %>
-          <% if @list_itema.present? %>
-            <%= link_to "", list_item_path(@list_itema.id), method: :delete, data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモは削除されます' } , class:"addlist2 fas fa-heart"%>
-          <% else %> <!-- if リストアイテム -->
-            <div class="add-box">
-              <%= form_for (@list_item) do |f| %>
-                <%= f.hidden_field :nursery_id, :value => @nursery.id %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.hidden_field :row_order, :value => current_user.list_items.count + 1 %>
-                <%= button_tag "", class: "addlist fas fa-heart" %> <!-- マイリストに追加 -->
-              <% end %> <!-- form_for -->
-            </div>
-          <% end %> <!-- if リストアイテム -->
-      <% end %> <!-- if ユーザー -->
-    </div>
-
-
-<!-- スマホ画面用 -->
-    <div class="show-head-n row">
-      <div class="f head col-sm-8">
-        <%= link_to @nursery.url do %>
-         <div class="s">
-           <div class="hukidasi">外部サイトに移動します</div>
-            <h1 class="h1">【<%= @nursery.category %>】<%= @nursery.name %></h1>
-         </div>
-        <% end %>
-        <p class="head-p">　最寄り駅：<%= @nursery.nearest %></p>
-      </div>
-      <div class="col-sm-2 n-add-box">
-          <% if user_signed_in? %>
-            <% if @list_itema.present? %>
-              <%= link_to "", list_item_path(@list_itema.id), method: :delete, data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモは削除されます' } , class:"addlist2 fas fa-heart"%>
-            <% else %> <!-- if リストアイテム -->
-              <div class="add-box">
-                <%= form_for (@list_item) do |f| %>
-                  <%= f.hidden_field :nursery_id, :value => @nursery.id %>
-                  <%= f.hidden_field :user_id, :value => current_user.id %>
-                  <%= f.hidden_field :row_order, :value => current_user.list_items.count + 1 %>
-                  <%= button_tag "", class: "addlist fas fa-heart" %> <!-- マイリストに追加 -->
-                <% end %> <!-- form_for -->
-              </div>
-            <% end %> <!-- if リストアイテム -->
-        <% end %> <!-- if ユーザー -->
-      </div>
-    </div>
-
-
-
-  </div>
-
-
   <div class="container-fluid">
-    <div class="row show-main">
-      <div class="col-md-8 col-sm-12 main-content">
+    <div class="row">
+      <div class="col-sm-12">
 
-        <div class="map-area">
-          <div id="map2" style="width: 720px; height: 600px;"></div>
-        </div>
-        <% if @list_itema.present? %>
-          <div class="listmemo">
-            <h3 class="h3 memo">Memo</h3>
-            <% if @list_memo1.present? %>
-
-              <div class="memo-box">
-                <%= form_for(@list_memo1) do |f| %>
-                  <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
-                  <%= f.text_area :body, class: "memo-form" %>
-                  <div>
-                    <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
-                  </div>
-                <% end %><!-- form_for -->
-              </div>
-            <% else %><!-- @list_memo1.present? -->
-              <div class="memo-box">
-                <%= form_for(@list_memo2) do |f| %>
-                  <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
-                  <%= f.text_area :body, size: "35x10", class: "memo-form" %>
-                  <div>
-                    <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
-                  </div>
-                <% end %><!-- form_for -->
-              </div>
-            <% end %><!-- @list_memo1.present? -->
+        <div class="show-head">
+          <div class="cate-logo"><%= @nursery.category %></div>
+          <div class="head">
+            <%= link_to @nursery.url do %>
+             <div class="s">
+               <div class="hukidasi">外部サイトに移動します</div>
+                <h1 class="h1"><%= @nursery.name %></h1>
+             </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
+
+        <div class="l-add-box">
+          <% if user_signed_in? %>
+              <% if @list_itema.present? %>
+                <%= link_to "", list_item_path(@list_itema.id), method: :delete, data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモは削除されます' } , class:"addlist2 fas fa-heart"%>
+              <% else %> <!-- if リストアイテム -->
+                <div class="add-box">
+                  <%= form_for (@list_item) do |f| %>
+                    <%= f.hidden_field :nursery_id, :value => @nursery.id %>
+                    <%= f.hidden_field :user_id, :value => current_user.id %>
+                    <%= f.hidden_field :row_order, :value => current_user.list_items.count + 1 %>
+                    <%= button_tag "", class: "addlist fas fa-heart" %> <!-- マイリストに追加 -->
+                  <% end %> <!-- form_for -->
+                </div>
+              <% end %> <!-- if リストアイテム -->
+          <% end %> <!-- if ユーザー -->
+        </div>
+
+          <div id="map2"></div>
+
+
 
 
         <% if admin_signed_in? %>
@@ -112,104 +45,53 @@
           <%= link_to "  削除する  ",nurseries_path(@nursery), method: :delete, data: { confirm:'本当に削除しますか？'}, class:"btn btn-lg btn-danger"%>
         </div>
         <% end %>
-      </div>
-
-
-      <div class="col-md-4 col-sm-12 sidebar">
-        <div class="tell-box">
-          <% if @phone.present? %>
-          <a class="tell fas fa-phone" href="tel:<%= @phone %>"><%= @nursery.phone %>-<%= @nursery.phone_middle %>-<%= @nursery.phone_right %></a>
-          <!-- スマホのときのみ発信できるように書き換える? -->
-          <% end %>
-        </div>
-        <div class="address-box box ohana">
-          <table class="box-table">
-            <thead>
-              <tr>
-                <th class="center-text h4">所在地</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="center-text"><%= @nursery.address %></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="date-box box ohana">
-          <table class="box-table">
-            <thead>
-              <tr>
-                <th class="center-text h4">開所時間</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="center-text"><%= @nursery.date %>  <%= @nursery.time %></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="capacity-box box ohana">
-          <table class="box-table">
-            <thead>
-              <tr>
-                <th class="center-text h4">定員</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="center-text"><%= @nursery.capacity %></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="price-box box ohana">
-          <h4 class="h4 center-text price-h4">保育料</h4>
-          <% @nursery.prices.each do |price| %>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th ></th>
-                <th class="center-text"><%= price.title %></th>
-              </tr>
-              <tr>
-                <th class="price-th center-text">０歳</th>
-                <td class="center-text"><%= number_with_delimiter(price.zero) %>円</td>
-              </tr>
-              <tr>
-                <th class="price-th center-text">1歳</th>
-                <td class="center-text"><%= number_with_delimiter(price.one) %>円</td>
-              </tr>
-              <tr>
-                <th class="price-th center-text">2歳</th>
-                <td class="center-text"><%= number_with_delimiter(price.twe) %>円</td>
-              </tr>
-              <tr>
-                <th class="price-th center-text">3歳</th>
-                <td class="center-text"><%= number_with_delimiter(price.three) %>円</td>
-              </tr>
-              <tr>
-                <th class="price-th center-text">4歳</th>
-                <td class="center-text"><%= number_with_delimiter(price.four) %>円</td>
-              </tr>
-              <tr>
-                <th class="price-th center-text">5歳</th>
-                <td class="center-text"><%= number_with_delimiter(price.five) %>円</td>
-              </tr>
-            </thead>
-          </table>
-          <% end %>
-          <p>※上記はあくまで公式サイトから引用した一例です。詳細は、保育園の公式サイトをご覧になるか、保育園に直接お問い合わせください。</p>
-        </div>
 
       </div>
+
+      <div class="col-sm-12 sidebar"><%= render 'shared/nurseryshow', nursery: @nursery, phone: @phone %></div>
+
+
+
+      <% if @list_itema.present? %>
+        <div class="col-sm-12">
+          <h3 class="h3 memo">Memo</h3>
+
+          <% if @list_memo1.present? %>
+            <div>
+              <%= form_for(@list_memo1) do |f| %>
+                <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
+                <%= f.text_area :body, class: "memo-form-show" %>
+                <div>
+                  <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+                </div>
+              <% end %><!-- form_for -->
+            </div>
+
+          <% else %><!-- @list_memo1.present? -->
+            <div>
+              <%= form_for(@list_memo2) do |f| %>
+                <%= f.hidden_field :list_item_id, :value => @list_itema.id %>
+                <%= f.text_area :body, size: "35x10", class: "memo-form-show" %>
+                <div>
+                  <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
+                </div>
+              <% end %><!-- form_for -->
+            </div>
+          <% end %><!-- @list_memo1.present? -->
+
+        </div>
+      <% end %>
 
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
 
 <% if user_signed_in? %>
 <% if current_user.latitude.present? %><!-- ユーザーの住所があるとき -->
