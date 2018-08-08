@@ -320,6 +320,15 @@ color:#7fbfff;
 }
 
 /*footer--------------------------------------------*/
+// .footer{
+//   position:absolute;
+//   top:1000px;
+//   width:100%;
+//   z-index:1000;
+// }
+// .footer-wrapper{
+//   position:fixed;
+// }
 .footer-top{
   background-color:#eaeaea;
   margin-top:50px;
@@ -394,24 +403,62 @@ color:#7fbfff;
   height:110px;
   width:410px;
   margin:0 auto;
-  margin-top:100px;
-  margin-bottom:100px;
+  margin-top:50px;
+  margin-bottom:50px;
 }
-
-
+.about-text{
+  text-align:center;
+  // border:solid 1px #eaeaea;
+  // border-radius:20px;
+  // padding-top:50px;
+  // padding-bottom:60px;
+  line-height:30px;
+}
+.mochimochi-text{
+  text-align:center;
+  margin-top:100px;
+}
 .about-box{
-  width:100%;
-  margin:0 auto;
-  margin-top:100px;
+  // width:100%;
+  // margin:0 auto;
+  margin:20px 10px 0 10px;
+  border-radius:100px;
+  height:250px;
   text-align:center;
 }
-.about-box-p{
-  text-align:center;
+.about-box1{
+  background-color:#ccfff3;
 }
+.about-box2{
+  background-color:#efffb6;
+}
+.about-box3{
+  background-color:#ffd0b6;
+}
+.about-box4{
+  background-color:#fffc9c;
+}
+.about-box5{
+  background-color:#cceaff;
+}
+.about-h4{
+  text-align:center;
+  padding-top:30px;
+}
+.about-i{
+  // text-align:center;
+  // margin:0 auto;
+  margin:20px;
+  font-size:50px;
+}
+// .about-box-p{
+//   text-align:center;
+// }
 
 /*メインコンテンツ--------------------------------------------*/
 .nursery-area{
   width:100%;
+  height:20px;
   margin:50px 0;
 }
 .nursery-area-head{
@@ -459,20 +506,6 @@ color:#7fbfff;
   margin:20px;
 }
 /*保育園詳細------------------------------------*/
-// .show-header{
-//   height:100px;
-//   position:relative;
-// }
-// .show-header:after {
-// content: "";
-// position: absolute;
-// left: 0;
-// bottom: -7px;
-// width: 100%;
-// height: 10px;
-// background: -webkit-repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #fff 4px);
-// background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #fff 4px);
-// }
 .s{
   position:relative;
 }
@@ -503,16 +536,12 @@ color:#7fbfff;
   bottom: -9px;
   left: 30px;
 }
-.n-add-box{
-  display:none;
+.add-box{
+  text-align:right;
 }
 .addlist{
-  display:block;
-  // float:right;
-  // margin-right:20px;
   font-size:25px;
   color:#5EE1EF;
-  // margin-top:60px;
 }
 .addlist::after{
   content:'マイリストに追加';
@@ -520,12 +549,9 @@ color:#7fbfff;
   font-weight:600;
 }
 .addlist2{
-  display:block;
-  // float:right;
-  // margin-right:20px;
   font-size:25px;
   color:#f95f92;
-  // margin-top:60px;
+
 }
 .addlist2::after{
   content:'マイリストに追加済み';
@@ -535,28 +561,45 @@ color:#7fbfff;
 .addlist2::hover{
   color:#f95f92;
 }
-
-
-
-// .show-main{
-//   margin-top:40px;
-// }
-
-// .head-p{
-//   line-height:15px;
-// }
-.show-head-n{
-  display:none;
+.head{
+  float:left;
 }
-// .concept-detail{
-//   margin-top:10px;
-//   font-size:15px;
-//   padding:5px 10px 5px 15px;
-//   border-left:solid 5px #FFD731;
-// }
-// .map-area{
-//   margin:10px 0;
-// }
+.cate-logo1{
+  background-image:image-url('icon2.png');
+  background-size:cover;
+  height:60px;
+  width:40px;
+  padding:0;
+  margin:0;
+  float:left;
+}
+.cate-logo2{
+  background-image:image-url('icon3.png');
+  background-size:cover;
+  height:60px;
+  width:40px;
+  padding:0;
+  margin:0;
+  float:left;
+}
+.cate-logo3{
+  background-image:image-url('icon4.png');
+  background-size:cover;
+  height:60px;
+  width:50px;
+  padding:0;
+  margin:0;
+  float:left;
+}
+.cate-logo4{
+  background-image:image-url('icon5.png');
+  background-size:cover;
+  height:60px;
+  width:40px;
+  padding:0;
+  margin:0;
+  float:left;
+}
 .nursery-box{
   width:90%;
   padding:30px;
@@ -581,65 +624,18 @@ color:#7fbfff;
   text-align:center;
 }
 .tell-box{
-  // margin:0 auto;
-  // height:50px;
-  // width:250px;
-  // background-color:#FFFC9C;
   text-align:center;
-  // margin:10px 0;
-
-  // border-radius:10px;
 }
 .tell{
-  // margin-top:15px;
   font-size:20px;
   font-weight:400;
 }
 .tell:hover{
   color:#ACBFC6;
 }
-// .box{
-//   margin:30px 0;
-// }
-// .box-table{
-//   line-height:25px;
-//   width:250px;
-//   margin:0 auto;
-// // }
-// .center-text{
-//   text-align:center;
-// }
-// .ohana{
-//   background-image:image-url('ohana.png');
-//   background-size:15%;
-//   background-repeat: no-repeat;
-//   background-position: 60% 0;
-// }
-// .date-box{
-// }
-// .date-list{
-//   list-style-type: none;
-// }
-// .date-item{
-//   margin:0 10px;
-//   float:left;
-// }
-// .price-box{
-//   // width:250px;
-//   margin:0 auto;
-// }
-// .price-h4{
-//   padding-bottom:10px;
-// }
 .price-th{
   width:10%;
 }
-// .memoimg{
-//   background-image:image-url('memoimg.png');
-//   background-size:cover;
-//   height:670px;
-//   width:1080px;
-// }
 .memo{
   text-align:center;
 }
@@ -706,7 +702,8 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   width:100%;
   height:500px;
   padding: 0.5em 1em;
-  border: double 5px #4ec4d3;
+  border: solid 1px #acbfc6;
+  border-radius:20px;
 }
 .roworder{
   width:40px;
@@ -867,15 +864,15 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   .body-content{
     width:100%;
   }
-  .n-add-box{
-  display:block;
-  margin-top:20px;
-  font-weight:600;
-  font-size:15px;
-}
-.l-add-box{
-  display:none;
-}
+//   .n-add-box{
+//   display:block;
+//   margin-top:20px;
+//   font-weight:600;
+//   font-size:15px;
+// }
+// .l-add-box{
+//   display:none;
+// }
 .footer-content{
   width:100%;
 }
@@ -884,12 +881,12 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   // height:300px;
 }
 
-.addlist{
-  margin-top:30px;
-}
-.addlist2{
-  margin-top:30px;
-}
+// .addlist{
+//   margin-top:30px;
+// }
+// .addlist2{
+//   margin-top:30px;
+// }
 }
 
 /* タブレット縦置きサイズ(768px)程度の画面の大きさ以下に適用される設定です */
@@ -991,14 +988,14 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 }
 .h1{
   font-size:20px;
-  font-weight:600;
+  // font-weight:600;
 }
-.show-head{
-  display:none;
-}
-.show-head-n{
-  display:block;
-}
+// .show-head{
+//   display:none;
+// }
+// .show-head-n{
+//   display:block;
+// }
 
 .footer-content{
   width:100%;

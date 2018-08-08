@@ -3,10 +3,17 @@
 <div class="body-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-12">
+        <div class="show-head clearfix">
+          <% if @nursery.category == '認可' %>
+            <div class="cate-logo1"></div>
+          <% elsif @nursery.category == '認証' %>
+            <div class="cate-logo2"></div>
+          <% elsif @nursery.category == '認可外' %>
+            <div class="cate-logo3"></div>
+          <% else %>
+            <div class="cate-logo4"></div>
+          <% end %>
 
-        <div class="show-head">
-          <div class="cate-logo"><%= @nursery.category %></div>
           <div class="head">
             <%= link_to @nursery.url do %>
              <div class="s">
@@ -17,10 +24,12 @@
           </div>
         </div>
 
-        <div class="l-add-box">
           <% if user_signed_in? %>
+          <div class="add-box">
               <% if @list_itema.present? %>
-                <%= link_to "", list_item_path(@list_itema.id), method: :delete, data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモは削除されます' } , class:"addlist2 fas fa-heart"%>
+                <div class="add-box">
+                  <%= link_to "", list_item_path(@list_itema.id), method: :delete, data: { confirm: 'マイリストから外してよろしいですか？ ※詳細ページに記入したメモは削除されます' } , class:"addlist2 fas fa-heart"%>
+                </div>
               <% else %> <!-- if リストアイテム -->
                 <div class="add-box">
                   <%= form_for (@list_item) do |f| %>
@@ -31,13 +40,10 @@
                   <% end %> <!-- form_for -->
                 </div>
               <% end %> <!-- if リストアイテム -->
+              </div>
           <% end %> <!-- if ユーザー -->
-        </div>
 
-          <div id="map2"></div>
-
-
-
+        <div id="map2"></div>
 
         <% if admin_signed_in? %>
         <div class="button-area">
@@ -46,14 +52,11 @@
         </div>
         <% end %>
 
-      </div>
+      <div><%= render 'shared/nurseryshow', nursery: @nursery, phone: @phone %></div>
 
-      <div class="col-sm-12 sidebar"><%= render 'shared/nurseryshow', nursery: @nursery, phone: @phone %></div>
-
-
+      <!-- 保育園の詳細情報 -->
 
       <% if @list_itema.present? %>
-        <div class="col-sm-12">
           <h3 class="memo">Memo</h3>
 
           <% if @list_memo1.present? %>
@@ -78,9 +81,7 @@
               <% end %><!-- form_for -->
             </div>
           <% end %><!-- @list_memo1.present? -->
-
-        </div>
-      <% end %>
+      <% end %><!-- @list_itema.present? -->
 
     </div>
   </div>
