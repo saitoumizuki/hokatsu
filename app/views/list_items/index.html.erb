@@ -26,7 +26,7 @@
             <div class="memo-box">
               <%= form_for(@memo2) do |f| %>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.text_area :body, size: "35x10", class: "memo-form" %>
+                <%= f.text_area :body, class: "memo-form" %>
                 <div>
                   <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
                 </div>
@@ -87,7 +87,7 @@
             <div class="memo-box">
               <%= form_for(@memo2) do |f| %>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.text_area :body, size: "35x10", class: "memo-form" %>
+                <%= f.text_area :body, class: "memo-form" %>
                 <div>
                   <%= f.submit "　保存　", class: "btn btn-sm btn-info" %>
                 </div>

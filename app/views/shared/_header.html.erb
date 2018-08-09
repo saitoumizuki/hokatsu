@@ -1,10 +1,10 @@
-<!-- スマホ画面用 -->
+<!-- スマホ画面用 ----------------------------------------------------------------------------------------------------------------->
 
 <header class="header-nn">
     <div class="n-box">
       <div class="logo-box">
         <%= link_to root_path do %>
-        <p class="header-logo">WithYou</p>
+        <p class="header-logo"></p>
         <% end %>
       </div>
       <div class="welcome">
@@ -25,7 +25,7 @@
         <ul class="list">
           <li class="item">
             <!-- スポット登録 -->
-            <%= link_to " ", spots_path, class: "item-a a1 fas fa-map-marker-alt" %>
+            <%= link_to " ", spots_path, class: "item-a a1 fab fa-pagelines" %>
           </li>
           <li class="item">
             <!-- マイリスト -->
@@ -100,13 +100,13 @@
 
 
 
-<!-- タブレット画面用 -->
+<!-- タブレット画面用 ------------------------------------------------------------------------------------------------------>
 <header class="header-n">
 
     <div class="n-box">
       <div class="logo-box">
         <%= link_to root_path do %>
-        <p class="header-logo">WithYou</p>
+        <p class="header-logo"></p>
         <% end %>
       </div>
       <div class="welcome">
@@ -128,7 +128,7 @@
         <ul class="list">
           <li class="item">
             <!-- スポット登録 -->
-            <%= link_to " ", spots_path, class: "item-a a1 fas fa-map-marker-alt" %>
+            <%= link_to " ", spots_path, class: "item-a a1 fab fa-pagelines" %>
           </li>
           <li class="item">
             <!-- マイリスト -->
@@ -195,7 +195,7 @@
 
 
 
-<!-- PC画面用 -->
+<!-- PC画面用 ----------------------------------------------------------------------------------------------------->
 <header class="header">
   <div class="welcome">
     <p class="welcome-p">
@@ -211,9 +211,9 @@
   <div class="header-content row">
 
     <%= link_to root_path do %>
-    <div class="h-box col-md-2">
+    <div class="h-box col-md-3">
       <div class="logo-box">
-        <p class="header-logo">WithYou</p>
+        <p class="header-logo"></p>
       </div>
     </div>
     <% end %>
@@ -227,7 +227,7 @@
       <% end %>
     </div>
 
-    <div class="h-box nav-box col-md-5">
+    <div class="h-box nav-box col-md-4">
 
     <% if  user_signed_in? %>
 
@@ -235,7 +235,7 @@
         <ul class="list">
           <li class="item">
             <!-- スポット登録 -->
-            <%= link_to " ", spots_path, class: "item-a a1 fas fa-map-marker-alt" %>
+            <%= link_to " ", spots_path, class: "item-a a1 fab fa-pagelines" %>
           </li>
           <li class="item">
             <!-- マイリスト -->
@@ -245,10 +245,10 @@
             <!-- マイページ -->
             <%= link_to " ", user_path(current_user.id), class: "item-a a3 fas fa-user" %>
             <ul class="mypage-ul">
-              <li class="mypage-li li-gray"><%= link_to  current_user.name, user_path(current_user), class: "fas fa-user mypage-a" %></li>
-              <li class="mypage-li"><%= link_to "マイリスト", list_items_path(current_user.id), class: "fas fa-heart mypage-a" %></li>
-              <li class="mypage-li"><%= link_to "スポット編集", spots_path, class: "fas fa-map mypage-a" %></li>
-              <li class="mypage-li"><%= link_to "ログアウト", users_sign_out_path, method: :delete, class: "fas fa-sign-out-alt mypage-a" %></li>
+              <li class="mypage-li li-gray"><%= link_to  current_user.name, user_path(current_user), class: "fas fa-user" %></li>
+              <li class="mypage-li"><%= link_to "", list_items_path(current_user.id), class: "fas fa-heart mypage-a1" %></li>
+              <li class="mypage-li"><%= link_to "", spots_path, class: "fab fa-pagelines mypage-a2" %></li>
+              <li class="mypage-li"><%= link_to "", users_sign_out_path, method: :delete, class: "fas fa-sign-out-alt mypage-a3" %></li>
             </ul>
           </li>
         </ul>

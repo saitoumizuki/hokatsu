@@ -35,32 +35,36 @@ ul{
 a{
   color:#546E7A;
   text-decoration:none;
-/*  position: relative;*/
 }
 a:hover{
   color:#FFD731;
   text-decoration:none;
 }
 body{
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, "ヒラノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", sans-serif;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   line-height: 1.5;
 }
+// マイリストに追加するボタン
 button{
-  // 背景色を黒に指定
   background-color: #fff;
-  // submitボタンのを枠を非表示にする
   border-style: none;
+}
+#map {
+  height: 600px;
+  width: 100%;
+}
+#map2 {
+  height: 400px;
+  width: 100%;
 }
 .clearfix::after{
   content:"";
   display: block;
   clear: both;
 }
-
-
-/*.h1{
+.h1{
   font-size:20px;
-}*/
+}
 .h2{
   font-size:18px;
   font-weight:600;
@@ -81,64 +85,49 @@ button{
 /*header----------------------------------------------------*/
 .header{
   width:100%;
-  height:120px;
+  height:150px;
   background-color:#fff;
-  // position: fixed;
   z-index:5;
-  // border-bottom:solid 1px #eaeaea;
   box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
   -moz-box-shadow: 0px 9px 7px -7px rgba(0,0,0,0.1);
 }
+// タブレット用
 .header-n{
   display:none;
 }
+// スマホ用
 .header-nn{
   display:none;
 }
-.header-area{
-  // height:120px;
-}
-// ↑headerの固定のために作ったdivとclass
-
 .header-content{
   width:1080px;
+  height:120px;
   margin:0 auto;
-  padding-top:15px;
-  // line-height: 100px;
+  // padding-top:15px;
 }
 .welcome{
   font-weight:600;
   width:100%;
+  height:20px;
+  padding:0;
+  margin:0;
 }
 .welcome-p{
   color:#acbfc6;
   text-align:right;
 }
-.logo-box{
-  padding: 0.2em 0.5em;
-  margin: 0em 0;
-  background: #d6ebff;
-  box-shadow: 0px 0px 0px 10px #d6ebff;
-  border: dashed 2px white;
-  border-radius:10px;
-  float:left;
-}
 .header-logo{
-  // background-image: url(img/logo.png);
-  // background-size:cover;
-  // background-position: center;
-  color:#fff;
-  font-size:25px;
-  font-weight:600;
-  margin: 0;
-  padding: 0;
-  border-radius:10px;
+  background-image:image-url('logo.png');
+  background-size:cover;
+  height:120px;
+  width:251px;
+  padding:0;
+  margin:0;
 }
 
 .list{
   list-style-type: none;
-  // line-height:10px;
   float:right;
 }
 .item{
@@ -148,81 +137,83 @@ button{
 }
 .item-a{
   display:block;
-  width:100px;
+  width:90px;
   text-align:center;
-  font-size:30px;
+  font-size:25px;
   color:#9AB1B7;
+}
+.item-a::after{
+  font-size:13px;
+  font-weight:600;
+  position:absolute;
+  top: 35px;
 }
 .a1::after{
   content: "スポット登録";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 40px;
   left:-3px;
 }
 .a2::after{
   content: "マイリスト";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 40px;
+  // font-size:13px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:10px;
 }
 .a3::after{
   content: "マイページ";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 40px;
+  // font-size:13px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 40px;
   left:8px;
 }
 .a4::after{
   content: "ログイン";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:15px;
 }
 .a5::after{
   content: "新規登録";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:12px;
 }
 .a6::after{
   content: "About";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:16px;
 }
 .a7::after{
   content: "＋保育園";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:10px;
 }
 .a8::after{
   content: "ユーザー's";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:10px;
 }
 .a9::after{
   content: "ログアウト";
-  font-size:14px;
-  font-weight:600;
-  position:absolute;
-  top: 35px;
+  // font-size:14px;
+  // font-weight:600;
+  // position:absolute;
+  // top: 35px;
   left:7px;
 }
 .mypage{
@@ -252,30 +243,28 @@ button{
   background-color: #f7f7f7;
   border-radius:20px 20px 0 0;
 }
-.mypage-a{
-  color:#9AB1B7;
-  width:150px;
-  margin:0 auto;
-  line-height:15px;
-  margin-top:10px;
+.mypage-a1::after{
+  content:'マイリスト';
+  font-weight:400;
 }
-
+.mypage-a2::after{
+  content:'スポット登録・編集';
+  font-weight:400;
+}
+.mypage-a3::after{
+  content:'ログアウト';
+  font-weight:400;
+}
 .welcome{
 
 }
 /*検索--------------------------------------------------*/
-.index-header{
-  // width:100%;
-  // margin:0 auto;
-  // border-bottom:solid 1px #eaeaea;
-}
-
 .search-box{
   margin:5px 0;
   position:relative;
 }
 .sbox{
-  height:50px;
+  height:40px;
   padding:0 10px;
   float:left;
   width:250px;
@@ -284,21 +273,21 @@ button{
   outline: 0;
 }
 .sbox-2{
-  height:50px;
+  height:40px;
   padding:0 10px;
   float:left;
-  width:100px;
+  width:70px;
   border:none;
   border-top:solid 2.5px #eaeaea;
   border-bottom:solid 2.5px #eaeaea;
   outline: 0;
 }
 .sbtn{
-  height: 50px;
+  height:40px;
   padding:0 10px;
   display:block;
   float:left;
-  background:#7fbfff;
+  background:#6e8b96;
   color:#fff;
   border:none;
   font-size:20px;
@@ -310,13 +299,12 @@ button{
 background:#eaeaea;
 color:#7fbfff;
 }
-
 .mushimegane{
   position: absolute;
-  left:380px;
-  top: 18px;
+  left:350px;
+  top: 14px;
+  color:#fff;
 }
-
 
 /*メインの幅---------------------------------------*/
 .body-content{
@@ -332,46 +320,64 @@ color:#7fbfff;
 }
 
 /*footer--------------------------------------------*/
-.footer-wrapper{
-  background-color:#218F9B;
-  margin-top:20px;
-  height:400px;
+// .footer{
+//   position:absolute;
+//   top:1000px;
+//   width:100%;
+//   z-index:1000;
+// }
+// .footer-wrapper{
+//   position:fixed;
+// }
+.footer-top{
+  background-color:#eaeaea;
+  margin-top:50px;
+  height:100px;
   width:100%;
-
 }
-
+.footer-bottom{
+  background-color:#fff;
+  height:200px;
+  width:100%;
+}
 .footer-content{
   width:1080px;
   margin:0 auto;
 }
-.footer-box{
-  margin-top:10px;
-}
 .footer-item{
-  display:block;
-  color:#fff;
-  border:dashed 1px #fff;
-  padding:10px;
+  float:left;
+  color:#546e7a;
+  border:dashed 1px #546e7a;
+  padding:10px 50px;
   text-align:center;
   margin:20px;
   font-weight:600;
 }
+.footerimg{
+  display:none;
+  background-image: image-url('logo.png');
+  background-size:cover;
+  height:120px;
+  width:250px;
+  float:right;
+}
 
 .footer-item:hover{
-  color:#218f9b;
+  color:#546e7a;
 }
 .copyright{
+  float:left;
   // color:#fff;
   // margin-top:200px;
 }
-.footerimg{
-  background-image: url(footerimg.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width:550px;
-  height:400px;
-  margin:0 auto;
-}
+// .footerimg{
+//   background-image: image-url('footerimg.png');
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   width:550px;
+//   height:400px;
+//   margin:0 auto;
+// }
 
 /*サイトバー----------------------------------------------------------*/
 // .sidebar-box{
@@ -386,106 +392,73 @@ color:#7fbfff;
 //   display:block;
 // }
 /*アバウト--------------------------------------------*/
-.img-area{
-  position:relative;
+// .img-area{
+
+  // width:100%;
+  // height:500px;
+// }
+.about-img{
+  background-image: image-url('aboutimg.png');
+  background-size:cover;
+  height:110px;
+  width:410px;
+  margin:0 auto;
+  margin-top:50px;
+  margin-bottom:50px;
 }
 .about-text{
-  position:absolute;
-  top:40%;
-  width:100%;
-  height:70px;
   text-align:center;
-  color:#fff;
-  font-family:'SimSun','serif','ＭＳ 明朝';
-  text-shadow: 2px  2px 5px #f95f92,
-            -2px  2px 5px #f95f92,
-             2px -2px 5px #f95f92,
-            -2px -2px 5px #f95f92;
+  // border:solid 1px #eaeaea;
+  // border-radius:20px;
+  // padding-top:50px;
+  // padding-bottom:60px;
+  line-height:30px;
 }
-.about-h1{
+.mochimochi-text{
   text-align:center;
-  font-size:30px;
-  font-weight:600;
-}
-
-.about-h1-2{
-  text-align:center;
-  font-size:30px;
-  font-weight:600;
-}
-.about-img{
-  background-image: url(about1.png);
-  background-size: cover;
-  background-position:0 -300px;
-  background-repeat: no-repeat;
-  width:100%;
-  height:400px;
+  margin-top:100px;
 }
 .about-box{
-  width:100%;
-  margin:0 auto;
-  margin-top:100px;
+  // width:100%;
+  // margin:0 auto;
+  margin:20px 10px 0 10px;
+  border-radius:100px;
+  height:250px;
   text-align:center;
 }
-.about-box-p{
-  text-align:center;
+.about-box1{
+  background-color:#ccfff3;
 }
-// .about-img1{
-//   background-image: url(about-1.png);
-//   background-size: cover;
-//   background-position: center;
-//   width:100%;
-//   height:600px;
-// }
-// .about-img2{
-//   background-image: url(about-2.png);
-//   background-size: cover;
-//   background-position: center;
-//   width:100%;
-//   height:600px;
-// }
-// .about-img3{
-//   background-image: url(about-3.png);
-//   background-size: cover;
-//   background-position: center;
-//   width:100%;
-//   height:600px;
-// }
-
-// .about-img4{
-//   background-image: url(about-4.png);
-//   background-size: cover;
-//   background-position: center;
-//   width:100%;
-//   height:600px;
-// }
-
-// .about-img5{
-//   background-image: url(about-5.png);
-//   background-size: cover;
-//   background-position: center;
-//   width:100%;
-//   height:600px;
-// }
-// .about-img6{
-//   background-image: url(about-6.png);
-//   background-size: cover;
-//   background-position: center;
-//   width:100%;
-//   height:600px;
-// }
-
-// .about-img7{
-//   background-image: url(about-7.png);
-//   background-size: cover;
-//   background-position: center;
-//   width:100%;
-//   height:600px;
+.about-box2{
+  background-color:#efffb6;
+}
+.about-box3{
+  background-color:#ffd0b6;
+}
+.about-box4{
+  background-color:#fffc9c;
+}
+.about-box5{
+  background-color:#cceaff;
+}
+.about-h4{
+  text-align:center;
+  padding-top:30px;
+}
+.about-i{
+  // text-align:center;
+  // margin:0 auto;
+  margin:20px;
+  font-size:50px;
+}
+// .about-box-p{
+//   text-align:center;
 // }
 
 /*メインコンテンツ--------------------------------------------*/
 .nursery-area{
   width:100%;
+  height:20px;
   margin:50px 0;
 }
 .nursery-area-head{
@@ -496,10 +469,7 @@ color:#7fbfff;
 .nursery-area-list{
   padding:10px 0;
 }
-#map {
-        height: 600px;
-        width: 100%;
-      }
+
 
 // カテゴリー選択ボタン
 .category{
@@ -517,7 +487,6 @@ color:#7fbfff;
 
 // ルート検索
 .route{
-  // width:1060px;
   height:100px;
 }
 .list-route{
@@ -536,24 +505,7 @@ color:#7fbfff;
   border-radius:10px;
   margin:20px;
 }
-
-
-
 /*保育園詳細------------------------------------*/
-.show-header{
-  height:100px;
-  position:relative;
-}
-.show-header:after {
-content: "";
-position: absolute;
-left: 0;
-bottom: -7px;
-width: 100%;
-height: 10px;
-background: -webkit-repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #fff 4px);
-background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #fff 4px);
-}
 .s{
   position:relative;
 }
@@ -584,16 +536,12 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   bottom: -9px;
   left: 30px;
 }
-.n-add-box{
-  display:none;
+.add-box{
+  text-align:right;
 }
 .addlist{
-  display:block;
-  float:right;
-  margin-right:20px;
   font-size:25px;
   color:#5EE1EF;
-  margin-top:60px;
 }
 .addlist::after{
   content:'マイリストに追加';
@@ -601,12 +549,9 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   font-weight:600;
 }
 .addlist2{
-  display:block;
-  float:right;
-  margin-right:20px;
   font-size:25px;
   color:#f95f92;
-  margin-top:60px;
+
 }
 .addlist2::after{
   content:'マイリストに追加済み';
@@ -616,104 +561,95 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .addlist2::hover{
   color:#f95f92;
 }
-.cate-logo{
-  padding: 0.2em 0.5em;
-  margin: 0 10px;
-  margin-top:15px;
-  background: #ffeaea;
-  box-shadow: 0px 0px 0px 5px #ffeaea;
-  border: dashed 2px #ffc3c3;
-  border-radius: 50%;
-  width:70px;
-  height:70px;
-}
-.cate{
-  margin: 0;
-  padding: 0;
-  text-align:center;
-  line-height: 60px;
-}
-.f{
+.head{
   float:left;
 }
-
-.show-main{
-  margin-top:40px;
+.cate-logo1{
+  background-image:image-url('icon2.png');
+  background-size:cover;
+  height:60px;
+  width:40px;
+  padding:0;
+  margin:0;
+  float:left;
 }
-.main-img{
-  height:300px;
-/*  margin:0 auto;*/
+.cate-logo2{
+  background-image:image-url('icon3.png');
+  background-size:cover;
+  height:60px;
+  width:40px;
+  padding:0;
+  margin:0;
+  float:left;
 }
-.head-p{
-  line-height:15px;
+.cate-logo3{
+  background-image:image-url('icon4.png');
+  background-size:cover;
+  height:60px;
+  width:50px;
+  padding:0;
+  margin:0;
+  float:left;
 }
-.show-head-n{
-  display:none;
+.cate-logo4{
+  background-image:image-url('icon5.png');
+  background-size:cover;
+  height:60px;
+  width:40px;
+  padding:0;
+  margin:0;
+  float:left;
 }
-.concept-detail{
-  margin-top:10px;
-  font-size:15px;
-  padding:5px 10px 5px 15px;
-  border-left:solid 5px #FFD731;
+.nursery-box{
+  width:90%;
+  padding:30px;
+  margin:10px auto;
+  background-color:#fffc9c;
+  border-radius:100px;
 }
-.map-area{
-  margin:10px 0;
+.nursery-box-left1{
+  background-color:#ffdbc7;
+  border-radius:150px;
+  padding-top:50px;
+  padding-bottom:50px;
 }
-
-
-.tell-box{
-  margin:0 auto;
-  height:50px;
-  width:250px;
-  background-color:#FFFC9C;
+.nursery-box-left2{
+  background-color:#ccfff3;
+  padding:40px;
+}
+.nursery-box-right-h4{
   text-align:center;
-  border-radius:10px;
+}
+.nursery-show-p{
+  text-align:center;
+}
+.tell-box{
+  text-align:center;
 }
 .tell{
-  margin-top:15px;
   font-size:20px;
-  font-weight:600;
+  font-weight:400;
 }
 .tell:hover{
   color:#ACBFC6;
 }
-.box{
-  margin:30px 0;
+.price-th{
+  width:10%;
 }
-.box-table{
-  line-height:25px;
-  width:250px;
-  margin:0 auto;
-}
-.center-text{
+.memo{
   text-align:center;
 }
-.ohana{
-  background-image:url(ohana.png);
-  background-size:15%;
-  background-repeat: no-repeat;
-  background-position: 60% 0;
+.memo-form-show{
+  width:100%;
+  height:300px;
+  padding: 0.5em 1em;
+  border: solid 1px #acbfc6;
+  border-radius:20px;
 }
-.date-box{
+.memo-btn{
+  margin-top:10px;
+  text-align:center;
 }
-.date-list{
-  list-style-type: none;
-}
-.date-item{
-  margin:0 10px;
-  float:left;
-}
-.price-box{
-  width:250px;
-  margin:0 auto;
-}
-.price-h4{
-  padding-bottom:10px;
-}
-.price-th{
-  width:25%;
-}
-
 // 保育園新規追加・編集
 .n-form{
   margin-top:50px;
@@ -734,10 +670,6 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   float:left;
   font-size:20px;
   margin:3px;
-}
-.phone-notice{
-  // display:block;
-  // width:150px;
 }
 /*マイリスト一覧　list-item/index*/
 .list-head{
@@ -770,7 +702,8 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   width:100%;
   height:500px;
   padding: 0.5em 1em;
-  border: double 5px #4ec4d3;
+  border: solid 1px #acbfc6;
+  border-radius:20px;
 }
 .roworder{
   width:40px;
@@ -812,7 +745,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .user-box-m{
   width:500px;
   margin:0 auto;
-  background-color:#ffdce1;
+  background-color:#ffdbc7;
   border-radius:100px;
   padding:5px 0;
   padding-top:50px;
@@ -931,30 +864,29 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   .body-content{
     width:100%;
   }
-  .n-add-box{
-  display:block;
-  margin-top:20px;
-  font-weight:600;
-  font-size:15px;
-}
-.l-add-box{
-  display:none;
-}
+//   .n-add-box{
+//   display:block;
+//   margin-top:20px;
+//   font-weight:600;
+//   font-size:15px;
+// }
+// .l-add-box{
+//   display:none;
+// }
 .footer-content{
   width:100%;
 }
 .footerimg{
-  width:60%;
-  height:300px;
+  // width:60%;
+  // height:300px;
 }
-.about-img{
-  background-image: url(about2.png);
-  background-size: cover;
-  background-position:0 -300px;
-  background-repeat: no-repeat;
-  width:100%;
-  height:600px;
-}
+
+// .addlist{
+//   margin-top:30px;
+// }
+// .addlist2{
+//   margin-top:30px;
+// }
 }
 
 /* タブレット縦置きサイズ(768px)程度の画面の大きさ以下に適用される設定です */
@@ -968,12 +900,6 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .sidebar-narrow {
   display:block;
   }
-
-  .logo-box{
-    float:none;
-    margin:20px 0;
-  }
-
 .list{
   float:none;
 }
@@ -990,12 +916,19 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   width:100%;
   background-color: #fff;
 }
+
+.header-logo{
+  background-image:image-url('logomini.png');
+  background-size:cover;
+  height:25px;
+  width:130px;
+  padding:0;
+  margin:0;
+}
 .logo-box{
-  // padding: 0.2em 0.5em;
+  padding: 0.2em 0.5em;
+  background: #9bdce0;
   margin: 0em 0;
-  // background: #d6ebff;
-  box-shadow:none;
-  border:none;
 }
 .n-nav{
   margin-top:10px;
@@ -1010,131 +943,42 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   margin:0 auto;
   margin-top:20px;
 }
-.sbox{
-  height: 40px;
-  // padding:0 10px;
-  // float:left;
-  // width:250px;
-  // border-radius:25px 0 0 25px;
-  // border:solid 2.5px #eaeaea;
-  // outline: 0;
-}
-.sbox-2{
-  height: 40px;
-  // padding:0 10px;
-  // float:left;
-  // width:100px;
-  // border:none;
-  // border-top:solid 2.5px #eaeaea;
-  // border-bottom:solid 2.5px #eaeaea;
-  // outline: 0;
-}
-.sbtn{
-  height: 40px;
-  // padding:0 10px;
-  // display:block;
-  // float:left;
-  // background:#7fbfff;
-  // color:#fff;
-  // border:none;
-  // font-size:20px;
-  // border-radius:0 25px 25px 0;
-  // outline: 0;
-  // width:50px;
-}
 .mushimegane{
-  // position: absolute;
-  left:370px;
+  left:340px;
   top: 15px;
 }
-// .item{
-//   float:left;
-//   margin:0 10px;
-//   position:relative;
-// }
 .item-a{
   display:block;
   width:100px;
-  // text-align:center;
-  // font-size:30px;
-  // color:#9AB1B7;
 }
 .a1::after{
-  // content: "スポット登録";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:-3px;
 }
 .a2::after{
-  // content: "マイリスト";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:10px;
 }
 .a3::after{
-  // content: "マイページ";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:8px;
 }
 .a4::after{
-  // content: "ログイン";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:15px;
 }
 .a5::after{
-  // content: "新規登録";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:12px;
 }
 .a6::after{
-  // content: "About";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:16px;
 }
 .a7::after{
-  // content: "＋保育園";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:10px;
 }
 .a8::after{
-  // content: "ユーザー's";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:10px;
 }
 .a9::after{
-  // content: "ログアウト";
-  // font-size:14px;
-  // font-weight:600;
-  // position:absolute;
   top: 37px;
-  // left:7px;
 }
 .welcome{
-  // position:absolute;
-  // top:10px;
-  // left:500px;
   font-weight:600;
   width:100%;
 }
@@ -1144,55 +988,20 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 }
 .h1{
   font-size:20px;
-  font-weight:600;
+  // font-weight:600;
 }
-.show-head{
-  display:none;
-}
-.show-head-n{
-  display:block;
-}
-.addlist{
-  margin-right:0px;
-  font-size:25px;
-  color:#5EE1EF;
-  margin-top:60px;
-}
-.addlist::after{
-  content:'マイリストに追加';
-  font-size:15px;
-  font-weight:600;
-}
-.addlist2{
-  display:block;
-  float:right;
-  margin-right:20px;
-  font-size:20px;
-  color:#f95f92;
-  margin-top:0px;
-}
-.addlist2::after{
-  content:'マイリストに追加済み';
-  font-size:12px;
-  font-weight:600;
-}
-.addlist2::hover{
-  color:#f95f92;
-}
+// .show-head{
+//   display:none;
+// }
+// .show-head-n{
+//   display:block;
+// }
+
 .footer-content{
   width:100%;
 }
 .footerimg{
-  width:60%;
-  height:300px;
-}
-.about-img{
-  background-image: url(about2.png);
-  background-size: cover;
-  background-position:0 -300px;
-  background-repeat: no-repeat;
-  width:100%;
-  height:800px;
+  display:block;
 }
 
 }
@@ -1202,6 +1011,10 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   #map{
     margin-top:20px;
   }
+
+.nursery-area{
+  display:none;
+}
 .header-n{
   display:none;
 }
@@ -1223,126 +1036,78 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
 .n-nav{
   margin:10px auto;
 }
-
-.search-box{
-  // margin-left:10px;
-}
 .item-a{
   width:75px;
   font-size:25px;
   color:#9AB1B7;
 }
 .a1::after{
-  // content: "スポット登録";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:0px;
 }
 .a2::after{
-  // content: "マイリスト";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:6px;
 }
 .a3::after{
-  // content: "マイページ";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:6px;
 }
 .a4::after{
-  // content: "ログイン";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:12px;
 }
 .a5::after{
-  // content: "新規登録";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:8px;
 }
 .a6::after{
-  // content: "About";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:14px;
 }
 .a7::after{
-  // content: "＋保育園";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:4px;
 }
 .a8::after{
-  // content: "ユーザー's";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:4px;
 }
 .a9::after{
-  // content: "ログアウト";
   font-size:10px;
-  // font-weight:600;
-  // position:absolute;
   top: 28px;
   left:6px;
 }
 .search-box{
   width:250px;
   margin:0 auto;
-  // margin-top:20px;
 }
 .sbox{
   height: 30px;
-  // padding:0 10px;
   float:none;
-  // width:250px;
   border-radius:25px;
-  // border:solid 2.5px #eaeaea;
-  // outline: 0;
   display:block;
 }
 .sbox-2{
   height: 30px;
-  // padding:0 10px;
   float:left;
-  // width:100px;
-  // border:none;
-  // border-top:solid 2.5px #eaeaea;
-  // border-bottom:solid 2.5px #eaeaea;
-  // outline: 0;
   border-radius:25px;
   display:block;
 }
+
 .sbtn{
-  height: 30px;
+  height:30px;
   width:80px;
-  padding:0 10px;
-  // display:block;
   float:none;
-  background:#7fbfff;
-  // color:#fff;
-  border:none;
   border-radius:25px;
-  font-size:20px;
-  // outline: 0;
   width:150px;
   margin:0 auto;
 }
@@ -1367,19 +1132,7 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   border-radius: 20px;
   background-color:#9AB1B7;
   color: #fff;
-  // margin-right: 20px;
 }
-// .checkbox01-parts::before{
-//   content: "";
-//   display: block;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 15px;
-//   height: 15px;
-//   border: 1px solid #999;
-//   border-radius: 4px;
-// }
 .p1{
   padding-right:20px;
   padding-left:20px;
@@ -1389,31 +1142,23 @@ background: repeating-linear-gradient(-45deg, #67d1d6, #67d1d6 2px, #fff 2px, #f
   color: #ffa9af;
   border-color: #ffa9af;
 }
-// .checkbox01-input:checked + .checkbox01-parts::after{
-//   content: "";
-//   display: block;
-//   position: absolute;
-//   top: -5px;
-//   left: 5px;
-//   width: 7px;
-//   height: 14px;
-//   transform: rotate(40deg);
-//   border-bottom: 3px solid #009a9a;
-//   border-right: 3px solid #009a9a;
-// }
 .h1{
   font-size:15px;
 }
 .footerimg{
-  width:100%;
-  height:300px;
+  // width:100%;
+  // height:300px;
+}
+.footer-item{
+  padding:10px 10px;
 }
 .about-img{
-  background-image: url(about2.png);
-  background-size: cover;
-  background-position:0 -300px;
-  background-repeat: no-repeat;
-  width:100%;
-  height:800px;
+  // background-image: image-url('aboutimg.png');
+  // background-size:cover;
+  height:88px;
+  width:320px;
+  margin:0 auto;
+  margin-top:100px;
+  margin-bottom:50px;
 }
 }

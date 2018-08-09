@@ -5,8 +5,8 @@ class Nursery < ApplicationRecord
 	geocoded_by :address
 	after_validation :geocode
 	validates :name, presence: true
-	validates :post_code, length: { maximum: 7 }, format: { with: /\A[a-z0-9]+\z/i }
-	validates :phone, length: { maximum: 4 }, format: { with: /\A[a-z0-9]+\z/i }
-	validates :phone_middle, length: { maximum: 4 }, format: { with: /\A[a-z0-9]+\z/i }
-	validates :phone_right, length: { maximum: 4 }, format: { with: /\A[a-z0-9]+\z/i }
+	# validates :post_code, length: { maximum: 7 }, format: { with: /\A[a-z0-9]+\z/i }
+	validates :phone, length: { maximum: 4 }
+	validates :phone_middle, length: { maximum: 4 }
+	validates :phone_right, length: { maximum: 4 }
 end
