@@ -100,20 +100,20 @@
 <script type="text/javascript">
 let startLatLng = [<%= @user.latitude %>, <%= @user.longitude %>];
 let targetLatLng = [<%= @nursery.latitude %>, <%= @nursery.longitude %>];
-let startMarkerImg = '/assets/icon.png';
-let invisibleMarkerImg = '/assets/noicon.png';
+let startMarkerImg = image_path ('icon.png');
+let invisibleMarkerImg = image_path ('noicon.png');
 
 <% if @nursery.category == '認可' %>
-  let goalMarkerImg = '/assets/icon2.png';
+  let goalMarkerImg = image_path ('icon2.png');
 
 <% elsif @nursery.category == '認証' %>
-  let goalMarkerImg = '/assets/icon3.png';
+  let goalMarkerImg = image_path ('icon3.png');
 
 <% elsif @nursery.category == '認可外' %>
-  let goalMarkerImg = '/assets/icon4.png';
+  let goalMarkerImg = image_path ('icon4.png');
 
 <% else @nursery.category == 'その他' %>
-  let goalMarkerImg = '/assets/icon5.png';
+  let goalMarkerImg = image_path ('icon5.png');
 
 <% end %>
 
@@ -234,16 +234,16 @@ let center = {
   lng: <%= @nursery.longitude %>,
 
 <% if @nursery.category == '認可' %>
-  ico: '/assets/icon2.png'
+  ico: image_path ('icon2.png')
 
 <% elsif @nursery.category == '認証' %>
-  ico: '/assets/icon3.png'
+  ico: image_path ('icon3.png')
 
 <% elsif @nursery.category == '認可外' %>
-  ico: '/assets/icon4.png'
+  ico: image_path ('icon4.png')
 
 <% else @nursery.category == 'その他' %>
-  ico: '/assets/icon5.png'
+  ico: image_path ('icon5.png')
 
 <% end %>
 };
@@ -284,16 +284,16 @@ let center = {
   lng: <%= @nursery.longitude %>,
 
 <% if @nursery.category == '認可' %>
-  ico: '/assets/icon2.png'
+  ico: image_path ('icon2.png')
 
 <% elsif @nursery.category == '認証' %>
-  ico: '/assets/icon3.png'
+  ico: image_path ('icon3.png')
 
 <% elsif @nursery.category == '認可外' %>
-  ico: '/assets/icon4.png'
+  ico: image_path ('icon4.png')
 
 <% else @nursery.category == 'その他' %>
-  ico: '/assets/icon5.png'
+  ico: image_path ('icon5.png')
 
 <% end %>
 };

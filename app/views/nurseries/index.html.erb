@@ -50,7 +50,7 @@ let markerData = [
       name: '<%= link_to @user.name, user_path(current_user) %>',
       lat: <%= @user.latitude %>,
       lng: <%= @user.longitude %>,
-      ico: 'assets/icon.png'
+      ico: image_path ('icon.png')
  },
  <% end %>
 
@@ -60,7 +60,7 @@ let markerData = [
           name: '<%=link_to spot.name, spots_path %>',
           lat: <%= spot.latitude %>,
           lng: <%= spot.longitude %>,
-          ico: 'assets/icon6.png'
+          ico: image_path ('icon6.png')
       },
     <% end %>
   <% end %>
@@ -74,7 +74,7 @@ let markerData = [
           name: '<%= link_to nursery.name, nurseries_path(nursery) %>',
           lat: <%= nursery.latitude %>,
           lng: <%= nursery.longitude %>,
-          ico: 'assets/icon2.png'
+          ico: image_path ('icon2.png')
       },
     <% end %>
   <% end %>
@@ -87,7 +87,7 @@ let markerData = [
           name: '<%= link_to nursery.name, nurseries_path(nursery) %>',
           lat: <%= nursery.latitude %>,
           lng: <%= nursery.longitude %>,
-          ico: 'assets/icon3.png'
+          ico: image_path ('icon3.png')
       },
     <% end %>
   <% end %>
@@ -100,7 +100,7 @@ let markerData = [
           name: '<%= link_to nursery.name, nurseries_path(nursery) %>',
           lat: <%= nursery.latitude %>,
           lng: <%= nursery.longitude %>,
-          ico: 'assets/icon4.png'
+          ico: image_path ('icon4.png')
       },
     <% end %>
   <% end %>
@@ -113,7 +113,7 @@ let markerData = [
           name: '<%= link_to nursery.name, nurseries_path(nursery) %>',
           lat: <%= nursery.latitude %>,
           lng: <%= nursery.longitude %>,
-          ico: 'assets/icon5.png'
+          ico: image_path ('icon5.png')
       },
     <% end %>
   <% end %>
